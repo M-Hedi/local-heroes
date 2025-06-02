@@ -1,38 +1,43 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+<nav class="bg-white border-b border-gray-200 px-4 py-2">
+  <div class="container mx-auto flex items-center justify-between">
+    <%= link_to "#" do %>
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class: "h-8" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <!-- Mobile menu button -->
+    <button class="md:hidden text-gray-500 focus:outline-none" onclick="document.getElementById('navbar-menu').classList.toggle('hidden')">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <!-- Menu -->
+    <div id="navbar-menu" class="hidden md:flex md:items-center w-full md:w-auto mt-2 md:mt-0">
+      <ul class="flex flex-col md:flex-row md:space-x-4 w-full md:w-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+          <li>
+            <%= link_to "Home", "#", class: "block px-4 py-2 text-gray-700 hover:text-blue-600" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+          <li>
+            <%= link_to "Messages", "#", class: "block px-4 py-2 text-gray-700 hover:text-blue-600" %>
           </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          <li class="relative group">
+            <a href="#" class="flex items-center space-x-2 px-4 py-2">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "h-8 w-8 rounded-full", alt: "dropdown menu" %>
+            </a>
+            <div class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg hidden group-hover:block z-10">
+              <%= link_to "Action", "#", class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+              <%= link_to "Another action", "#", class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <li>
+            <%= link_to "Login", new_user_session_path, class: "block px-4 py-2 text-gray-700 hover:text-blue-600" %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
-</div>
+</nav>
