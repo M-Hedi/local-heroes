@@ -1,0 +1,18 @@
+<div class="card bg-base-100 shadow-sm flex flex-col border border[#c93400]">
+  <figure>
+    <div class="relative inline-block">
+    <img
+      class="h-45"
+      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+      alt=<%= store.name %> />
+      <span class="absolute top-2 right-2 badge badge-success px-2 py-1">
+        PROMO
+      </span>
+    </div>
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title truncate"><%= link_to store.name, to: stores_show_path(store) %></h2>
+    <p><%= store.category.capitalize %></p>
+    <p><%= store.user.first_name %> <%= store.user.last_name %></p>
+  </div>
+</div>

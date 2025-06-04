@@ -11,11 +11,14 @@
 
 # if Rails.env.development?
 puts "Deleting DB"
+
 Item.destroy_all
 Order.destroy_all
 Product.destroy_all
 Store.destroy_all
 User.destroy_all
+Event.destroy_all
+
 puts "DB cleaned"
 # end
 
@@ -92,6 +95,7 @@ Store.find_each do |store|
 end
 puts "Created #{Product.count} stores"
 
+
 10.times do
   Order.create!(
     user: User.all.sample,
@@ -101,7 +105,6 @@ puts "Created #{Product.count} stores"
 end
 
 puts "Created #{Order.count} orders"
-# ...existing code...
 
 10.times do
   Item.create!(
@@ -112,4 +115,18 @@ puts "Created #{Order.count} orders"
 end
 
 puts "Created #{Item.count} items"
-# ...existing code...
+
+
+
+10.times do |e|
+  Event.create!(
+    store: Store.all.sample,
+    title: Faker::Restaurant.name,
+    description: Faker::JapaneseMedia::StudioGhibli.quote,
+    start_date: Date.today,
+    end_date: Date.today + 1
+  )
+end
+
+puts "Created #{Event.count} events"
+
