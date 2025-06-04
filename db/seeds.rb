@@ -13,6 +13,7 @@
 puts "Deleting DB"
 Store.destroy_all
 User.destroy_all
+Product.destroy_all
 puts "DB cleaned"
 # end
 
@@ -68,3 +69,23 @@ User.all.first(5).each do |user|
   )
 end
 puts "Created #{Store.count} stores"
+
+
+puts "Creating products"
+
+Store.find_each do |store|
+  5.times do
+    Product.create!(
+      name: Faker::Commerce.product_name,
+      price: Faker::Commerce.price(range: 5..100.0),
+      category: Faker::Commerce.department(max: 1, fixed_amount: true),
+      discount: rand(0..30), # discount entre 0% et 30%
+      stock: rand(1..50),
+      loyalty_price: Faker::Commerce.price(range: 1..50.0),
+      status: ['available', 'unavailable'].sample,
+      desciption: Faker::Lorem.sentence(word_count: 10),
+      store_id: store.id
+    )
+  end
+end
+puts "Created #{Product.count} stores"

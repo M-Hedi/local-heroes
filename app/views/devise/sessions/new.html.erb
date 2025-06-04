@@ -1,20 +1,53 @@
-<h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="min-h-screen flex flex-col justify-center items-center bg-orange-200  p-4">
+  <h2 class="text-3xl font-bold mb-10 text-center">welcom to the locale herores</h2>
+
+  <div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "card w-full max-w-sm shadow-2xl bg-base-100 p-6" }) do |f| %>
+      <h2 class="text-2xl font-bold text-center mb-4">Connexion</h2>
+
+      <div class="form-control mb-4">
+        <%= f.input :email,
+                    label: "Email",
+                    required: false,
+                    autofocus: true,
+                    input_html: {
+                      autocomplete: "email",
+                      class: "input input-bordered w-full"
+                    },
+                    label_html: { class: "label-text mb-1" },
+                    wrapper_html: { class: "mb-2" } %>
+      </div>
+
+      <div class="form-control mb-4">
+        <%= f.input :password,
+                    label: "Mot de passe",
+                    required: false,
+                    input_html: {
+                      autocomplete: "current-password",
+                      class: "input input-bordered w-full"
+                    },
+                    label_html: { class: "label-text mb-1" },
+                    wrapper_html: { class: "mb-2" } %>
+      </div>
+
+
+      <% if devise_mapping.rememberable? %>
+        <div class="form-control mb-4">
+          <%= f.input :remember_me,
+                      as: :boolean,
+                      label: "Se souvenir de moi",
+                      wrapper_html: { class: "label cursor-pointer flex items-center gap-2" } %>
+        </div>
+      <% end %>
+
+      <div class="form-control mt-6">
+        <%= f.button :submit, "Se connecter", class: "btn btn-primary w-full" %>
+      </div>
+    <% end %>
+
+    <div class="text-center mt-4">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
