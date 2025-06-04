@@ -11,9 +11,11 @@
 
 # if Rails.env.development?
 puts "Deleting DB"
+Item.destroy_all
+Order.destroy_all
+Product.destroy_all
 Store.destroy_all
 User.destroy_all
-Product.destroy_all
 puts "DB cleaned"
 # end
 
@@ -89,3 +91,25 @@ Store.find_each do |store|
   end
 end
 puts "Created #{Product.count} stores"
+
+10.times do
+  Order.create!(
+    user: User.all.sample,
+    status_store: ['pending', 'accepted', 'refused'].sample,
+    status_customer: ['pending', 'validated', 'canceled'].sample
+  )
+end
+
+puts "Created #{Order.count} orders"
+# ...existing code...
+
+10.times do
+  Item.create!(
+    order: Order.all.sample,
+    product: Product.all.sample,
+    quantity: rand(1..10)
+  )
+end
+
+puts "Created #{Item.count} items"
+# ...existing code...
