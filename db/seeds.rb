@@ -9,20 +9,62 @@
 #   end
 
 
+# if Rails.env.development?
 puts "Deleting DB"
-User.destroy_all
 Store.destroy_all
+User.destroy_all
 puts "DB cleaned"
+# end
 
 puts "Creating users"
-5.times do
+10.times do |i|
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: "password",
-    password_confirmation: "password"
+    email: "test#{i}@mail.com",
+    password: "password"
   )
 end
 
 puts "Created #{User.count} users"
+
+puts "Request to API"
+
+query = <<~OVERPASS
+[out:json][timeout:25];
+area["name"="Lille"]["admin_level"="8"]->.searchArea;
+(
+node["shop"="bakery"](area.searchArea);
+way["shop"="bakery"](area.searchArea);
+node["shop"="butcher"](area.searchArea);
+way["shop"="butcher"](area.searchArea);
+node["shop"="hardware"](area.searchArea);
+way["shop"="hardware"](area.searchArea);
+node["shop"="greengrocer"](area.searchArea);
+way["shop"="greengrocer"](area.searchArea);
+node["shop"="convenience"](area.searchArea);
+way["shop"="convenience"](area.searchArea);
+);
+out body;
+OVERPASS
+
+response = Faraday.post('https://overpass-api.de/api/interpreter') do |req|
+  req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+  req.body = URI.encode_www_form(data: query)
+end
+
+data = JSON.parse(response.body)
+stores = data["elements"]
+
+puts "Creating stores"
+User.all.first(5).each do |user|
+  store = stores.sample
+  Store.create!(
+    user: user,
+    description: Faker::ChuckNorris.fact,
+    name: store["tags"]["name"],
+    category: store["tags"]["shop"],
+    phone_number: Faker::PhoneNumber.cell_phone_in_e164
+  )
+end
+puts "Created #{Store.count} stores"
