@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+puts "Deleting DB"
+User.destroy_all
+Store.destroy_all
+puts "DB cleaned"
+
+puts "Creating users"
+5.times do
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "password",
+    password_confirmation: "password"
+  )
+end
+
+puts "Created #{User.count} users"
