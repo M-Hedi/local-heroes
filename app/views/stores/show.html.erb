@@ -21,9 +21,14 @@
 
 
 <ul>
+  <div>
+    <h1 class="text-2xl font-bold py-10">Nos évènements</h1>
+  <div class="flex space-x-5 shadow-2xl grid grid-cols-3 gap-4">
   <% @store.events.each do |event| %>
     <%= render "shared/event_card", event: event %>
   <% end %>
 </ul>
+  </div>
+  </div>
 
 </div>
