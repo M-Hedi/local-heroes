@@ -11,7 +11,7 @@
     </div>
   </figure>
   <div class="card-body">
-    <h2 class="card-title truncate"><%= link_to store.name, to: stores_show_path(store) %></h2>
+    <h2 class="card-title truncate"><%= link_to store.name, to: store_path(store) %></h2>
     <p><%= store.category.capitalize %></p>
     <p><%= store.user.first_name %> <%= store.user.last_name %></p>
   </div>
