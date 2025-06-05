@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  
-  
+
+
   before_action :set_store, only: %i[new create edit update]
   before_action :set_product, only: %i[show edit update]
 
@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def new
