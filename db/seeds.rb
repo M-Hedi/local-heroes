@@ -11,7 +11,7 @@
 
 # if Rails.env.development?
 puts "Deleting DB"
-
+EventProduct.destroy_all
 EventPartner.destroy_all
 Event.destroy_all
 Item.destroy_all
@@ -76,7 +76,6 @@ User.all.first(20).each do |user|
 end
 puts "Created #{Store.count} stores"
 
-
 puts "Creating products"
 
 Store.find_each do |store|
@@ -89,13 +88,12 @@ Store.find_each do |store|
       stock: rand(1..50),
       loyalty_price: Faker::Commerce.price(range: 1..50.0),
       status: ['available', 'unavailable'].sample,
-      desciption: Faker::Lorem.sentence(word_count: 10),
+      description: Faker::Lorem.sentence(word_count: 10),
       store_id: store.id
     )
   end
 end
 puts "Created #{Product.count} products"
-
 
 40.times do
   Order.create!(
@@ -117,8 +115,6 @@ end
 
 puts "Created #{Item.count} items"
 
-
-
 15.times do |e|
   Event.create!(
     store: Store.all.sample,
@@ -139,3 +135,12 @@ puts "Created #{Event.count} events"
 end
 
 puts "Created #{EventPartner.count} event partners"
+
+80.times do
+  EventProduct.create!(
+    product: Product.order("RANDOM()").first,
+    event: Event.order("RANDOM()").first
+  )
+end
+
+puts "Created #{EventProduct.count} event products"

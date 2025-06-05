@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_05_115630) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_05_190434) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_05_115630) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_event_partners_on_event_id"
     t.index ["store_id"], name: "index_event_partners_on_store_id"
+  end
+
+  create_table "event_products", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_products_on_event_id"
+    t.index ["product_id"], name: "index_event_products_on_product_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -61,7 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_05_115630) do
     t.integer "stock"
     t.integer "loyalty_price"
     t.string "status"
-    t.text "desciption"
+    t.text "description"
     t.bigint "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -95,6 +104,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_05_115630) do
 
   add_foreign_key "event_partners", "events"
   add_foreign_key "event_partners", "stores"
+  add_foreign_key "event_products", "events"
+  add_foreign_key "event_products", "products"
   add_foreign_key "events", "stores"
   add_foreign_key "items", "orders"
   add_foreign_key "items", "products"
