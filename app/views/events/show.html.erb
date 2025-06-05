@@ -3,22 +3,24 @@
   <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 justify-evenly relative">
     <div class="store w-150 h-150 col-span-2 sticky top-10">
       <figure class="p-3">
-          <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class:"rounded-[calc(var(--radius-box)-.3rem)]") %>
-        </figure>
-        <p class="p-5">Description de l'évènement : <br> <br>
-          <%= @event.description %></p>
-        <p class="font-semibold p-10">Organisateur : <%= @event.store.name %></p>
+        <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class:"rounded-[calc(var(--radius-box)-.3rem)]") %>
+      </figure>
+      <p class="p-5">Description de l'évènement : <br> <br>
+        <%= @event.description %></p>
+      <p class="font-semibold p-10">Organisateur : <%= @event.store.name %></p>
     </div>
-    <div class="partners">
-      <div class="slides flex flex-row justify-between p-3 underline">
-        <p>Liste des magasins participants </p>
-        <p>Liste des produits en promotions </p>
+    <div class="lists-container flex flex-col w-100 justify-center">
+      <div class="join join-vertical lg:join-horizontal w-100 mx-6">
+        <button class="btn join-item w-50 h-20 toggle-active">Liste des magasins participants</button>
+        <button class="btn join-item w-50 h-20">Liste des produits en promotions</button>
       </div>
-      <%= render "shared/event_card" %>
-      
-      <%= render "shared/event_card" %>
-      <%= render "shared/event_card" %>
-      <%= render "shared/event_card" %>
+    <div class="partners">
+      <div class="slides flex flex-col justify-between p-3 underline">
+        <%= render "shared/event_card" %>
+        <%= render "shared/event_card" %>
+        <%= render "shared/event_card" %>
+        <%= render "shared/event_card" %>
+      </div>
     </div>
   </div>
 </div>
