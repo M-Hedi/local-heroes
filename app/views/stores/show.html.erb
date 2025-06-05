@@ -8,7 +8,7 @@
       <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
       <div class="mx-auto">
         <p class="py-2 font-bold"> Qui sommes-nous ?</p>
-        <p class="py-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</br>Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, </br>ultricies sed, dolor. Cras elementum ultrices diam.</p>
+        <p class="py-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.<br>Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, <br>ultricies sed, dolor. Cras elementum ultrices diam.</p>
         <p class="py-2 font-bold"> Où sommes-nous ?</p>
         <p class="py-2">2 avenue des saules 59160 Lille</p>
         <p class="py-2 font-bold"> Nous contacter ?</p>
@@ -18,5 +18,12 @@
       <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
     </div>
   </div>
+
+
+<ul>
+  <% @store.events.each do |event| %>
+    <%= render "shared/event_card", event: event %>
+  <% end %>
+</ul>
 
 </div>
