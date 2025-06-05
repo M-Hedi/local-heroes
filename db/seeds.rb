@@ -15,9 +15,10 @@ puts "Deleting DB"
 Item.destroy_all
 Order.destroy_all
 Product.destroy_all
+Event.destroy_all
 Store.destroy_all
 User.destroy_all
-Event.destroy_all
+
 
 puts "DB cleaned"
 # end
@@ -96,7 +97,7 @@ end
 puts "Created #{Product.count} stores"
 
 
-10.times do
+15.times do
   Order.create!(
     user: User.all.sample,
     status_store: ['pending', 'accepted', 'refused'].sample,
@@ -106,7 +107,7 @@ end
 
 puts "Created #{Order.count} orders"
 
-10.times do
+25.times do
   Item.create!(
     order: Order.all.sample,
     product: Product.all.sample,
@@ -115,7 +116,6 @@ puts "Created #{Order.count} orders"
 end
 
 puts "Created #{Item.count} items"
-
 
 
 10.times do |e|
@@ -129,4 +129,3 @@ puts "Created #{Item.count} items"
 end
 
 puts "Created #{Event.count} events"
-
