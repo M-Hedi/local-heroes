@@ -9,12 +9,20 @@
         <%= @event.description %></p>
       <p class="font-semibold p-10">Organisateur : <%= @event.store.name %></p>
     </div>
-    <div class="lists-container flex flex-col w-100 justify-center">
-      <div class="join join-vertical lg:join-horizontal w-100 mx-6" data-controller="toggle-list">
-        <button class="btn join-item w-50 h-20 toggle-active" data-toggle-list-target="storesList" data-action="click->toggle-list#displayStores">Liste des magasins participants</button>
-        <button class="btn join-item w-50 h-20" data-toggle-list-target="productsList" data-action="click->toggle-list#displayProducts">Liste des produits en promotions</button>
+    <div class="lists-container flex flex-col w-100 justify-center" data-controller="toggle-list">
+      <div class="join join-vertical lg:join-horizontal w-100 mx-6">
+        <button class="btn join-item w-50 h-20 toggle-active" data-toggle-list-target="storesBtn" data-action="click->toggle-list#displayStores">Liste des magasins participants</button>
+        <button class="btn join-item w-50 h-20" data-toggle-list-target="productsBtn" data-action="click->toggle-list#displayProducts">Liste des produits en promotions</button>
       </div>
-    <div class="partners">
+    <div class="partners" data-toggle-list-target="storesList">
+      <div class="slides flex flex-col justify-between p-3 underline">
+        <%= render "shared/event_card" %>
+        <%= render "shared/event_card" %>
+        <%= render "shared/event_card" %>
+        <%= render "shared/event_card" %>
+      </div>
+    </div>
+    <div class="products" data-toggle-list-target="productsList">
       <div class="slides flex flex-col justify-between p-3 underline">
         <%= render "shared/event_card" %>
         <%= render "shared/event_card" %>
