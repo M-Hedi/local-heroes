@@ -1,4 +1,5 @@
 <div class="container p-15 text-[#7c2808]">
+
   <h1 class="text-center text-6xl pb-10 text-[#5b1a00]"><%= @event.title %></h1>
   <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 justify-evenly relative">
     <div class="store w-150 h-150 col-span-2 sticky top-10">
@@ -18,21 +19,29 @@
       <div class="lists-inner flex transition-transform duration-500 ease-in-out" data-toggle-list-target="listsInner" style="width: 200%;">
         <div class="w-1/2" data-toggle-list-target="storesList">
           <div class="slides flex flex-col justify-between underline">
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
           </div>
         </div>
         <div class="w-1/2" data-toggle-list-target="productsList">
           <div class="slides flex flex-col justify-between underline">
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+      <%= render "shared/event_card", event: @event %>
+
+      <%= render "shared/event_card", event: @event %>
+      <%= render "shared/event_card", event: @event %>
+      <%= render "shared/event_card", event: @event %>
+=======
+>>>>>>> a115953129c30580aae5d6b19120888ac4e333c7
     </div>
   </div>
 </div>

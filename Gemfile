@@ -84,4 +84,7 @@ gem 'simple_form-tailwind'
 
 gem "tailwindcss-ruby"
 
+gem "pg_search"
+
 gem "tailwindcss-rails"
+

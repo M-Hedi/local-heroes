@@ -1,4 +1,4 @@
-<div class="card bg-base-100 shadow-sm flex flex-col border border[#c93400]">
+<div class="card bg-base-100 shadow-sm flex flex-col card-border border-[#ffead0] card-sm w-100 text-[#7c2808] p-3">
   <figure>
     <div class="relative inline-block">
     <img
@@ -11,7 +11,7 @@
     </div>
   </figure>
   <div class="card-body">
-    <h2 class="card-title truncate"><%= link_to store.name, to: stores_show_path(store) %></h2>
+    <h2 class="card-title truncate"><%= link_to store.name, to: store_path(store) %></h2>
     <p><%= store.category.capitalize %></p>
     <p><%= store.user.first_name %> <%= store.user.last_name %></p>
   </div>
