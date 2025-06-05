@@ -9,6 +9,6 @@ class Product < ApplicationRecord
   # validates :stock, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   # validates :loyalty_price, numericality: { greater_than_or_equal_to: 0 }
   # validates :status, presence: true, inclusion: { in: ['available', 'unavailable'] }
-  validates :desciption, length: { maximum: 500 }
+  validates :description, length: { maximum: 500 }
 
 end

@@ -89,7 +89,7 @@ Store.find_each do |store|
       stock: rand(1..50),
       loyalty_price: Faker::Commerce.price(range: 1..50.0),
       status: ['available', 'unavailable'].sample,
-      desciption: Faker::Lorem.sentence(word_count: 10),
+      description: Faker::Lorem.sentence(word_count: 10),
       store_id: store.id
     )
   end

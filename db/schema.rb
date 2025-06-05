@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_05_091845) do
+
+
+ActiveRecord::Schema[7.1].define(version: 2025_06_05_105600) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,7 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_05_091845) do
     t.integer "stock"
     t.integer "loyalty_price"
     t.string "status"
-    t.text "desciption"
+    t.text "description"
     t.bigint "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
