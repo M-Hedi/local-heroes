@@ -12,18 +12,19 @@
 # if Rails.env.development?
 puts "Deleting DB"
 
+EventPartner.destroy_all
+Event.destroy_all
 Item.destroy_all
 Order.destroy_all
 Product.destroy_all
 Store.destroy_all
 User.destroy_all
-Event.destroy_all
 
 puts "DB cleaned"
 # end
 
 puts "Creating users"
-10.times do |i|
+30.times do |i|
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -63,7 +64,7 @@ data = JSON.parse(response.body)
 stores = data["elements"]
 
 puts "Creating stores"
-User.all.first(5).each do |user|
+User.all.first(20).each do |user|
   store = stores.sample
   Store.create!(
     user: user,
@@ -93,10 +94,10 @@ Store.find_each do |store|
     )
   end
 end
-puts "Created #{Product.count} stores"
+puts "Created #{Product.count} products"
 
 
-10.times do
+40.times do
   Order.create!(
     user: User.all.sample,
     status_store: ['pending', 'accepted', 'refused'].sample,
@@ -106,7 +107,7 @@ end
 
 puts "Created #{Order.count} orders"
 
-10.times do
+60.times do
   Item.create!(
     order: Order.all.sample,
     product: Product.all.sample,
@@ -118,7 +119,7 @@ puts "Created #{Item.count} items"
 
 
 
-10.times do |e|
+15.times do |e|
   Event.create!(
     store: Store.all.sample,
     title: Faker::Restaurant.name,
@@ -130,3 +131,11 @@ end
 
 puts "Created #{Event.count} events"
 
+30.times do
+  EventPartner.create!(
+    store: Store.order("RANDOM()").first,
+    event: Event.order("RANDOM()").first
+  )
+end
+
+puts "Created #{EventPartner.count} event partners"
