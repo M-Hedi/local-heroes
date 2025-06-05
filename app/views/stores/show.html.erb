@@ -1,5 +1,6 @@
 
 <div class="container mt-8 mx-auto">
+
   <div class="bg-white h-110 rounded-lg shadow-2xl">
     <div class="flex justify-center">
       <h1 class="text-3xl font-bold py-3">Nom de la boutique</h1>
@@ -8,7 +9,7 @@
       <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
       <div class="mx-auto">
         <p class="py-2 font-bold"> Qui sommes-nous ?</p>
-        <p class="py-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</br>Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, </br>ultricies sed, dolor. Cras elementum ultrices diam.</p>
+        <p class="py-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.<br>Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, <br>ultricies sed, dolor. Cras elementum ultrices diam.</p>
         <p class="py-2 font-bold"> Où sommes-nous ?</p>
         <p class="py-2">2 avenue des saules 59160 Lille</p>
         <p class="py-2 font-bold"> Nous contacter ?</p>
@@ -18,5 +19,25 @@
       <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
     </div>
   </div>
+
+  <div>
+    <h1 class="text-2xl font-bold py-10">Nos évènements</h1>
+      <div class="flex space-x-4 shadow-2xl grid grid-cols-3 gap-4 bg-none-xl">
+          <% @store.events.each do |event| %>
+            <%= render "shared/event_card", event: event %>
+          <% end %>
+      </div>
+  </div>
+
+
+  <%# <div>
+    <h1 class="text-2xl font-bold py-10">Nos produits</h1>
+      <div class="flex space-x-4 shadow-2xl grid grid-cols-3 gap-4 bg-none-xl">
+          <% @store.products.each do |product| %>
+            <%# <%= render "shared/event_card", event: event %>
+          <%# <% end %>
+      <%# </div> %>
+  <%# </div> %>
+
 
 </div>
