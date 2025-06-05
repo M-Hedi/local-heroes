@@ -1,7 +1,23 @@
-<h1>Les events</h1>
-<div class="container grid grid-cols-3 gap-3">
-  <%= render "shared/event_card" %>
-  <%= render "shared/event_card" %>
-  <%= render "shared/event_card" %>
-  <%= render "shared/event_card" %>
+<div class="container p-15 text-[#7c2808]">
+  <h1 class="text-center text-6xl pb-10 text-[#5b1a00]"><%= @event.title %></h1>
+  <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 justify-evenly relative">
+    <div class="store w-150 h-150 col-span-2 sticky top-10">
+      <figure class="p-3">
+          <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class:"rounded-[calc(var(--radius-box)-.3rem)]") %>
+        </figure>
+        <p class="p-5">Description de l'évènement : <br> <br>
+          <%= @event.description %></p>
+        <p class="font-semibold p-10">Organisateur : <%= @event.store.name %></p>
+    </div>
+    <div class="partners">
+      <div class="slides flex flex-row justify-between p-3 underline">
+        <p>Liste des magasins participants </p>
+        <p>Liste des produits en promotions </p>
+      </div>
+      <%= render "shared/event_card" %>
+      <%= render "shared/event_card" %>
+      <%= render "shared/event_card" %>
+      <%= render "shared/event_card" %>
+    </div>
+  </div>
 </div>
