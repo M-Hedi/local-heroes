@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card bg-[#fff7ed] hover:bg-[#ffd6a7] card-border border-[#ffead0] hover:border-[#7c2808] card-sm w-100 text-[#7c2808] p-3">
+  <div class="card shadow-sm bg-[#fff7ed] hover:bg-[#ffd6a7] card-border border-[#ffead0] hover:border-[#7c2808] card-sm w-100 text-[#7c2808] p-3">
     <figure class="p-2">
       <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class:"rounded-[calc(var(--radius-box)-.3rem)]") %>
     </figure>
@@ -10,7 +10,7 @@
         <h3 class="flex items-center justify-between">
           <p class="font-semibold">Début : <%= event.start_date %></p>
           <p class="font-semibold">Fin : <%= event.end_date %></p>
-          <%= link_to events_path(event) do %>
+          <%= link_to event_path(event) do %>
             <p class="btn btn-sm btn-[#370a00] text-[#370a00] ">Voir plus</p>
           <% end %>
         </h3>

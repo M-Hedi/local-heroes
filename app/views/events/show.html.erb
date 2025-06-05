@@ -19,18 +19,18 @@
       <div class="lists-inner flex transition-transform duration-500 ease-in-out" data-toggle-list-target="listsInner" style="width: 200%;">
         <div class="w-1/2" data-toggle-list-target="storesList">
           <div class="slides flex flex-col justify-between underline">
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
           </div>
         </div>
         <div class="w-1/2" data-toggle-list-target="productsList">
           <div class="slides flex flex-col justify-between underline">
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
-            <%= render "shared/event_card" %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
+            <%= render "shared/event_card", event: @event %>
           </div>
         </div>
       </div>

@@ -1,14 +1,20 @@
 class Event < ApplicationRecord
-  include PgSearch::Model
   belongs_to :store
 
-pg_search_scope :global_search,
+  include PgSearch::Model
+    multisearchable against: [:title, :description]
+
+
+  pg_search_scope :search_by_title_and_description,
   against: [ :title, :description ],
-  associated_against: {
-    store: [ :name]
-  },
   using: {
-    tsearch: { prefix: true }
+    tsearch: { prefix: true } # <-- now `superman batm` will return something!
   }
 
+
+
 end
+
+  # associated_against: {
+  #   store: [ :name]
+  # },
