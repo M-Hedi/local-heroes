@@ -1,11 +1,13 @@
 class ProductsController < ApplicationController
+  
+  
+  before_action :set_store, only: %i[new create edit update]
+  before_action :set_product, only: %i[show edit update]
 
   # def index
   #   @products = Product.all
   # end
 
-  before_action :set_store, only: %i[new create edit update]
-  before_action :set_product, only: %i[show edit update]
 
   def show
   end
@@ -46,4 +48,5 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :price, :category, :discount, :stock, :description)
   end
+
 end
