@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :stores
   resources :events
   resources :stores do
-      resources :products, only: [:index, :new, :create, :show, :edit, :update]
+  resources :products, only: [:index, :new, :create, :show, :edit, :update]
   end
 end

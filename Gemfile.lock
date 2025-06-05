@@ -354,8 +354,8 @@ DEPENDENCIES
   simple_form-tailwind
   sprockets-rails
   stimulus-rails
-  tailwindcss-rails (~> 4.2)
-  tailwindcss-ruby (~> 4.1)
+  tailwindcss-rails
+  tailwindcss-ruby
   turbo-rails
   tzinfo-data
   web-console

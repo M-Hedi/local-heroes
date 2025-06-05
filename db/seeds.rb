@@ -129,4 +129,3 @@ puts "Created #{Item.count} items"
 end
 
 puts "Created #{Event.count} events"
-
