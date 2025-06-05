@@ -3,27 +3,18 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle-list"
 export default class extends Controller {
-  static targets = ["storesBtn", "productsBtn", "storesList", "productsList"]
+  static targets = ["storesBtn", "productsBtn", "listsInner"]
+
 
   displayStores = () => {
-    if (!this.storesBtnTarget.classList.contains("toggle-active")) {
-      this.storesBtnTarget.classList.add("toggle-active")
-      this.productsBtnTarget.classList.remove("toggle-active")
-      this.productsListTarget.classList.add("hidden")
-      this.storesListTarget.classList.remove("hidden")
-      console.log("trying to show stores")
-    }
+    this.storesBtnTarget.classList.add("toggle-active")
+    this.productsBtnTarget.classList.remove("toggle-active")
+    this.listsInnerTarget.style.transform = "translateX(0%)"
   }
 
   displayProducts = () => {
-    if (!this.productsBtnTarget.classList.contains("toggle-active")) {
-      this.productsBtnTarget.classList.add("toggle-active")
-      this.storesBtnTarget.classList.remove("toggle-active")
-      this.storesListTarget.classList.add("hidden")
-      this.productsListTarget.classList.remove("hidden")
-      console.log("trying to show products")
-    }
+    this.productsBtnTarget.classList.add("toggle-active")
+    this.storesBtnTarget.classList.remove("toggle-active")
+    this.listsInnerTarget.style.transform = "translateX(-50%)"
   }
-
-
 }
