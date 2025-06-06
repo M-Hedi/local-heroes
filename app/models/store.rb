@@ -12,5 +12,4 @@ class Store < ApplicationRecord
     using: {
       tsearch: { prefix: true,  dictionary: "simple" } # <-- now `superman batm` will return something!
     }
-
 end

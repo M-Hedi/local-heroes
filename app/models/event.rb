@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :store
+  has_many :event_partners
+  has_many :event_products
 
   include PgSearch::Model
     multisearchable against: [:title, :description]
@@ -10,11 +12,4 @@ class Event < ApplicationRecord
   using: {
     tsearch: { prefix: true } # <-- now `superman batm` will return something!
   }
-
-
-
 end
-
-  # associated_against: {
-  #   store: [ :name]
-  # },
