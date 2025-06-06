@@ -2,14 +2,14 @@
   <figure class="p-2">
     <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class:"w-40 rounded-[calc(var(--radius-box)-.3rem)]") %>
   </figure>
-  <div class="card-body truncate">
-    <h2 class="card-title"><%= event.title %></h2>
+  <div class="card-body">
+    <h2 class="card-title"><%= link_to event.title, event_path(event), event: event, class: "hover:text-green-800 ease-in-out duration-300" %></h2>
     <p><%= event.description %></p>
     <h3 class="font-semibold">Magasins participants:</h3>
     <ul class="columns-3 gap-4">
-      <li><%= link_to event.store.name, store_path(event.store) %></li>
+      <li><%= link_to event.store.name, store_path(event.store), class: "hover:text-green-800 ease-in-out duration-300" %></li>
       <% event.event_partners.each do |partner| %>
-        <li><%= partner.store.name %></li>
+        <li><%= link_to partner.store.name, store_path(partner.store), class: "hover:text-green-800 ease-in-out duration-300" %></li>
       <% end %>
     </ul>
   </div>
