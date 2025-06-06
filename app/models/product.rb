@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :store
   has_many :items
+  has_many :event_products
+  has_many :events, through: :event_products
 
   validates :name, presence: true, length: { maximum: 100 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }

@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   belongs_to :store
   has_many :event_partners
   has_many :event_products
+  has_many :products, through: :event_products
+
 
   include PgSearch::Model
     multisearchable against: [:title, :description]
