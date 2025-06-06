@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :event_partners
   has_many :event_products
   has_many :products, through: :event_products
+  has_many :stores, through: :event_partners
 
 
   include PgSearch::Model
