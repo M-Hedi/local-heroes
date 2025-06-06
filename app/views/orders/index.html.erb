@@ -1,153 +1,118 @@
-<div class="tabs tabs-lift">
-  <label class="tab">
-    <input type="radio" name="my_tabs_4" checked="checked"/>
-    <i class="fa-solid fa-circle-question"></i>
-    _<%=@orders_pending_count%>_A valider
-  </label>
-  <div class="tab-content bg-base-100 border-base-300 p-6">
-    <div class="grid grid-cols-3 grid-rows-5 gap-4">
-    <% @orders_pending.each do |order| %>
-  <div class="list bg-base-100 rounded-box shadow-md">
-    <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
-    <%=order.created_at.strftime("%d/%m/%Y")%>
-    <br>
-    <% total = order.items.sum { |item| item.quantity * item.product.price } %>
-    </h3>
-     <div class="collapse bg-base-100 border-base-300 border mx-auto w-11/12">
-      <input type="checkbox" />
-      <div class="collapse-title text-sm opacity-60 tracking-wide">Details</div>
-      <div class="collapse-content text-xs">
-        <% order.items.each do |item|%>
-          <div class="flex items-center mb-2">
-            <div><%= image_tag "shoes_1.jpg", class: "size-7 rounded-box mr-2" %></div>
-              <div>
-                <div class="text-xs opacity-60 tracking-wide"><%=item.product.name %> <%=item.quantity%> X <%=item.product.price%>€ Total = <%= number_to_currency(item.quantity * item.product.price, unit: "") %>€</div>
-                  </div>
-            </div>
-        <%end%>
-          </div>
-        </div>
-       <div class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = order.items.sum { |item| item.quantity * item.product.price } %>
-          <strong>Total: <%= number_to_currency(total, unit: "") %> €</strong>
-          <br>
-        </div>
-          <div class="w-full flex justify-center gap-4 m-2">
-            <%= button_to "Accepter", accepted_order_path(order), method: :patch, class: "btn btn-xs sm:btn-sm md:btn-md" %>
-            <%= button_to "Refuser", refused_order_path(order), method: :patch, class: "btn btn-xs sm:btn-sm md:btn-md" %>
-          </div>
-    </div>
-    <%end%>
-    </div>
-  </div>
-
-  <label class="tab">
-    <input type="radio" name="my_tabs_4"/>
-    <i class="fa-solid fa-circle-check"></i>
-    _<%=@orders_accepted_count%>_En cours
-  </label>
-  <div class="tab-content bg-base-100 border-base-300 p-6">
-  <div class="grid grid-cols-3 grid-rows-5 gap-4">
-    <% @orders_accepted.each do |order| %>
-  <div class="list bg-base-100 rounded-box shadow-md">
-    <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
-    <%=order.created_at.strftime("%d/%m/%Y")%>
-    <br>
-    <% total = order.items.sum { |item| item.quantity * item.product.price } %>
-    </h3>
-     <div class="collapse bg-base-100 border-base-300 border mx-auto w-11/12">
-      <input type="checkbox" />
-      <div class="collapse-title text-sm opacity-60 tracking-wide">Details</div>
-      <div class="collapse-content text-xs">
-        <% order.items.each do |item|%>
-          <div class="flex items-center mb-2">
-            <div><%= image_tag "shoes_1.jpg", class: "size-7 rounded-box mr-2" %></div>
-              <div>
-                <div class="text-xs opacity-60 tracking-wide"><%=item.product.name %> <%=item.quantity%> X <%=item.product.price%>€ Total = <%= number_to_currency(item.quantity * item.product.price, unit: "") %>€</div>
-                  </div>
-            </div>
-        <%end%>
-          </div>
-        </div>
-       <div class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = order.items.sum { |item| item.quantity * item.product.price } %>
-          <strong>Total: <%= number_to_currency(total, unit: "") %> €</strong>
-          <br>
-        </div>
-    </div>
-    <%end%>
-    </div>
-  </div>
-
-  <label class="tab">
-    <input type="radio" name="my_tabs_4" />
-    <i class="fa-solid fa-circle-xmark"></i>
-    _<%=@orders_refused_count%>_Refusée
-  </label>
-  <div class="tab-content bg-base-100 border-base-300 p-6">
-  <div class="grid grid-cols-3 grid-rows-5 gap-4">
-    <% @orders_refused.each do |order| %>
-  <div class="list bg-base-100 rounded-box shadow-md">
-    <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
-    <%=order.created_at.strftime("%d/%m/%Y")%>
-    <br>
-    <% total = order.items.sum { |item| item.quantity * item.product.price } %>
-    </h3>
-     <div class="collapse bg-base-100 border-base-300 border mx-auto w-11/12">
-      <input type="checkbox" />
-      <div class="collapse-title text-sm opacity-60 tracking-wide">Details</div>
-      <div class="collapse-content text-xs">
-        <% order.items.each do |item|%>
-          <div class="flex items-center mb-2">
-            <div><%= image_tag "shoes_1.jpg", class: "size-7 rounded-box mr-2" %></div>
-              <div>
-                <div class="text-xs opacity-60 tracking-wide"><%=item.product.name %> <%=item.quantity%> X <%=item.product.price%>€ Total = <%= number_to_currency(item.quantity * item.product.price, unit: "") %>€</div>
-                  </div>
-            </div>
-        <%end%>
-          </div>
-        </div>
-       <div class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = order.items.sum { |item| item.quantity * item.product.price } %>
-          <strong>Total: <%= number_to_currency(total, unit: "") %> €</strong>
-          <br>
-        </div>
-    </div>
-    <%end%>
-    </div>
-  </div>
-</div>
-
-
-<div class="flex justify-end items-center mb-4">
-  <div class="list bg-base-100 rounded-box shadow-md">
-      <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= @order.id %></strong>
+<div class="w-full flex flex-wrap justify-center gap-4 m-2 overflow-x-auto">
+  <div class="tabs tabs-lift">
+    <label class="tab">
+      <input type="radio" name="my_tabs_4" checked="checked"/>
+      <i class="fa-solid fa-circle-question"></i>
+      _<%=@orders_pending_count%>_A valider
+    </label>
+    <div class="tab-content bg-base-100 border-base-300 p-6">
+      <div class="grid grid-cols-3 grid-rows-5 gap-4">
+      <% @orders_pending.each do |order| %>
+    <div class="list bg-base-100 rounded-box shadow-md">
+      <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
+      <%=order.created_at.strftime("%d/%m/%Y")%>
       <br>
+      <% total = order.items.sum { |item| item.quantity * item.product.price } %>
       </h3>
-        <% @order.items.each do |item|%>
-          <li class="list-row">
-          <div><%= image_tag "shoes_1.jpg", class: "size-10 rounded-box" %></div>
-            <div>
-              <div><%=item.product.name %></div>
-                <div class="text-xs uppercase font-semibold opacity-60"><%=item.quantity%> X <%=item.product.price%> € TOTAL = <%= number_to_currency(item.quantity * item.product.price, unit: "") %> €</div>
-                </div>
-                   <div class="ml-auto">
-                  <button class="btn btn-square btn-ghost">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                  <button class="btn btn-square btn-ghost">
-                    <i class="fa-solid fa-square-minus"></i>
-                  </button>
-                    <button class="btn btn-square btn-ghost">
-                    <i class="fa-solid fa-square-plus"></i>
-                  </button>
-                  </div>
-          </li>
-        <%end%>
-        <div class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = @order.items.sum { |item| item.quantity * item.product.price } %>
-      <strong>Total de la commande : <%= number_to_currency(total, unit: "") %> € </strong>
-      <br>
+      <div class="collapse bg-base-100 border-base-300 border mx-auto w-11/12">
+        <input type="checkbox" />
+        <div class="collapse-title text-sm opacity-60 tracking-wide">Details</div>
+        <div class="collapse-content text-xs">
+          <% order.items.each do |item|%>
+            <div class="flex items-center mb-2">
+              <div><%= image_tag "shoes_1.jpg", class: "size-7 rounded-box mr-2" %></div>
+                <div>
+                  <div class="text-xs opacity-60 tracking-wide"><%=item.product.name %> <%=item.quantity%> X <%=item.product.price%>€ Total = <%= number_to_currency(item.quantity * item.product.price, unit: "") %>€</div>
+                    </div>
+              </div>
+          <%end%>
+            </div>
+          </div>
+        <div class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = order.items.sum { |item| item.quantity * item.product.price } %>
+            <strong>Total: <%= number_to_currency(total, unit: "") %> €</strong>
+            <br>
+          </div>
+            <div class="w-full flex justify-center gap-4 m-2">
+              <%= button_to "Accepter", accepted_order_path(order), method: :patch, class: "btn btn-xs sm:btn-sm md:btn-md" %>
+              <%= button_to "Refuser", refused_order_path(order), method: :patch, class: "btn btn-xs sm:btn-sm md:btn-md" %>
+            </div>
       </div>
-      <div class="w-full flex justify-center gap-4 m-2">
-      <button class="btn btn-md md:btn-md">Envoyer</button>
-      <button class="btn btn-md md:btn-md">Annuler</button>
+      <%end%>
       </div>
     </div>
+
+    <label class="tab">
+      <input type="radio" name="my_tabs_4"/>
+      <i class="fa-solid fa-circle-check"></i>
+      _<%=@orders_accepted_count%>_En cours
+    </label>
+    <div class="tab-content bg-base-100 border-base-300 p-6">
+    <div class="grid grid-cols-3 grid-rows-5 gap-4">
+      <% @orders_accepted.each do |order| %>
+    <div class="list bg-base-100 rounded-box shadow-md">
+      <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
+      <%=order.created_at.strftime("%d/%m/%Y")%>
+      <br>
+      <% total = order.items.sum { |item| item.quantity * item.product.price } %>
+      </h3>
+      <div class="collapse bg-base-100 border-base-300 border mx-auto w-11/12">
+        <input type="checkbox" />
+        <div class="collapse-title text-sm opacity-60 tracking-wide">Details</div>
+        <div class="collapse-content text-xs">
+          <% order.items.each do |item|%>
+            <div class="flex items-center mb-2">
+              <div><%= image_tag "shoes_1.jpg", class: "size-7 rounded-box mr-2" %></div>
+                <div>
+                  <div class="text-xs opacity-60 tracking-wide"><%=item.product.name %> <%=item.quantity%> X <%=item.product.price%>€ Total = <%= number_to_currency(item.quantity * item.product.price, unit: "") %>€</div>
+                    </div>
+              </div>
+          <%end%>
+            </div>
+          </div>
+        <div class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = order.items.sum { |item| item.quantity * item.product.price } %>
+            <strong>Total: <%= number_to_currency(total, unit: "") %> €</strong>
+            <br>
+          </div>
+      </div>
+      <%end%>
+      </div>
+    </div>
+
+    <label class="tab">
+      <input type="radio" name="my_tabs_4" />
+      <i class="fa-solid fa-circle-xmark"></i>
+      _<%=@orders_refused_count%>_Refusée
+    </label>
+    <div class="tab-content bg-base-100 border-base-300 p-6">
+    <div class="grid grid-cols-3 grid-rows-5 gap-4">
+      <% @orders_refused.each do |order| %>
+    <div class="list bg-base-100 rounded-box shadow-md">
+      <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
+      <%=order.created_at.strftime("%d/%m/%Y")%> <%=order.status_store%>
+      <br>
+      <% total = order.items.sum { |item| item.quantity * item.product.price } %>
+      </h3>
+      <div class="collapse bg-base-100 border-base-300 border mx-auto w-11/12">
+        <input type="checkbox" />
+        <div class="collapse-title text-sm opacity-60 tracking-wide">Details</div>
+        <div class="collapse-content text-xs">
+          <% order.items.each do |item|%>
+            <div class="flex items-center mb-2">
+              <div><%= image_tag "shoes_1.jpg", class: "size-7 rounded-box mr-2" %></div>
+                <div>
+                  <div class="text-xs opacity-60 tracking-wide"><%=item.product.name %> <%=item.quantity%> X <%=item.product.price%>€ Total = <%= number_to_currency(item.quantity * item.product.price, unit: "") %>€</div>
+                    </div>
+              </div>
+          <%end%>
+            </div>
+          </div>
+        <div class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = order.items.sum { |item| item.quantity * item.product.price } %>
+            <strong>Total: <%= number_to_currency(total, unit: "") %> €</strong>
+            <br>
+          </div>
+      </div>
+      <%end%>
+      </div>
+    </div>
+  </div>
 </div>
