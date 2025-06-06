@@ -1,45 +1,48 @@
-<div class="px-10 py-6 text-[#7c2808]  max-w-screen mx-auto">
-  <h1 class="text-center text-6xl pb-10 text-[#5b1a00]"><%= @event.title %></h1>
-  <div class="flex gap-6 items-start mx-auto">
-    <figure class="w-1/3 p-3">
-      <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: "rounded-[calc(var(--radius-box)-.3rem)] w-full h-auto object-cover") %>
-    </figure>
-    <div class="flex flex-col">
-      <p class="p-5">
-        Description de l'évènement :<br><br>
-        <%= @event.description %>
-      </p>
-      <p class="font-semibold p-5">
-        Organisateur : <%= @event.store.name %>
-      </p>
+<div class="container mt-8 mx-auto">
+  <div class="bg-[#fff7ed] h-100 shadow-2xl opacity-70">
+    <div class="flex justify-center">
+      <h1 class="text-3xl font-bold py-3"><%= @event.title %></h1>
+    </div>
+    <div class="flex flex-row justify-around">
+      <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: "rounded-lg shadow-2xl m-8",  width: "400px") %>
+      <div class="mx-auto">
+        <p class="py-2 font-bold"><%= @event.store.name %></p>
+        <p class="py-4"><%= @event.description %></p>
+        <p class="py-2 font-bold"> Où sommes-nous ?</p>
+        <p class="py-2">2 avenue des saules 59160 Lille</p>
+        <p class="py-2 font-bold"> Nous contacter ?</p>
+        <p class="py-1"><%= @event.store.phone_number %></p>
+        <p>france-admissions@lewagon.org.</p>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="lists-container flex flex-col px-40" data-controller="toggle-list">
-  <div class="join join-vertical lg:join-horizontal mb-4">
-    <button class="btn join-item toggle-active" data-toggle-list-target="storesBtn" data-action="click->toggle-list#displayStores">
-      Liste des magasins participants
-    </button>
-    <button class="btn join-item" data-toggle-list-target="productsBtn" data-action="click->toggle-list#displayProducts">
-      Liste des produits en promotion
-    </button>
-  </div>
-
-  <div class="relative w-full overflow-hidden">
-    <div class="flex transition-transform duration-500 ease-in-out w-[200%]" data-toggle-list-target="listsInner">
-      <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="storesList">
-        <%= render "shared/store_card_event_show", store: @event.store %>
-        <% @event.event_partners.each do |partner| %>
-          <%= render "shared/store_card_event_show", store: partner.store %>
-        <% end %>
-      </div>
-      <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="productsList">
-        <% @event.event_products.each do |product| %>
-          <%= render "shared/product_card", product: product.product %>
-        <% end %>
+  <div class="content">
+    <div class="lists-container flex flex-col jutify-center px-40 pt-10" data-controller="toggle-list">
+      <div class="join join-vertical lg:join-horizontal mb-4 flex justify-center font-semibold">
+        <button class="btn join-item toggle-active" data-toggle-list-target="storesBtn" data-action="click->toggle-list#displayStores">
+          Liste des magasins participants
+        </button>
+        <button class="btn join-item" data-toggle-list-target="productsBtn" data-action="click->toggle-list#displayProducts">
+          Liste des produits en promotion
+        </button>
       </div>
 
+      <div class="relative w-full overflow-hidden border rounded-xl bg-[#fff7ed] mb-10 shadow-2xl opacity-80">
+        <div class="flex transition-transform duration-500 ease-in-out w-[200%] flex justiry-center" data-toggle-list-target="listsInner">
+          <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="storesList">
+            <%= render "shared/store_card_event_show", store: @event.store %>
+            <% @event.event_partners.each do |partner| %>
+              <%= render "shared/store_card_event_show", store: partner.store %>
+            <% end %>
+          </div>
+          <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="productsList">
+            <% @event.event_products.each do |product| %>
+              <%= render "shared/product_card", product: product.product %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
