@@ -107,7 +107,6 @@ end
 
 puts "Created #{Order.count} orders"
 
-60.times do
 25.times do
   Item.create!(
     order: Order.all.sample,
@@ -117,8 +116,6 @@ puts "Created #{Order.count} orders"
 end
 
 puts "Created #{Item.count} items"
-
-15.times do |e|
 
 10.times do |e|
   Event.create!(
