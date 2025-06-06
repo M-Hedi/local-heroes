@@ -16,7 +16,8 @@
 <div>
   <h2 class="text-center bg-[#fff7ed] rounded-full m-auto size-fit p-3 text-3xl font-bold border-3">Evénements en cours!</h2>
 </div>
-<div class="grid grid-cols-2 gap-8 bg-white border-3 shadow-lg rounded-xl m-10 p-9">
+<div class="grid grid-cols-2 gap-8 bg-white border-3 rounded-xl m-10 p-9">
+
   <% Event.last(6).each do |event| %>
       <%= render "shared/event_card_long", event: event %>
     <% end %>
