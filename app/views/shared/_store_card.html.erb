@@ -11,8 +11,13 @@
     </div>
   </figure>
   <div class="card-body">
-    <h2 class="card-title truncate"><%= link_to store.name, to: store_path(store) %></h2>
+    <h2 class="card-title truncate"><%= store.name %></h2>
     <p><%= store.category.capitalize %></p>
     <p><%= store.user.first_name %> <%= store.user.last_name %></p>
+      <div class="end flex justify-end">
+        <%= link_to store_path(store) do %>
+          <p class="btn btn-sm btn-[#370a00] text-[#370a00]">Voir plus</p>
+        <% end %>
+      </div>
   </div>
 </div>
