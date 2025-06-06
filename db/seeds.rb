@@ -17,8 +17,10 @@ Event.destroy_all
 Item.destroy_all
 Order.destroy_all
 Product.destroy_all
+Event.destroy_all
 Store.destroy_all
 User.destroy_all
+
 
 puts "DB cleaned"
 # end
@@ -106,6 +108,7 @@ end
 puts "Created #{Order.count} orders"
 
 60.times do
+25.times do
   Item.create!(
     order: Order.all.sample,
     product: Product.all.sample,
@@ -116,6 +119,8 @@ end
 puts "Created #{Item.count} items"
 
 15.times do |e|
+
+10.times do |e|
   Event.create!(
     store: Store.all.sample,
     title: Faker::Restaurant.name,
