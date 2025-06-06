@@ -1,0 +1,16 @@
+<div class="card card-side bg-base-100 shadow-sm h-[200px] border-1">
+  <figure class="p-2">
+    <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class:"w-40 rounded-[calc(var(--radius-box)-.3rem)]") %>
+  </figure>
+  <div class="card-body truncate">
+    <h2 class="card-title"><%= event.title %></h2>
+    <p><%= event.description %></p>
+    <h3 class="font-semibold">Magasins participants:</h3>
+    <ul class="columns-3 gap-4">
+      <li><%= link_to event.store.name, store_path(event.store) %></li>
+      <% event.event_partners.each do |partner| %>
+        <li><%= partner.store.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
