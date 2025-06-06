@@ -1,2 +1,23 @@
-<h1 class="text-red-300" >Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div
+  class="hero m-auto w-7/10 justifiy-center h-[600px] my-5 rounded-xl"
+  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
+
+  <div class="hero-overlay rounded-xl"  style="background-color: rgba(0, 128, 0, 0.3);"></div>
+  <div class="hero-content text-neutral-content text-center m-auto">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">40 milliards d'euros dans la poche!</h1>
+      <p class="mb-5">
+        Soyez un bon consommateur: rendez-nous riches!
+      </p>
+      <%= render "shared/searchbar" %>
+    </div>
+  </div>
+</div>
+<div>
+  <h2 class="text-center bg-[#fff7ed] rounded-full m-auto size-fit p-3 text-3xl font-bold border-3">Evénements en cours!</h2>
+</div>
+<div class="grid grid-cols-2 gap-8 bg-[#fff7ed] border-3 rounded-xl m-10 p-9">
+  <% Event.last(6).each do |event| %>
+    <%= render "shared/event_card_long", event: event %>
+  <% end %>
+</div>
