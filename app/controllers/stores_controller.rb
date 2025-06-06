@@ -5,6 +5,6 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
-    #@product = 
+    #@product =
   end
 end
