@@ -23,6 +23,7 @@
 
           <div>
           <%= f.input :photos, as: :file, input_html: { class: "w-full bg-orange-200 rounded-md shadow-sm"}, label_html: { class: "font-bold text-orange-700"}, multiple: true %>
+          <%= f.association :events, collection: @store.events, label: "Add Event", label_html: { class: "font-bold text-orange-700" }, input_html: { class: "w-full bg-orange-200 rounded-md shadow-sm custom-select" } %>
           </div>
 
       </div>
@@ -39,7 +40,6 @@
                 class: "bg-orange-300 hover:bg-orange-500 text-white font-semibold py-2 px-4 rounded-lg" %>
           </div>
         </div>
-
-
       <% end %>
+
   </div>

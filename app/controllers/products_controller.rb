@@ -17,10 +17,20 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+# Parameters:
+
+# {"authenticity_token"=>"[FILTERED]",
+#  "product"=>{"name"=>"basket", "price"=>"1", "category"=>"", "stock"=>"", "discount"=>"", "event_ids"=>["", "12"], "description"=>""},
+#  "commit"=>"Add/Edit",
+#  "store_id"=>"31"}
+
   def create
+
     @product = Product.new(product_params)
     @product.store = @store
+
     if @product.save
+      set_product_events(@product, params["product"]["event_ids"])
       redirect_to store_path(@store)
     else
       render :new, status: :unprocessable_entity
@@ -38,6 +48,12 @@ class ProductsController < ApplicationController
 
   private
 
+  def set_product_events(product, event_ids)
+    event_ids.reject(&:empty?).each do |event_id|
+      EventProduct.create(product_id: product.id, event_id: event_id)
+    end
+  end
+
   def set_store
     @store = Store.find(params[:store_id])
   end
@@ -47,7 +63,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, :category, :discount, :stock, :description)
+    params.require(:product).permit(:name, :price, :category, :discount, :stock, :description, :event_ids)
   end
 
 end
