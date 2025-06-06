@@ -36,8 +36,10 @@
             <% end %>
           </div>
           <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="productsList">
-            <% @event.products.each do |product| %>
-              <%= render "shared/product_card", product: product %>
+
+            <% @event.event_products.each do |product| %>
+              <%= render "shared/product_card_small", product: product.product %>
+
             <% end %>
           </div>
         </div>
