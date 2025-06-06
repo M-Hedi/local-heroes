@@ -1,5 +1,5 @@
 <div
-  class="hero m-auto justifiy-center h-[600px] mb-10 border-1 shadow-lg"
+  class="hero m-auto h-[600px] mb-10 border-1 shadow-lg"
   style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
 
   <div class="hero-overlay"  style="background-color: rgba(13, 189, 13, 0.4);"></div>
@@ -16,15 +16,14 @@
 <div>
   <h2 class="text-center bg-[#fff7ed] rounded-full m-auto size-fit p-3 text-3xl font-bold border-3">Evénements en cours!</h2>
 </div>
-<div class="grid grid-cols-2 gap-8 bg-white border-3 rounded-xl m-10 p-9">
 
+<div class="grid grid-cols-2 gap-8 bg-white border-3 rounded-xl m-10 p-9">
   <% Event.last(6).each do |event| %>
       <%= render "shared/event_card_long", event: event %>
     <% end %>
 </div>
 
   <h2 class="text-center bg-[#fff7ed] rounded-full m-auto size-fit p-3 text-3xl font-bold border-3">Vos magasins favoris</h2>
-</div>
 <div class="grid grid-cols-5 gap-8 bg-white border-3 shadow-lg rounded-xl m-10 p-9">
   <% Store.last(10).each do |store| %>
       <%= render "shared/store_card_event_show", store: store %>
