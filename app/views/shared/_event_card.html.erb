@@ -11,7 +11,7 @@
         <h3 class="flex items-center justify-between">
           <p class="font-semibold">Début : <%= event.start_date %></p>
           <p class="font-semibold">Fin : <%= event.end_date %></p>
-          <%= link_to events_path(event) do %>
+          <%= link_to event_path(event) do %>
             <p class="btn btn-sm btn-[#370a00] text-[#370a00] ">Voir plus</p>
           <% end %>
         </h3>
