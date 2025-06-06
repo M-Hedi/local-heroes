@@ -1,19 +1,21 @@
-<div class="flex justify-center bg-base-300">
+<div class="flex justify-center">
   <%= render "shared/searchbar" %>
 </div>
 
-<div class="container p-10">
+<div class="container py-7">
 
   <div class="search">
-    <p class="bg-neutral text-neutral-content p-5">Mes recherches : </p>
-    <div class="grid grid-cols-3 gap-4 pt-5">
-      <% @results.each do |result| %>
-        <% if result.is_a?(Event) %>
-          <%= render "shared/event_card", event: result %>
-        <% elsif result.is_a?(Store) %>
-          <%= render "shared/store_card", store: result %>
+    <p class=" text-neutral-content p-5">Mes recherches : </p>
+    <div class="cards px-3">
+      <div class="grid grid-cols-3 gap-4 pt-5">
+        <% @results.each do |result| %>
+          <% if result.is_a?(Event) %>
+            <%= render "shared/event_card", event: result %>
+          <% elsif result.is_a?(Store) %>
+            <%= render "shared/store_card", store: result %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
