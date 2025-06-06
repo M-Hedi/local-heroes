@@ -97,20 +97,21 @@ Store.find_each do |store|
 end
 puts "Created #{Product.count} products"
 
-40.times do
+User.all.each do |user|
   Order.create!(
-    user: User.all.sample,
+    user: user,
     status_store: ['pending', 'accepted', 'refused'].sample,
-    status_customer: ['pending', 'validated', 'canceled'].sample
+    status_customer: ['pending', 'validated', 'canceled'].sample,
+    store_id: Store.all.sample.id
   )
 end
 
 puts "Created #{Order.count} orders"
 
-25.times do
+Order.all.each do |order|
   Item.create!(
-    order: Order.all.sample,
-    product: Product.all.sample,
+    order_id: order.id,
+    product_id: order.store.products.sample.id,
     quantity: rand(1..10)
   )
 end
