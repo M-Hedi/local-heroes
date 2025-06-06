@@ -14,6 +14,7 @@
       </div>
     </div>
   </div>
+  
 
   <div class="content">
     <div class="lists-container flex flex-col jutify-center px-40 pt-10" data-controller="toggle-list">
@@ -30,13 +31,13 @@
         <div class="flex transition-transform duration-500 ease-in-out w-[200%] flex justiry-center" data-toggle-list-target="listsInner">
           <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="storesList">
             <%= render "shared/store_card_event_show", store: @event.store %>
-            <% @event.event_partners.each do |partner| %>
-              <%= render "shared/store_card_event_show", store: partner.store %>
+            <% @event.stores.each do |store| %>
+              <%= render "shared/store_card_event_show", store: store %>
             <% end %>
           </div>
           <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="productsList">
-            <% @event.event_products.each do |product| %>
-              <%= render "shared/product_card", product: product.product %>
+            <% @event.products.each do |product| %>
+              <%= render "shared/product_card", product: product %>
             <% end %>
           </div>
         </div>
