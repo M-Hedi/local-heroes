@@ -3,15 +3,17 @@
 </div>
 
 <div class="container p-10">
-  <p>Mes recherches : </p>
 
-  <div class="grid grid-cols-3 gap-4 pt-5">
-    <% @results.each do |result| %>
-      <% if result.is_a?(Event) %>
-        <%= render "shared/event_card", event: result %>
-      <% elsif result.is_a?(Store) %>
-        <%= render "shared/store_card", store: result %>
+  <div class="search">
+    <p class="bg-neutral text-neutral-content p-5">Mes recherches : </p>
+    <div class="grid grid-cols-3 gap-4 pt-5">
+      <% @results.each do |result| %>
+        <% if result.is_a?(Event) %>
+          <%= render "shared/event_card", event: result %>
+        <% elsif result.is_a?(Store) %>
+          <%= render "shared/store_card", store: result %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
