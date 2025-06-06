@@ -29,8 +29,8 @@ class SearchesController < ApplicationController
       # Pour fusionner les résultats dans un seul tableau :
       @results = (@stores + @events)
     else
-      @stores = Store.all
-      @events = Event.all
+      @stores = Store.first(3)
+      @events = Event.first(3)
       @results = (@stores + @events)
     end
   end

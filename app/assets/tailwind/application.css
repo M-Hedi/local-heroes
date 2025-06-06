@@ -10,3 +10,9 @@
 
 /* Optional for custom themes – Docs: https://daisyui.com/docs/themes/#how-to-add-a-new-custom-theme */
 @plugin "./daisyui-theme.js"
+
+
+.custom-select option:checked {
+  background-color: #bae6fd; /* bg-sky-200 */
+  color: #0c4a6e; /* text-sky-900 */
+}
