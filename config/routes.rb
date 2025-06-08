@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :searches
-
+  resources :items, only: [:create, :update, :destroy]
   resources :orders do
     member do
     patch :accepted
@@ -17,9 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :stores
   resources :events
   resources :stores do
+    resources :orders, only: [:create]
     resources :products, only: [:new, :create, :show, :edit, :update]
   end
 end
