@@ -1,5 +1,5 @@
 
-<div class="container mt-8 mx-auto">
+<div class="container mt-8 mx-auto" data-controller="cart">
 
   <div class="bg-white h-110 rounded-lg shadow-2xl">
     <div class="flex justify-center">
@@ -38,4 +38,17 @@
           <% end %>
       </div>
   </div>
+
+<button class="btn btn-wide" data-action="click->cart#showCart">Add to cart</button>
+
+<div class="fixed top-0 right-0 h-full w-80 transform translate-x-full transition-transform duration-300 z-50 flex justify-content-center" data-cart-target="panel" >
+  <button
+    data-action="click->cart#showCart"
+    class="absolute left-[-36px] top-1/2 transform -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full"
+  >
+    &lt;
+  </button>
+  <%= render "shared/cart", order: @order%>
+</div>
+
 </div>

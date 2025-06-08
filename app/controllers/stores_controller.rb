@@ -5,5 +5,6 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @order = Order.first
   end
 end
