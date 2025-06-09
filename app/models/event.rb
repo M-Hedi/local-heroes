@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  has_one_attached :photo
   belongs_to :store
   has_many :event_partners
   has_many :event_products
