@@ -1,13 +1,22 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
-    @orders_pending = Order.where(status_store: "pending")
-    @orders_accepted = Order.where(status_store: "accepted")
-    @orders_refused = Order.where(status_store: "refused")
+    @orders = Order.where(user: current_user)
+    @orders_pending = Order.where(user: current_user, status_store: "pending")
+    @orders_accepted = Order.where(user: current_user, status_store: "accepted")
+    @orders_refused = Order.where(user: current_user, status_store: "refused")
     @orders_pending_count = @orders_pending.count
     @orders_accepted_count = @orders_accepted.count
     @orders_refused_count = @orders_refused.count
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    @order.update(status_customer: params[:status_customer])
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: { redirect_url: root_path } }
+    end
   end
 
   def accepted
