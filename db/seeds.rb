@@ -435,7 +435,7 @@ Product.create!(
 # 2 Events
 
 Event.create!(
-  store: store,
+  store: store1,
   title: "Fête du Pain – Dégustation gratuite",
   description: "À l'occasion de la fête du pain, la boulangerie Au p’tit Louis vous invite à une journée exceptionnelle de dégustation gratuite. Venez découvrir nos pains artisanaux faits maison avec des farines locales, nos viennoiseries pur beurre et nos brioches moelleuses. Des démonstrations de façonnage et de cuisson seront également proposées tout au long de la journée, pour petits et grands. Offres spéciales sur les produits du jour et surprises gourmandes garanties !",
   start_date: Date.today,
@@ -443,7 +443,7 @@ Event.create!(
 )
 
 Event.create!(
-  store: store,
+  store: store2,
   title: "Atelier pâtisserie pour enfants",
   description: "La boulangerie Au p’tit Louis organise un atelier pâtisserie réservé aux enfants de 6 à 12 ans. Encadrés par notre chef pâtissier, les apprentis boulangers apprendront à préparer leur propre brioche et de délicieux petits sablés. L’objectif est de transmettre notre passion du fait maison tout en s’amusant ! Chaque participant repartira avec ses créations et un diplôme du petit pâtissier. Les places sont limitées, pensez à réserver rapidement pour cet événement gourmand et pédagogique.",
   start_date: Date.today + 7,
