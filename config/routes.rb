@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:create]
     resources :products, only: [:new, :create, :show, :edit, :update]
   end
+
+   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
 end

@@ -579,3 +579,406 @@ puts "Created #{EventPartner.count} event partners"
 end
 
 puts "Created #{EventProduct.count} event products"
+
+
+user_edouard = User.create!(
+  first_name: "Edouard",
+  last_name: "Baer",
+  email: "edouard.baer@hotmail.com",
+  password: "password",
+  address: "1-31 Rue Colbert, 59800 Lille", #A jouter un addresse au modéle user
+  phone_number: "0320334987" #A jouter un phone number au modéle user
+)
+user_sophie = User.create!(
+  first_name: "Sophie",
+  last_name: "Lemoine",
+  email: "sophie.lemoine@gmail.com",
+  password: "password",
+  address: "45 Rue de Wazemmes, 59000 Lille",
+  phone_number: "0320457863"
+)
+user_rachid = User.create!(
+  first_name: "Rachid",
+  last_name: "Benali",
+  email: "rachid.benali@yahoo.fr",
+  password: "password",
+  address: "12 Rue d’Iéna, 59000 Lille",
+  phone_number: "0320765472"
+)
+user_thomas = User.create!(
+  first_name: "Thomas",
+  last_name: "Nguyen",
+  email: "thomas.nguyen@gmail.com",
+  password: "password",
+  address: "19 Rue Gambetta, 59000 Lille",
+  phone_number: "0320679832"
+)
+user_claire = User.create!(
+  first_name: "Claire",
+  last_name: "Dubois",
+  email: "claire.dubois@orange.fr",
+  password: "password",
+  address: "8 Rue des Sarrazins, 59000 Lille",
+  phone_number: "0320884455"
+)
+
+store_1 = Store.create!(
+  user: user_claire,
+  description: "Poissonnerie iconique à Wazemmes, sel et savoir-faire familial, poissons et fruits de mer ultra‑frais, pêche durable et traiteur local. réunion.",
+  name: "Le Petit Mousse",
+  category: "Poissonnerie",
+  phone_number: "0320545506",
+  address:"396 Rue Léon Gambetta, 59000 Lille" #A jouter un addresse au modéle store
+)
+
+store_2 = Store.create!(
+  user: user_thomas,
+  description: "Poissonnerie du marché de Wazemmes, offre poissons frais et fruits de mer variés, ambiance conviviale, service expert et tarif correct.",
+  name: "Poissonnerie La Marée",
+  category: "Poissonnerie",
+  phone_number: "0320679832",
+  address: "78 Rue Jules Guesde, 59000 Lille" #A jouter un addresse au modéle store
+)
+
+store_3 = Store.create!(
+  user: user_rachid,
+  description: "Poissonnerie “La Bonne Pêche” aux Halles de Wazemmes : poissons & fruits de mer de Boulogne, fraîcheur quotidienne, service convivial.",
+  name: "La bonne pêche",
+  category: "Poissonnerie",
+  phone_number: "0602319656",
+  address: "25 Pl. Nouvelle Aventure, 59000 Lille" #A jouter un addresse au modéle store
+)
+
+store_4 = Store.create!(
+  user: user_sophie,
+  description: "Poissonnerie de Wazemmes, poissons frais du jour, crustacés variés et accueil chaleureux. Qualité et conseils personnalisés garantis.",
+  name: "Au Petit Poissonnier",
+  category: "Poissonnerie",
+  phone_number: "0320429750",
+  address: "25 Pl. Nouvelle Aventure, 59000 Lille" #A jouter un addresse au modéle store
+)
+
+store_5 = Store.create!(
+  user: user_edouard,
+  description: "Au Petit Poissonnier",
+  name: "The Shark Poissonnerie",
+  category: "Poissonnerie",
+  phone_number: "0644176887",
+  address: "325 Av. de Dunkerque, 59160 Lille" #A jouter un addresse au modéle store
+)
+# Cloudinary à installer pour les images seed
+Product.create!(
+  name: "Saumon atlantique frais",
+  price: 24.90,
+  category: "Poisson frais",
+  discount: 22.41,
+  stock: 15,
+  loyalty_price: 22,
+  status: "available",
+  description: "Saumon atlantique d'élevage responsable, chair tendre et savoureuse. Idéal grillé, en papillote ou fumé maison. Riche en oméga-3.",
+  store: store_1
+)
+
+Product.create!(
+  name: "Crevettes roses cuites",
+  price: 18.50,
+  category: "Crustacés",
+  discount: 16.65,
+  stock: 25,
+  loyalty_price: 16,
+  status: "unavailable",
+  description: "Crevettes roses de Méditerranée, cuites à la perfection. Chair ferme et goût iodé authentique. Parfaites pour vos plateaux de fruits de mer.",
+  store: store_1
+)
+
+Product.create!(
+  name: "Filets de sole meunière",
+  price: 32.80,
+  category: "Poisson frais",
+  discount: 29.52,
+  stock: 8,
+  loyalty_price: 30,
+  status: "available",
+  description: "Filets de sole fraîche, chair délicate et fondante. Poisson noble parfait pour une cuisson meunière traditionnelle ou à la vapeur douce.",
+  store: store_1
+)
+
+Product.create!(
+  name: "Huîtres spéciales n°3",
+  price: 15.90,
+  category: "Mollusques",
+  discount: 14.31,
+  stock: 40,
+  loyalty_price: 14,
+  status: "available",
+  description: "Huîtres spéciales calibre 3, chair charnue et goût marin prononcé. Élevées en Bretagne, parfaites nature avec un trait de citron.",
+  store: store_1
+)
+
+Product.create!(
+  name: "Thon rouge en tranches",
+  price: 45.00,
+  category: "Poisson frais",
+  discount: 40.50,
+  stock: 6,
+  loyalty_price: 42,
+  status: "unavailable",
+  description: "Thon rouge de ligne, chair rouge intense et texture fondante. Qualité sashimi, idéal cru en tartare ou mi-cuit à la plancha.",
+  store: store_1
+)
+
+Product.create!(
+  name: "Moules de bouchot",
+  price: 3.80,
+  category: "Mollusques",
+  discount: 3.42,
+  stock: 60,
+  loyalty_price: 3,
+  status: "available",
+  description: "Moules de bouchot de la baie du Mont-Saint-Michel. Chair orange généreuse, goût subtil. Parfaites marinières ou à la crème.",
+  store: store_2
+)
+
+Product.create!(
+  name: "Langoustines bretonnes",
+  price: 28.90,
+  category: "Crustacés",
+  discount: 26.01,
+  stock: 12,
+  loyalty_price: 26,
+  status: "available",
+  description: "Langoustines fraîches de Bretagne, chair sucrée et délicate. Cuisson rapide recommandée pour préserver leur texture exceptionnelle.",
+  store: store_2
+)
+
+Product.create!(
+  name: "Cabillaud de ligne",
+  price: 19.50,
+  category: "Poisson frais",
+  discount: 17.55,
+  stock: 20,
+  loyalty_price: 18,
+  status: "unavailable",
+  description: "Cabillaud pêché à la ligne, chair blanche ferme et floconneuse. Poisson polyvalent excellent en brandade, grillé ou en sauce.",
+  store: store_2
+)
+
+Product.create!(
+  name: "Saint-Jacques avec corail",
+  price: 42.50,
+  category: "Mollusques",
+  discount: 38.25,
+  stock: 18,
+  loyalty_price: 39,
+  status: "available",
+  description: "Coquilles Saint-Jacques fraîches avec corail, pêche française. Chair nacrée et corail orange vif. Parfaites poêlées ou gratinées.",
+  store: store_2
+)
+
+Product.create!(
+  name: "Sardines de Méditerranée",
+  price: 8.90,
+  category: "Poisson frais",
+  discount: 8.01,
+  stock: 35,
+  loyalty_price: 7,
+  status: "available",
+  description: "Sardines fraîches de Méditerranée, chair grasse et savoureuse. Riches en oméga-3, excellentes grillées au barbecue ou marinées.",
+  store: store_2
+)
+
+Product.create!(
+  name: "Homard breton vivant",
+  price: 65.00,
+  category: "Crustacés",
+  discount: 58.50,
+  stock: 4,
+  loyalty_price: 60,
+  status: "unavailable",
+  description: "Homard breton vivant, chair ferme et goût authentique. Animal noble pour vos grandes occasions, cuisson vapeur ou thermidor recommandée.",
+  store: store_3
+)
+
+Product.create!(
+  name: "Dorade royale portion",
+  price: 16.80,
+  category: "Poisson frais",
+  discount: 15.12,
+  stock: 22,
+  loyalty_price: 15,
+  status: "available",
+  description: "Dorade royale d'élevage méditerranéen, chair blanche délicate. Poisson fin parfait au four avec herbes de Provence ou en papillote.",
+  store: store_3
+)
+
+Product.create!(
+  name: "Bulots cuits nature",
+  price: 12.40,
+  category: "Mollusques",
+  discount: 11.16,
+  stock: 30,
+  loyalty_price: 11,
+  status: "available",
+  description: "Bulots cuits à l'eau de mer, chair ferme et goût iodé prononcé. Parfaits à l'apéritif avec mayonnaise à l'ail ou en salade de mer.",
+  store: store_3
+)
+
+Product.create!(
+  name: "Turbot sauvage tranche",
+  price: 38.90,
+  category: "Poisson frais",
+  discount: 35.01,
+  stock: 7,
+  loyalty_price: 36,
+  status: "unavailable",
+  description: "Turbot sauvage de ligne, chair ferme et délicate. Poisson noble aux saveurs subtiles, excellent au four ou poché au court-bouillon.",
+  store: store_3
+)
+
+Product.create!(
+  name: "Plateau de fruits de mer",
+  price: 85.00,
+  category: "Plateau composé",
+  discount: 76.50,
+  stock: 3,
+  loyalty_price: 78,
+  status: "available",
+  description: "Plateau composé pour 4 personnes : huîtres, crevettes, bulots, tourteau, langoustines. Fraîcheur garantie, accompagné de pain de seigle.",
+  store: store_3
+)
+
+Product.create!(
+  name: "Merlan entier vidé",
+  price: 11.20,
+  category: "Poisson frais",
+  discount: 10.08,
+  stock: 28,
+  loyalty_price: 10,
+  status: "available",
+  description: "Merlan frais de pêche locale, chair blanche et tendre. Poisson économique parfait frit, au four ou en soupe de poisson traditionnelle.",
+  store: store_4
+)
+
+Product.create!(
+  name: "Tourteau cuit entier",
+  price: 22.30,
+  category: "Crustacés",
+  discount: 20.07,
+  stock: 16,
+  loyalty_price: 20,
+  status: "unavailable",
+  description: "Tourteau cuit de Bretagne, chair blanche généreuse dans les pattes et brune dans le coffre. Idéal nature ou en rillettes maison.",
+  store: store_4
+)
+
+Product.create!(
+  name: "Rouget-barbet de roche",
+  price: 26.50,
+  category: "Poisson frais",
+  discount: 23.85,
+  stock: 14,
+  loyalty_price: 24,
+  status: "available",
+  description: "Rouget-barbet de petite pêche, chair fine au goût délicat. Poisson méditerranéen authentique, excellent grillé avec fenouil sauvage.",
+  store: store_4
+)
+
+Product.create!(
+  name: "Encornets frais nettoyés",
+  price: 14.70,
+  category: "Céphalopodes",
+  discount: 13.23,
+  stock: 25,
+  loyalty_price: 13,
+  status: "available",
+  description: "Encornets frais de Méditerranée, nettoyés et prêts à cuisiner. Chair tendre si cuisson rapide. Parfaits à la plancha ou farcis.",
+  store: store_4
+)
+
+Product.create!(
+  name: "Filets de maquereau",
+  price: 9.80,
+  category: "Poisson frais",
+  discount: 8.82,
+  stock: 32,
+  loyalty_price: 8,
+  status: "unavailable",
+  description: "Filets de maquereau frais, chair grasse riche en oméga-3. Poisson de saison aux saveurs prononcées, excellent mariné ou grillé.",
+  store: store_4
+)
+
+Product.create!(
+  name: "Palourdes grises",
+  price: 13.60,
+  category: "Mollusques",
+  discount: 12.24,
+  stock: 24,
+  loyalty_price: 12,
+  status: "available",
+  description: "Palourdes grises de l'Atlantique, chair ferme et goût iodé authentique. Parfaites nature, farcies ou dans un risotto aux fruits de mer.",
+  store: store_5
+)
+
+Product.create!(
+  name: "Lotte en médaillons",
+  price: 29.90,
+  category: "Poisson frais",
+  discount: 26.91,
+  stock: 11,
+  loyalty_price: 27,
+  status: "available",
+  description: "Médaillons de lotte fraîche, chair ferme sans arêtes. Texture similaire au homard, excellente en blanquette ou rôtie au four.",
+  store: store_5
+)
+
+Product.create!(
+  name: "Étrilles vivantes",
+  price: 8.50,
+  category: "Crustacés",
+  discount: 7.65,
+  stock: 45,
+  loyalty_price: 7,
+  status: "unavailable",
+  description: "Étrilles vivantes de Bretagne, petits crabes pleins de saveur. Chair délicate dans les pattes, parfaites en bisque ou à la nage.",
+  store: store_5
+)
+
+Product.create!(
+  name: "Bar de ligne portion",
+  price: 21.40,
+  category: "Poisson frais",
+  discount: 19.26,
+  stock: 19,
+  loyalty_price: 19,
+  status: "available",
+  description: "Bar de ligne sauvage, chair blanche ferme et délicate. Poisson noble de nos côtes, excellent au gros sel, grillé ou en croûte.",
+  store: store_5
+)
+
+Product.create!(
+  name: "Soupe de poisson artisanale",
+  price: 7.90,
+  category: "Préparation",
+  discount: 7.11,
+  stock: 15,
+  loyalty_price: 7,
+  status: "available",
+  description: "Soupe de poisson artisanale préparée avec poissons de roche. Goût authentique méditerranéen, servir avec rouille et croûtons.",
+  store: store_5
+)
+
+Event.create!(
+  store: store_1,
+  title: "Festival du Poisson Frais à Wazemmes",
+  description: "Au cœur de l’été, Au Petit Poissonnier vous invite à découvrir la richesse des produits de la mer à travers un festival local dédié au goût et à la fraîcheur. Au programme : dégustations gratuites de poissons grillés, stand de fruits de mer, conseils de conservation et démonstrations de filetage. Une occasion unique d’échanger avec des artisans passionnés, de profiter d’offres spéciales et de célébrer les savoir-faire du quartier de Wazemmes dans une ambiance festive et chaleureuse.",
+  start_date: Date.new(2025, 7, 19),
+  end_date: Date.new(2025, 7, 21)
+)
+
+Event.create!(
+  store: Store.find_by(name: "Poissonnerie La Marée"),
+  title: "Marché Gourmand des Marées",
+  description: "La Poissonnerie La Marée organise un marché gourmand exceptionnel à Wazemmes pour célébrer les produits frais de la mer. Venez rencontrer nos producteurs partenaires, découvrir notre sélection de poissons de saison, déguster des spécialités locales préparées sur place, et bénéficier de conseils pour cuisiner comme un chef. En plus : animations pour enfants, tombola fruits de mer, et paniers gourmands à gagner ! Une belle manière de valoriser le commerce de proximité et de se régaler en famille.",
+  start_date: Date.new(2025, 8, 9),
+  end_date: Date.new(2025, 8, 10)
+)

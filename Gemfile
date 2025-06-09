@@ -88,3 +88,4 @@ gem "pg_search"
 
 gem "tailwindcss-rails"
 
+gem "cloudinary"

@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_one_attached :photo
   belongs_to :store
   has_many :items
   has_many :event_products
