@@ -15,7 +15,7 @@
     <p><%= product.price %>€</p>
       <div class="end flex justify-end">
         <button class="btn btn-sm btn-[#370a00] text-[#370a00] flex justify-center"
-        data-action="click->cart#createOrder click->cart#showCart click->cart#addItem"
+        data-action="click->cart#showCart click->cart#addItem"
         data-cart-url="<%= store_orders_path(product.store) %>"
         data-product-id="<%= product.id %>">Panier</button>
       </div>
