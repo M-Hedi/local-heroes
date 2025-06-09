@@ -1,4 +1,4 @@
-<div class="card bg-[#fff7ed] shadow-sm flex flex-col card-border border-[#ffead0] card-sm w-100 text-[#7c2808] p-3">
+<div class="card bg-[#fff7ed] shadow-sm flex flex-col card-border border-[#ffead0] card-sm w-70 text-[#7c2808] p-3">
   <figure>
     <div class="relative inline-block">
         <%# <%= image_tag("shoes_1.jpg", size: "100x50", alt: "Edit Entry")%>
@@ -14,9 +14,10 @@
     <p><%= product.store.user.first_name %> <%= product.store.user.last_name %></p>
     <p><%= product.price %>€</p>
       <div class="end flex justify-end">
-        <%= link_to store_path(product.store) do %>
-          <p class="btn btn-sm btn-[#370a00] text-[#370a00] flex justify-center">Panier</p>
-        <% end %>
+        <button class="btn btn-sm btn-[#370a00] text-[#370a00] flex justify-center"
+        data-action="click->cart#createOrder click->cart#showCart click->cart#addItem"
+        data-cart-url="<%= store_orders_path(product.store) %>"
+        data-product-id="<%= product.id %>">Panier</button>
       </div>
   </div>
 </div>
