@@ -35,7 +35,7 @@
       <h1 class="text-2xl font-bold py-10 text-shadow-2xs">Nos produits</h1>
       <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
             <% @store.products.each do |product| %>
-              <%= render "shared/product_card_small", product: product %>
+              <%= render "shared/product_card", product: product %>
             <% end %>
         </div>
     </div>
