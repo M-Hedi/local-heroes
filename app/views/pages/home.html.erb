@@ -20,7 +20,7 @@
 
 <div class="grid grid-cols-2 gap-8 bg-white border-3 rounded-xl m-10 p-9">
   <% Event.last(6).each do |event| %>
-    <%= render "shared/event_card_long", event: event %>
+    <%= render "shared/event_card", event: event %>
   <% end %>
 </div>
 

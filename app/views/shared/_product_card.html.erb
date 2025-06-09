@@ -1,44 +1,23 @@
-<div class="card rounded-[10px] p-[15px] mt-[30px] bg-orange-100  text-l">
-
-    <!-- Ligne principale -->
-    <div class="flex flex-col lg:flex-row gap-6">
-
-      <!-- Image + Infos en colonne -->
-    <div class="w-full lg:w-1/2 flex flex-col items-start gap-4">
-        <!-- Image -->
-        <div>
-          <%# <%= image_tag("shoes_1.jpg", size: "100x50", alt: "Edit Entry")%>
+<div class="card bg-[#fff7ed] shadow-sm flex flex-col card-border border-[#ffead0] card-sm w-70 text-[#7c2808] p-3">
+  <figure>
+    <div class="relative inline-block">
+        <%# <%= image_tag("shoes_1.jpg", size: "100x50", alt: "Edit Entry")%>
           <%# <%=image_tag("shoes_1.jpg", height: '100', width: '32')%>
-          <%= image_tag("shoes_1.jpg",style: "max-width: 250px;", alt: "Edit Entry", class: "rounded-[10px] shadow-md") %>
+          <%= image_tag("shoes_1.jpg",style: "max-width: 350px;", alt: "Edit Entry", class: "rounded-[10px] shadow-md") %>
           <%# <img src="images/shoes_1.jpg" alt="Image produit" class="rounded-md w-full max-w-xs"> %>
-        </div>
-
-        <!-- Infos en 2 colonnes -->
-        <div class="grid grid-cols-2 gap-4 w-full text-center">
-          <div class="bg-white p-3 rounded-md shadow">
-            <h3 class="font-bold">Price</h3>
-            <p><%= product.price %></p>
-          </div>
-          <div class="bg-white p-3 rounded-md shadow">
-            <h3 class="font-bold">Category</h3>
-            <p><%= product.category %></p>
-          </div>
-          <div class="bg-white p-3 rounded-md shadow">
-            <h3 class="font-bold">Stock</h3>
-            <p><%= product.stock %></p>
-          </div>
-          <div class="bg-white p-3 rounded-md shadow">
-            <h3 class="font-bold">Discount</h3>
-            <p><%= product.discount %> %</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Description à droite -->
-      <div class="w-full lg:w-1/2 space-y-4">
-        <h3 class="text-lg font-semibold">Description</h3>
-        <textarea placeholder="Écrire une description..." class="w-full h-60 p-3 rounded-md bg-slate-100"></textarea>
-      </div>
-
     </div>
+  </figure>
+
+  <div class="card-body">
+    <h2 class="card-title truncate"><%= product.name %></h2>
+    <p><%= product.category.capitalize %></p>
+    <p><%= product.store.user.first_name %> <%= product.store.user.last_name %></p>
+    <p><%= product.price %>€</p>
+      <div class="end flex justify-end">
+        <button class="btn btn-sm btn-[#370a00] text-[#370a00] flex justify-center"
+        data-action="click->cart#createOrder click->cart#showCart click->cart#addItem"
+        data-cart-url="<%= store_orders_path(product.store) %>"
+        data-product-id="<%= product.id %>">Panier</button>
+      </div>
   </div>
+</div>

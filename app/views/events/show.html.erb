@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  
+
 
   <div class="content">
     <div class="lists-container flex flex-col jutify-center px-40 pt-10" data-controller="toggle-list">
@@ -38,7 +38,7 @@
           <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="productsList">
 
             <% @event.event_products.each do |product| %>
-              <%= render "shared/product_card_small", product: product.product %>
+              <%= render "shared/product_card", product: product.product %>
 
             <% end %>
           </div>
