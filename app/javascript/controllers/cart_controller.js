@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="cart"
 export default class extends Controller {
+
   static targets = ["panel", "order", "content"]
 
   showCart = () => {
@@ -119,5 +120,4 @@ export default class extends Controller {
     this.contentTarget.innerHTML = data.cart_html
   })
   }
-
 }
