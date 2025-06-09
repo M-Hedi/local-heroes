@@ -22,7 +22,13 @@
   </div>
 
   <div>
-    <h1 class="text-2xl font-bold py-10 text-shadow-2xs"> Nos évènements </h1>
+    <div class="flex justify-between items-center">
+      <h1 class="text-2xl font-bold py-10 text-shadow-2xs"> Nos évènements </h1>
+      <% if @store.user == current_user %>
+        <%= link_to "Ajouter évènement", new_event_path, class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
+      <% end %>
+    </div>
+
       <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
           <% @store.events.each do |event| %>
             <%= render "shared/event_card", event: event %>
@@ -32,7 +38,14 @@
 
   <div>
     <div class="pb-8">
-      <h1 class="text-2xl font-bold py-10 text-shadow-2xs">Nos produits</h1>
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
+        <%# button add rajouter si le user commercant  %>
+        <% if @store.user == current_user %>
+          <%= link_to "Ajouter produit", new_store_product_path(@store), class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
+        <% end %>
+      </div>
+
       <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
             <% @store.products.each do |product| %>
               <%= render "shared/product_card_small", product: product %>
@@ -40,15 +53,27 @@
         </div>
     </div>
   </div>
-
-  <div class="fixed top-1/2 -translate-y-1/2 right-0 w-80 transform translate-x-full transition-transform duration-300 z-50" data-cart-target="panel" >
-    <button
-      data-action="click->cart#showCart"
-      class="absolute left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
-      &lt;
-    </button>
-    <div data-cart-target="content">
-      <%= render "shared/cart", order: @order%>
+  <% if @store.user == current_user %>
+    <div class="fixed top-1/2 -translate-y-1/2 right-0 w-80 transform translate-x-full transition-transform duration-300 z-50 hidden" data-cart-target="panel" >
+      <button
+        data-action="click->cart#showCart"
+        class="absolute left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
+        &lt;
+      </button>
+      <div data-cart-target="content">
+        <%= render "shared/cart", order: @order%>
+      </div>
     </div>
-  </div>
+    <% else %>
+      <div class="fixed top-1/2 -translate-y-1/2 right-0 w-80 transform translate-x-full transition-transform duration-300 z-50 " data-cart-target="panel" >
+        <button
+          data-action="click->cart#showCart"
+          class="absolute left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
+          &lt;
+        </button>
+        <div data-cart-target="content">
+          <%= render "shared/cart", order: @order%>
+        </div>
+      </div>
+  <% end %>
 </div>
