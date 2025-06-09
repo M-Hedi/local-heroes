@@ -10,6 +10,15 @@ class OrdersController < ApplicationController
     @orders_refused_count = @orders_refused.count
   end
 
+  def update
+    @order = Order.find(params[:id])
+    @order.update(status_customer: params[:status_customer])
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: { redirect_url: root_path } }
+    end
+  end
+
   def accepted
     @order = Order.find(params[:id])
     @order.update(status_store: "accepted")

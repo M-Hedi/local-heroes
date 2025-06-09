@@ -15,17 +15,6 @@ export default class extends Controller {
     this.panelTarget.classList.remove("translate-x-0")
   }
 
-  createOrder = (event) => {
-    fetch(event.currentTarget.dataset.cartUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
-        "Accept": "application/json",
-      }
-    })
-  }
-
   addItem = (event) => {
     const productId = event.currentTarget.dataset.productId
     const orderId = this.orderTarget.dataset.orderId

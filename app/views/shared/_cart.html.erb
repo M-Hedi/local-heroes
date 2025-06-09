@@ -33,9 +33,10 @@
       <strong>Total de la commande : <%= number_to_currency(total, unit: "") %> € </strong>
       <br>
     </div>
-    <div class="w-full flex justify-center gap-4 m-2">
-      <button class="btn btn-md md:btn-md">Envoyer</button>
-      <button class="btn btn-md md:btn-md">Annuler</button>
+    <div class="w-full flex justify-center gap-4 m-2" data-controller="alert">
+      <button class="btn btn-md md:btn-md"
+      data-action="click->alert#initSweetalert"
+      data-order-id="<%= order.id %>">Valider</button>
     </div>
   </div>
 </div>
