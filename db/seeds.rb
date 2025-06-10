@@ -342,8 +342,8 @@ nous prenons beaucoup de plaisir à faire les choses bien, dans le respect de l�
 de nos consommateurs et de l’environnement. Nous sommes récompensés par l’excellence
 de nos produits, la satisfaction et le soutien de nos clients qui réfléchissent à
 ce qu’ils mangent.",
-name: "Ferme du Beau Pays Lille",
-category: "boucherie",
+name: "Ferme du Beau Pays",
+category: "Boucherie",
 address: "Pl. Nouvelle Aventure, Lille",
 phone_number: "0320559025"
 )
@@ -358,7 +358,7 @@ découpée dans la pure tradition bouchère, pour garantir fraîcheur,
 qualité et goût incomparable. Que ce soit pour un rôti fondant,
 une côte de bœuf savoureuse ou des charcuteries maison,",
 name: "Boucherie ENNASR",
-category: "boucherie",
+category: "Boucherie",
 address: "34 Pl. Nouvelle Aventure, Lille",
 phone_number: "0320402079"
 )
@@ -373,7 +373,7 @@ François Evrard est un passionné du beau et bon produit.
 Diplômé de l'école de cuisine Ferrandi à Paris et après un passage dans divers
 établissements réputés de la capitale, c'est en 1988 qu'il décide de revenir dans le Nord.",
 name: "Maison Evrard",
-category: "boucherie",
+category: "Boucherie",
 address: "374 Rue Léon Gambetta, Lille",
 phone_number: "0328380700"
 )
@@ -386,8 +386,8 @@ user: kamel_bouchra,
 description: "Située au cœur d’une région riche en traditions agricoles, cette boucherie artisanale
 met à l’honneur des viandes issues d’élevages locaux, respectueux du bien-être animal
 et des cycles naturels.",
-name: "Eurl Boucherie Kamel Lille",
-category: "boucherie",
+name: "Boucherie Kamel",
+category: "Boucherie",
 address: "35 Rue du Marché, Lille",
 phone_number: "0320143955"
 )
@@ -402,7 +402,7 @@ c’est une invitation à redécouvrir les saveurs authentiques du terroir.
 C'est l’adresse incontournable pour les amateurs de bonne chère
 et de produits vrais.",
 name: "LA Ferme Du Nord",
-category: "boucherie",
+category: "Boucherie",
 address: "5 bis Rue Jules Guesde, Lille",
 phone_number: "0374684276"
 )
@@ -425,7 +425,7 @@ game_cash.save
 bon_chic = Store.create!(
   user: sophie_elso,
   description: "Bon Chic Bonne Fripe propose une sélection soignée de fripes (sportswear, vintage, luxe) pour hommes et femmes, ambiance conviviale et renouvellement régulier",
-  name: "Bon Chic Bonne Fripe",
+  name: "Bon Chic",
   category: "Friperie",
   phone_number: "03.88.28.53.15",
   address: "234 Rue Léon Gambetta, 59000 Lille"
@@ -438,7 +438,7 @@ fromagerie_coeur = Store.create!(
 		Du Mardi au Samedi: 8h à 20h
 		Dimanche: 8h à 15h
 		Halles de Wazemmes",
-  name: "La fromagerie Au coeur de Lille",
+  name: "Au coeur de Lille",
   category: "Fromagerie",
   phone_number: "03 20 40 01 21",
   address: "Pl. Nouvelle Aventure, Lille "
@@ -450,7 +450,7 @@ fromagerie_philippe = Store.create!(
   description: "Au cœur du quartier de Wazemmes, à deux pas des Halles
 		Du Mardi au Samedi: 9h-13h30 à 14h30-19h
 		Dimanche: 9h à 12h45",
-  name: "Fromagerie Philippe Olivier - Les Bons Pâturages",
+  name: "Fromagerie P.Olivier",
   category: "Fromagerie",
   phone_number: "03 21 31 94 74 ",
   address: "345, Rue Léon Gambetta, Lille"
@@ -461,7 +461,7 @@ souk_alep = Store.create!(
   user: fatima_aboudarham,
   description: "Le Souk d'Alep - épicerie orientale,
 		Du Lundi au Dimanche: 9h30-21h",
-  name: "Le Souk d'Alep - épicerie orientale",
+  name: "Souk d'Alep",
   category: "Épicerie",
   phone_number: "06 68 00 60 10",
   address: "61 rue d'Arcole, Lille"
@@ -477,7 +477,7 @@ epicerie_equitable = Store.create!(
 		jeudi : 8h30-14h30 et 16h30 à 20h00
 		vendredi et samedi : 8h30 à 20h00
 		dimanche : 8h30 à 15h00",
-  name: "L'épicerie équitable Lille Wazemmes",
+  name: "L'épicerie équitable",
   category: "Épicerie",
   phone_number: "03 20 51 21 46",
   address: "Pl. Nouvelle Aventure, Lille"
@@ -491,7 +491,7 @@ afrobeauty = Store.create!(
 		📍Lille: 281 Rue Léon Gambetta - 59000
 		📍Roubaix: 8-10 grande Rue - 59100
 		📍Amiens : 13 rue de Noyon - 80000",
-  name: "Afrobeauty.store",
+  name: "Afrobeauty",
   category: "Beauté",
   phone_number: " 03 20 19 64 51",
   address: "281 rue Leon gambetta, Lille"
@@ -500,7 +500,7 @@ afrobeauty = Store.create!(
 store1 = Store.create!(
   user: user1,
   description: "Au p’tit Louis est né en 2013 grâce à la complicité de deux anciens collègues partageant les mêmes valeurs : respect du produit, proximité avec le client et éco-responsabilité.",
-  name: "Boulangerie Au P'tit Louis",
+  name: "Au P'tit Louis",
   category: "Boulangerie",
   phone_number: "0320921962",
   address: "5 Pl. de la Solidarité, Lille"
@@ -525,7 +525,7 @@ store2.save
 store3 = Store.create!(
   user: user3,
   description: "La Boulangerie Sophie allie tradition et modernité pour offrir à ses clients des produits frais et savoureux chaque jour.",
-  name: "Boulangerie Sophie",
+  name: "Chez Sophie",
   category: "Boulangerie",
   phone_number: "0320456789",
   address: "22 rue de Flandre, Lille"
@@ -538,7 +538,7 @@ store3.save
 store4 = Store.create!(
   user: user4,
   description: "La Boulangerie Aziza, reconnue à Wazemmes pour ses produits frais et son savoir-faire traditionnel.",
-  name: "Boulangerie Aziza",
+  name: "L'Aziza",
   category: "Boulangerie",
   phone_number: "0320223344",
   address: "18 rue de Wazemmes, Lille"
@@ -550,7 +550,7 @@ store4.save
 store5 = Store.create!(
   user: user5,
   description: "La Boulangerie Legrand, depuis 2005, propose une large gamme de pains et pâtisseries faits maison, en alliant tradition et innovation.",
-  name: "Boulangerie Legrand",
+  name: "B.Legrand",
   category: "Boulangerie",
   phone_number: "0320554433",
   address: "14 rue des Arts, Lille"
@@ -563,7 +563,7 @@ store5.save
 eco_chic = Store.create!(
   user: lazhar_fardia,
   description: "Eco‑Chic est une friperie mixte sur Gambetta proposant des pièces vintage, sportwear et chic renouvelées chaque semaine dans une ambiance conviviale",
-  name: "Friperie Eco-chic",
+  name: "Eco-chic",
   category: "Friperie",
   phone_number: "03.88.28.53.15",
   address: "204 Rue Léon Gambetta, 59000 Lille"
@@ -572,7 +572,7 @@ eco_chic = Store.create!(
 forum_batiment = Store.create!(
   user: jean_naim,
   description: "Notre expertise s'étend de la plomberie sanitaire au chauffage, en passant par la serrurerie.",
-  name: "Au Forum du Bâtiment",
+  name: "Forum Bâtiment",
   category: "Quincaillerie",
   phone_number: "03.61.26.41.41",
   address:"238 rue Roger Salengro, 59260 Lille"
@@ -592,7 +592,7 @@ puts "Created #{Store.count} stores"
 # Cloudinary à installer pour les images seed
 
 pain_siegle_store_five = Product.create!(
-      name: "Pain de seigle",
+      name: "Pain de Seigle",
       price: 2.50,
       category: "Pain",
       discount: 0.10,
@@ -605,7 +605,7 @@ pain_siegle_store_five = Product.create!(
 
 
 pain_au_lait_store_five = Product.create!(
-      name: "Pain au lait",
+      name: "Pain au Lait",
       price: 1.20,
       category: "Viennoiserie",
       discount: 0.05,
@@ -617,7 +617,7 @@ pain_au_lait_store_five = Product.create!(
       )
 
 tartelette_citron_store_five = Product.create!(
- name: "Tartelette citron meringuée",
+ name: "Tarte Citron",
       price: 3.70,
       category: "Pâtisserie",
       discount: 0.15,
@@ -630,7 +630,7 @@ tartelette_citron_store_five = Product.create!(
 
 
 pain_aux_olives_store_five = Product.create!(
-      name: "Pain aux olives",
+      name: "Pain aux Olives",
       price: 2.80,
       category: "Pain",
       discount: 0.12,
@@ -642,7 +642,7 @@ pain_aux_olives_store_five = Product.create!(
 
 
 pain_siegle_store_four = Product.create!(
-      name: "Pain de seigle",
+      name: "Pain de Seigle",
       price: 2.50,
       category: "Pain",
       discount: 0.10,
@@ -654,7 +654,7 @@ pain_siegle_store_four = Product.create!(
 )
 
 pain_au_lait_store_four = Product.create!(
-   name: "Pain au lait",
+   name: "Pain au Lait",
       price: 1.20,
       category: "Viennoiserie",
       discount: 0.05,
@@ -666,7 +666,7 @@ pain_au_lait_store_four = Product.create!(
       )
 
 tartelette_citron_store_four = Product.create!(
-    name: "Tartelette citron meringuée",
+    name: "Tarte Citron",
       price: 3.70,
       category: "Pâtisserie",
       discount: 0.15,
@@ -678,7 +678,7 @@ tartelette_citron_store_four = Product.create!(
 )
 
 pain_aux_olives_store_four = Product.create!(
- name: "Pain aux olives",
+ name: "Pain aux Olives",
       price: 2.80,
       category: "Pain",
       discount: 0.12,
@@ -691,7 +691,7 @@ pain_aux_olives_store_four = Product.create!(
 
 
 pain_siegle_store_three = Product.create!(
-  name: "Pain de seigle",
+  name: "Pain de Seigle",
       price: 2.50,
       category: "Pain",
       discount: 0.10,
@@ -702,7 +702,7 @@ pain_siegle_store_three = Product.create!(
       store: store3
       )
 pain_au_lait_store_three = Product.create!(
-   name: "Pain au lait",
+   name: "Pain au Lait",
       price: 1.20,
       category: "Viennoiserie",
       discount: 0.05,
@@ -713,7 +713,7 @@ pain_au_lait_store_three = Product.create!(
       store: store3)
 
 tartelette_citron_store_three = Product.create!(
-   name: "Tartelette citron meringuée",
+   name: "Tarte Citron",
       price: 3.70,
       category: "Pâtisserie",
       discount: 0.15,
@@ -725,7 +725,7 @@ tartelette_citron_store_three = Product.create!(
 )
 
 pain_aux_olives_store_three = Product.create!(
-      name: "Pain aux olives",
+      name: "Pain aux Olives",
       price: 2.80,
       category: "Pain",
       discount: 0.12,
@@ -736,7 +736,7 @@ pain_aux_olives_store_three = Product.create!(
       store: store3)
 
 pain_siegle_store_two = Product.create!(
-name: "Pain de seigle",
+name: "Pain de Seigle",
       price: 2.50,
       category: "Pain",
       discount: 0.10,
@@ -747,7 +747,7 @@ name: "Pain de seigle",
       store: store2)
 
 pain_au_lait_store_two = Product.create!(
-name: "Pain au lait",
+name: "Pain au Lait",
       price: 1.20,
       category: "Viennoiserie",
       discount: 0.05,
@@ -759,7 +759,7 @@ name: "Pain au lait",
 )
 
 tartelette_citron_store_two = Product.create!(
-  name: "Tartelette citron meringuée",
+  name: "Tarte Citron",
       price: 3.70,
       category: "Pâtisserie",
       discount: 0.15,
@@ -771,7 +771,7 @@ tartelette_citron_store_two = Product.create!(
 )
 
 pain_aux_olives_store_two = Product.create!(
-  name: "Pain aux olives",
+  name: "Pain aux Olives",
       price: 2.80,
       category: "Pain",
       discount: 0.12,
@@ -784,7 +784,7 @@ pain_aux_olives_store_two = Product.create!(
 
 
 pain_siegle_store_one = Product.create!(
-   name: "Pain de seigle",
+      name: "Pain de Seigle",
       price: 2.50,
       category: "Pain",
       discount: 0.10,
@@ -797,7 +797,7 @@ pain_siegle_store_one = Product.create!(
 
 pain_au_lait_store_one = Product.create!(
 
-      name: "Pain de seigle",
+      name: "Pain de Seigle",
       price: 2.50,
       category: "Pain",
       discount: 0.10,
@@ -809,7 +809,7 @@ pain_au_lait_store_one = Product.create!(
 )
 
 tartelette_citron_meringue_store_one = Product.create!(
- name: "Tartelette citron meringuée",
+      name: "Tarte Citron",
       price: 3.70,
       category: "Pâtisserie",
       discount: 0.15,
@@ -821,7 +821,7 @@ tartelette_citron_meringue_store_one = Product.create!(
 )
 
 pain_aux_olives_store_one = Product.create!(
-  name: "Pain aux olives",
+  name: "Pain aux Olives",
       price: 2.80,
       category: "Pain",
       discount: 0.12,
@@ -833,9 +833,9 @@ pain_aux_olives_store_one = Product.create!(
 
 
 poulet_rotie = Product.create!(
-  name: "poulet rôti",
+  name: "Poulet Rôti",
   price: 7.50,
-  category: "boucherie",
+  category: "Boucherie",
   discount: 5.90,
   stock: rand(1..10),
   loyalty_price: 5,
@@ -845,9 +845,9 @@ poulet_rotie = Product.create!(
   store: ferme_du_nord
 )
 cordon_bleu = Product.create!(
-  name: "cordon bleu maison",
+  name: "Cordon Bleu",
   price: 3.20,
-  category: "boucherie",
+  category: "Boucherie",
   discount: 2.75,
   stock: rand(1..20),
   loyalty_price: 2,
@@ -858,9 +858,9 @@ cordon_bleu = Product.create!(
 )
 
 cote_de_boeuf = Product.create!(
-  name: "cote de boeuf",
+  name: "Cote de Boeuf",
   price: 19.90,
-  category: "boucherie",
+  category: "Boucherie",
   discount: 15.90,
   stock: rand(1..15),
   loyalty_price: 15,
@@ -870,9 +870,9 @@ cote_de_boeuf = Product.create!(
 )
 
 paupiette_de_veau = Product.create!(
-  name: "paupiette de veau",
+  name: "Paupiette de Veau",
   price: 12.90,
-  category: "boucherie",
+  category: "Boucherie",
   discount: 10.90,
   stock: rand(1..15),
   loyalty_price: 10,
@@ -882,9 +882,9 @@ paupiette_de_veau = Product.create!(
 )
 
 filet_de_dinde = Product.create!(
-  name: "filet de dinde",
+  name: "Filet de Dinde",
   price: 2.72,
-  category: "boucherie",
+  category: "Boucherie",
   discount: 1.75,
   stock: rand(1..25),
   loyalty_price: 1,
@@ -895,7 +895,7 @@ filet_de_dinde = Product.create!(
 
 
 Product.create!(
-  name: "Veste en denim oversize (seconde main)",
+  name: "Veste denim",
   price: 20,
   category: "Vêtements",
   stock: 4,
@@ -905,7 +905,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Pull col roulé laine (occasion)",
+  name: "Col Roulé",
   price: 12,
   category: "Vêtements",
   stock: 6,
@@ -915,7 +915,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Jean slim homme (seconde main)",
+  name: "Jean Slim",
   price: 15,
   discount: 10,
   category: "Vêtements",
@@ -926,7 +926,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Robe fleurie taille S (occasion)",
+  name: "Robe Fleurie",
   price: 18,
   category: "Vêtements",
   stock: 3,
@@ -936,7 +936,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Sac à main en cuir (seconde main)",
+  name: "Sac à Main",
   price: 69,
   discount: 50,
   category: "Accessoires",
@@ -947,7 +947,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Veste en jean Levi’s vintage",
+  name: "Veste en Jean",
   price: 49,
   category: "Vêtements",
   stock: 5,
@@ -957,7 +957,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Pull maille col roulé mixte",
+  name: "Col Roulé",
   price: 29,
   category: "Vêtements",
   stock: 8,
@@ -967,7 +967,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Pantalon chino Tommy Hilfiger",
+  name: "Pantalon Chino",
   price: 39,
   discount: 20,
   category: "Vêtements",
@@ -978,7 +978,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Chemisier soie imprimé floral",
+  name: "Chemisier Soie",
   price: 34,
   category: "Vêtements",
   stock: 6,
@@ -988,7 +988,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Manteau long en laine mélangée",
+  name: "Manteau Long",
   price: 69,
   discount: 50,
   category: "Vêtements",
@@ -1000,7 +1000,7 @@ Product.create!(
 
 
 Product.create!(
-  name: "Veste Adidas Originals vintage",
+  name: "Veste Adidas",
   price: 45,
   discount: 30,
   category: "Vêtements",
@@ -1011,7 +1011,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Sweat Fila en coton",
+  name: "Sweat Fila",
   price: 35,
   category: "Vêtements",
   stock: 1,
@@ -1021,7 +1021,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Chemise hawaïenne vintage",
+  name: "Chemise Hawaïenne",
   price: 28,
   category: "Vêtements",
   stock: 3,
@@ -1031,7 +1031,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: " Jean Levi’s 501 d’occasion",
+  name: " Jean Levi’s",
   price: 55,
   discount: 45,
   category: "Vêtements",
@@ -1042,7 +1042,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Casquette Champion vintage",
+  name: "Casquette",
   price: 18,
   category: "Accessoires",
   stock: 8,
@@ -1053,7 +1053,7 @@ Product.create!(
 
 
 Product.create!(
-  name: "Manette PlayStation 4 d’occasion",
+  name: "Manette PS4",
   price: 29.99,
   category: "Gaming",
   stock: 12,
@@ -1063,7 +1063,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Jeu Super Mario Odyssey (Switch)",
+  name: "Super Mario Odyssey",
   price: 49.99,
   category: "Gaming",
   discount: 35,
@@ -1074,7 +1074,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Casque audio Bluetooth reconditionné",
+  name: "Casque Audio",
   price: 24.99,
   category: "Multimédia",
   stock: 5,
@@ -1084,7 +1084,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Carte Pokémon booster neuf",
+  name: "Carte Pokémon",
   price: 4.99,
   category: "Jeux",
   stock: 50,
@@ -1094,7 +1094,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Console Nintendo 3DS XL (occasion)",
+  name: "3DS XL",
   price: 109.99,
   discount: 90,
   category: "Gaming",
@@ -1105,7 +1105,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Tournevis cruciforme ProGrip",
+  name: "Cruciforme",
   price: 8.60,
   category: "Outils",
   discount: 5,
@@ -1116,39 +1116,39 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Vis à bois 4x40mm (boîte de 100)",
+  name: "Vis à bois",
   price: 3.50,
   category: "Outils",
   stock: 60,
   status: "available",
-  description: "Vis en acier zingué pour bois tendres et durs, parfaites pour assemblages solides et durables.",
+  description: "Vis en acier 4x40mm (boîte de 100) zingué pour bois tendres et durs, parfaites pour assemblages solides et durables.",
   store: forum_batiment
 )
 
 Product.create!(
-  name: "Nom : Charnière en laiton 40mm (lot de 2)",
+  name: "Charnières",
   price: 1.80,
   category: "Outils",
   stock: 33,
   status: 'available',
-  description: "Charnières robustes en laiton, parfaites pour portes de meubles, coffrets ou petites boîtes en bois.",
+  description: "Charnières robustes en laiton 40mm (lot de 2), parfaites pour portes de meubles, coffrets ou petites boîtes en bois.",
   store: forum_batiment
 )
 
 Product.create!(
-  name: "Ruban adhésif isolant 10m",
+  name: "Ruban Adhésif",
   price: 2.20,
   category: "Électricité",
   discount: 2,
   stock: 37,
   loyalty_price: 1,
   status: 'unavailable',
-  description: "Ruban isolant noir résistant à la chaleur, idéal pour petits travaux et réparations électriques domestiques.",
+  description: "Ruban isolant 10m noir résistant à la chaleur, idéal pour petits travaux et réparations électriques domestiques.",
   store: forum_batiment
 )
 
 Product.create!(
-  name: "Marteau de menuisier",
+  name: "Marteau",
   price: 11.40,
   category: "Outils",
   stock: 18,
@@ -1158,7 +1158,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Saumon atlantique frais",
+  name: "Saumon",
   price: 24.90,
   category: "Poisson frais",
   discount: 22.41,
@@ -1170,7 +1170,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Crevettes roses cuites",
+  name: "Crevettes",
   price: 18.50,
   category: "Crustacés",
   discount: 16.65,
@@ -1182,7 +1182,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Filets de sole meunière",
+  name: "Sole Meunière",
   price: 32.80,
   category: "Poisson frais",
   discount: 29.52,
@@ -1194,7 +1194,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Huîtres spéciales n°3",
+  name: "Huîtres",
   price: 15.90,
   category: "Mollusques",
   discount: 14.31,
@@ -1206,7 +1206,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Thon rouge en tranches",
+  name: "Thon",
   price: 45.00,
   category: "Poisson frais",
   discount: 40.50,
@@ -1218,7 +1218,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Moules de bouchot",
+  name: "Moules",
   price: 3.80,
   category: "Mollusques",
   discount: 3.42,
@@ -1230,7 +1230,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Langoustines bretonnes",
+  name: "Langoustines",
   price: 28.90,
   category: "Crustacés",
   discount: 26.01,
@@ -1242,7 +1242,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Cabillaud de ligne",
+  name: "Cabillaud",
   price: 19.50,
   category: "Poisson frais",
   discount: 17.55,
@@ -1254,7 +1254,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Saint-Jacques avec corail",
+  name: "Saint-Jacques",
   price: 42.50,
   category: "Mollusques",
   discount: 38.25,
@@ -1266,7 +1266,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Sardines de Méditerranée",
+  name: "Sardines",
   price: 8.90,
   category: "Poisson frais",
   discount: 8.01,
@@ -1278,7 +1278,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Homard breton vivant",
+  name: "Homard",
   price: 65.00,
   category: "Crustacés",
   discount: 58.50,
@@ -1290,7 +1290,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Dorade royale portion",
+  name: "Dorade",
   price: 16.80,
   category: "Poisson frais",
   discount: 15.12,
@@ -1302,7 +1302,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Bulots cuits nature",
+  name: "Bulots",
   price: 12.40,
   category: "Mollusques",
   discount: 11.16,
@@ -1314,7 +1314,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Turbot sauvage tranche",
+  name: "Turbot",
   price: 38.90,
   category: "Poisson frais",
   discount: 35.01,
@@ -1326,7 +1326,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Plateau de fruits de mer",
+  name: "Plateau Fruits de Mer",
   price: 85.00,
   category: "Plateau composé",
   discount: 76.50,
@@ -1338,7 +1338,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Merlan entier vidé",
+  name: "Merlan",
   price: 11.20,
   category: "Poisson frais",
   discount: 10.08,
@@ -1350,7 +1350,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Tourteau cuit entier",
+  name: "Tourteau",
   price: 22.30,
   category: "Crustacés",
   discount: 20.07,
@@ -1362,7 +1362,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Rouget-barbet de roche",
+  name: "Rouget",
   price: 26.50,
   category: "Poisson frais",
   discount: 23.85,
@@ -1374,7 +1374,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Encornets frais nettoyés",
+  name: "Encornets",
   price: 14.70,
   category: "Céphalopodes",
   discount: 13.23,
@@ -1386,7 +1386,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Filets de maquereau",
+  name: "Maquereau",
   price: 9.80,
   category: "Poisson frais",
   discount: 8.82,
@@ -1398,7 +1398,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Palourdes grises",
+  name: "Palourdes",
   price: 13.60,
   category: "Mollusques",
   discount: 12.24,
@@ -1410,7 +1410,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Lotte en médaillons",
+  name: "Lotte",
   price: 29.90,
   category: "Poisson frais",
   discount: 26.91,
@@ -1422,7 +1422,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Étrilles vivantes",
+  name: "Étrilles",
   price: 8.50,
   category: "Crustacés",
   discount: 7.65,
@@ -1434,7 +1434,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Bar de ligne portion",
+  name: "Bar",
   price: 21.40,
   category: "Poisson frais",
   discount: 19.26,
@@ -1446,7 +1446,7 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Soupe de poisson artisanale",
+  name: "Soupe de Poissons",
   price: 7.90,
   category: "Préparation",
   discount: 7.11,
@@ -1460,7 +1460,7 @@ Product.create!(
 Product.create!(
   name: "Maroilles",
   price: 5.75,
-  category: "",
+  category: "Fromagerie",
   discount: 4.50, # A changer sur le modéle Product vers float
   stock: 10,
   loyalty_price: 4,
@@ -1472,7 +1472,7 @@ Product.create!(
 Product.create!(
   name:  "Curry Indien",
   price: 4.50,
-  category: "",
+  category: "Epicerie",
   discount: 3.99,
   stock: 30,
   loyalty_price: 3,
@@ -1482,9 +1482,9 @@ Product.create!(
 )
 
 Product.create!(
-  name: " Beurre de karité ",
+  name: " Beurre Karité ",
   price: 3.56,
-  category: "",
+  category: "Beauté",
   discount: 3,
   stock: 20,
   loyalty_price: 2,
@@ -1494,9 +1494,9 @@ Product.create!(
 )
 
 Product.create!(
-  name: "Sachet de graines de tournesol décortiquées",
+  name: "Graines de Tournesol",
   price: 4.10,
-  category: "",
+  category: "Epicerie",
   discount: 2.99,
   stock: 5,
   loyalty_price: 2,
@@ -1508,7 +1508,7 @@ Product.create!(
 Product.create!(
   name: "Tomme de Savoir",
   price: 5,
-  category: "",
+  category: "Fromagerie",
   discount: 3.15,
   stock: 15,
   loyalty_price: 3,
