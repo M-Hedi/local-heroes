@@ -1,10 +1,11 @@
 <div class="card bg-base-100 shadow-sm flex flex-col card-border border-[#ffead0] card-sm w-100 text-[#7c2808] p-3">
   <figure>
     <div class="relative inline-block">
-    <img
-      class="h-45"
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt=<%= store.name %> />
+    <% if store.photo.attached? %>
+    <%= image_tag store.photo, class: "h-45", alt: store.name %>
+    <% else %>
+    <img class="h-45" src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="<%= store.name %>" />
+    <% end %>
       <span class="absolute top-2 right-2 badge badge-success px-2 py-1">
         PROMO
       </span>
