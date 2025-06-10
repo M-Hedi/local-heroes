@@ -3,7 +3,7 @@ class Store < ApplicationRecord
   belongs_to :user
   has_many :products
   has_many :event_partners
-  has_many :events, through: :event_partners
+  has_many :events
   has_many :orders
 
   include PgSearch::Model

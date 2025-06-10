@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update]
+  before_action :set_store, only: %i[new show create edit update]
 
   def index
     @events = Event.all
@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -22,9 +23,10 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.store = Store.find(params[:store_id])
+    @event.store = @store
     if @event.save
-      redirect_to store_event_path(@event.store, @event), notice: "Événement créé avec succès."    else
+      redirect_to store_event_path(@event.store, @event), notice: "Événement créé avec succès."
+    else
       render :new, status: :unprocessable_entity
     end
   end
@@ -42,8 +44,8 @@ class EventsController < ApplicationController
 
   private
 
-  def set_event
-    @event = Event.find(params[:id])
+  def set_store
+    @store = Store.find(params[:store_id])
   end
 
   def event_params
