@@ -1,4 +1,10 @@
 
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+<%= console %>
 <div class="container mt-8 mx-auto" data-controller="cart">
 
   <div class="bg-white h-110 rounded-lg shadow-2xl">
@@ -11,13 +17,13 @@
         <p class="py-2 font-bold"> Qui sommes-nous ?</p>
         <p class="py-2"><%= @store.description %></p>
         <p class="py-2 font-bold"> Où sommes-nous ?</p>
-        <p class="py-2"> 2 avenue des saules, 59160 Lille</p>
+        <p class="py-2"><%= @store.address  %></p>
         <p class="py-2 font-bold"> Nous contacter ?</p>
         <p class="py-1"><%= @store.phone_number %></p></p>
         <p class="py-2"> catégorie : <%= @store.category %></p></p>
 
       </div>
-      <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
+
     </div>
   </div>
 

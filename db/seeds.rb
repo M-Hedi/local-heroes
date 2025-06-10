@@ -278,7 +278,7 @@ store_1 = Store.new(
   name: "Le Petit Mousse",
   category: "Poissonnerie",
   phone_number: "0320545506",
-  address:"396 Rue Léon Gambetta, 59000 Lille" #A jouter un addresse au modéle store
+  address:"396 Rue Léon Gambetta, Lille" #A jouter un addresse au modéle store
 )
 store_1.photo.attach(io: store_1_image, filename: "store_1_image.jgp", content_type: "image/jpeg")
 store_1.save
@@ -292,7 +292,7 @@ store_2 = Store.new(
   name: "Poissonnerie La Marée",
   category: "Poissonnerie",
   phone_number: "0320679832",
-  address: "78 Rue Jules Guesde, 59000 Lille" #A jouter un addresse au modéle store
+  address: "78 Rue Jules Guesde, Lille" #A jouter un addresse au modéle store
 )
 store_2.photo.attach(io: store_2_image, filename: "store_2_image.jgp", content_type: "image/jpeg")
 store_2.save
@@ -305,7 +305,7 @@ store_3 = Store.new(
   name: "La bonne pêche",
   category: "Poissonnerie",
   phone_number: "0602319656",
-  address: "25 Pl. Nouvelle Aventure, 59000 Lille" #A jouter un addresse au modéle store
+  address: "25 Pl. Nouvelle Aventure, Lille" #A jouter un addresse au modéle store
 )
 store_3.photo.attach(io: store_3_image, filename: "store_3_image.jgp", content_type: "image/jpeg")
 store_3.save
@@ -318,7 +318,7 @@ store_4 = Store.new(
   name: "Au Petit Poissonnier",
   category: "Poissonnerie",
   phone_number: "0320429750",
-  address: "25 Pl. Nouvelle Aventure, 59000 Lille" #A jouter un addresse au modéle store
+  address: "25 Pl. Nouvelle Aventure, Lille" #A jouter un addresse au modéle store
 )
 store_4.photo.attach(io: store_4_image, filename: "store_4_image.jgp", content_type: "image/jpeg")
 store_4.save
@@ -331,7 +331,7 @@ store_5 = Store.new(
   name: "The Shark Poissonnerie",
   category: "Poissonnerie",
   phone_number: "0644176887",
-  address: "325 Av. de Dunkerque, 59160 Lille" #A jouter un addresse au modéle store
+  address: "325 Av. de Dunkerque, Lille" #A jouter un addresse au modéle store
 )
 store_5.photo.attach(io: store_5_image, filename: "store_5_image.jgp", content_type: "image/jpeg")
 store_5.save
@@ -348,7 +348,7 @@ de nos produits, la satisfaction et le soutien de nos clients qui réfléchissen
 ce qu’ils mangent.",
 name: "Ferme du Beau Pays Lille",
 category: "boucherie",
-address: "Pl. Nouvelle Aventure, 59000 Lille",
+address: "Pl. Nouvelle Aventure, Lille",
 phone_number: "0320559025"
 )
 ferme_du_beau.photo.attach(io: ferme_du_beau_image, filename: "ferme_du_beau_image.jgp", content_type: "image/jpeg")
@@ -364,7 +364,7 @@ qualité et goût incomparable. Que ce soit pour un rôti fondant,
 une côte de bœuf savoureuse ou des charcuteries maison,",
 name: "Boucherie ENNASR",
 category: "boucherie",
-address: "34 Pl. Nouvelle Aventure, 59000 Lille",
+address: "34 Pl. Nouvelle Aventure, Lille",
 phone_number: "0320402079"
 )
 boucherie_ennasr.photo.attach(io: boucherie_ennasr_image, filename: "boucherie_ennasr_image.jgp", content_type: "image/jpeg")
@@ -380,7 +380,7 @@ Diplômé de l'école de cuisine Ferrandi à Paris et après un passage dans div
 établissements réputés de la capitale, c'est en 1988 qu'il décide de revenir dans le Nord.",
 name: "Maison Evrard",
 category: "boucherie",
-address: "374 Rue Léon Gambetta, 59000 Lille",
+address: "374 Rue Léon Gambetta, Lille",
 phone_number: "0328380700"
 )
 boucherie_ervrard.photo.attach(io: boucherie_ervrard_image, filename: "boucherie_evrard_image.jpg", content_type: "image/jpeg")
@@ -395,7 +395,7 @@ met à l’honneur des viandes issues d’élevages locaux, respectueux du bien-
 et des cycles naturels.",
 name: "Eurl Boucherie Kamel Lille",
 category: "boucherie",
-address: "35 Rue du Marché, 59000 Lille",
+address: "35 Rue du Marché, Lille",
 phone_number: "0320143955"
 )
 boucherie_kamel.photo.attach(io: boucherie_kamel_image, filename: "boucherie_kamel_image.jgp", content_type: "image/jpeg")
@@ -411,7 +411,7 @@ C'est l’adresse incontournable pour les amateurs de bonne chère
 et de produits vrais.",
 name: "LA Ferme Du Nord",
 category: "boucherie",
-address: "5 bis Rue Jules Guesde, 59000 Lille",
+address: "5 bis Rue Jules Guesde, Lille",
 phone_number: "0374684276"
 )
 ferme_du_nord.photo.attach(io: ferme_du_nord_image, filename: "ferme_du_nord_image.jgp", content_type: "image/jpeg")
@@ -427,7 +427,7 @@ game_cash = Store.new(
   name: "GameCash",
   category: "Jeux",
   phone_number: "03.62.28.53.07",
-  address: "271 Rue Léon Gambetta, 59000 Lille"
+  address: "271 Rue Léon Gambetta, Lille"
 )
 game_cash.photo.attach(io: game_cash_image, filename: "game_cash_image.jgp", content_type: "image/jpeg")
 game_cash.save
@@ -443,7 +443,7 @@ fromagerie_coeur = Store.new(
   name: "La fromagerie Au coeur de Lille",
   category: "Fromagerie",
   phone_number: "03 20 40 01 21",
-  address: "Pl. Nouvelle Aventure,  59000 Lille "
+  address: "Pl. Nouvelle Aventure, Lille "
 )
 fromagerie_coeur.photo.attach(io: fromagerie_coeur_image, filename: "fromagerie_coeur_image.jgp", content_type: "image/jpeg")
 fromagerie_coeur.save
@@ -458,7 +458,7 @@ fromagerie_philippe = Store.new(
   name: "Fromagerie Philippe Olivier - Les Bons Pâturages",
   category: "Fromagerie",
   phone_number: "03 21 31 94 74 ",
-  address: "345, Rue Léon Gambetta, 59000 Lille"
+  address: "345, Rue Léon Gambetta, Lille"
 )
 fromagerie_philippe.photo.attach(io: fromagerie_philippe_image, filename: "fromagerie_philippe_image.jgp", content_type: "image/jpeg")
 fromagerie_philippe.save
@@ -472,7 +472,7 @@ souk_alep = Store.new(
   name: "Le Souk d'Alep - épicerie orientale",
   category: "Épicerie",
   phone_number: "06 68 00 60 10",
-  address: "61 rue d'Arcole, 59000 Lille"
+  address: "61 rue d'Arcole, Lille"
 )
 souk_alep.photo.attach(io: souk_alep_image, filename: "fsouk_alep_image.jgp", content_type: "image/jpeg")
 souk_alep.save
@@ -491,7 +491,7 @@ epicerie_equitable = Store.new(
   name: "L'épicerie équitable Lille Wazemmes",
   category: "Épicerie",
   phone_number: "03 20 51 21 46",
-  address: "Pl. Nouvelle Aventure, 59000 Lille"
+  address: "Pl. Nouvelle Aventure, Lille"
 )
 epicerie_equitable.photo.attach(io: epicerie_equitable_image, filename: "epicerie_equitable_image.jgp", content_type: "image/jpeg")
 epicerie_equitable.save
@@ -508,7 +508,7 @@ afrobeauty = Store.new(
   name: "Afrobeauty.store",
   category: "Beauté",
   phone_number: " 03 20 19 64 51",
-  address: "281 rue Leon gambetta, Lille, France 59000"
+  address: "281 rue Leon gambetta, Lille"
 )
 afrobeauty.photo.attach(io: afrobeauty_image, filename: "afrobeauty_image.jgp", content_type: "image/jpeg")
 afrobeauty.save
@@ -521,7 +521,7 @@ store1 = Store.new(
   name: "Boulangerie Au P'tit Louis",
   category: "Boulangerie",
   phone_number: "0320921962",
-  address: "5 Pl. de la Solidarité, 59000 Lille"
+  address: "5 Pl. de la Solidarité, Lille"
 )
 store1.photo.attach(io: store1_image, filename: "store1_image.jgp", content_type: "image/jpeg")
 store1.save
@@ -534,7 +534,7 @@ store2 = Store.new(
   name: "Maison Dupont",
   category: "Boulangerie",
   phone_number: "0320223344",
-  address: "18 rue de Wazemmes, 59000 Lille"
+  address: "18 rue de Wazemmes, Lille"
 )
 store2.photo.attach(io: store2_image, filename: "store2_image.jgp", content_type: "image/jpeg")
 store2.save
@@ -547,7 +547,7 @@ store3 = Store.new(
   name: "Boulangerie Sophie",
   category: "Boulangerie",
   phone_number: "0320456789",
-  address: "22 rue de Flandre, 59000 Lille"
+  address: "22 rue de Flandre, Lille"
 )
 store3.photo.attach(io: store3_image, filename: "store3_image.png", content_type: "image/png")
 store3.save
@@ -560,7 +560,7 @@ store4 = Store.new(
   name: "Boulangerie Aziza",
   category: "Boulangerie",
   phone_number: "0320223344",
-  address: "18 rue de Wazemmes, 59000 Lille"
+  address: "18 rue de Wazemmes, Lille"
 )
 store4.photo.attach(io: store4_image, filename: "store4_image.jgp", content_type: "image/jpeg")
 store4.save
@@ -573,7 +573,7 @@ store5 = Store.create!(
   name: "Boulangerie Legrand",
   category: "Boulangerie",
   phone_number: "0320554433",
-  address: "14 rue des Arts, 59000 Lille"
+  address: "14 rue des Arts, Lille"
 )
 store5.photo.attach(io: store5_image, filename: "store5_image.png", content_type: "image/png")
 store5.save

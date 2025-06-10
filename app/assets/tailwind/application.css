@@ -8,6 +8,7 @@
 @plugin "./daisyui.js"{
   themes: caramellatte;
 }
-
 /* Optional for custom themes – Docs: https://daisyui.com/docs/themes/#how-to-add-a-new-custom-theme */
-@plugin "./daisyui-theme.js"
+@plugin "./daisyui-theme.js";
+
+@import url("https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css");
