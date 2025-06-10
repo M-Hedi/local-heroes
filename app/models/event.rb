@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   belongs_to :store
   has_many :event_partners
   has_many :event_products
+  has_many :users, through: :event_participants
   has_many :products, through: :event_products
   has_many :stores, through: :event_partners
 

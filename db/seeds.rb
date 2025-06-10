@@ -20,8 +20,6 @@ Product.destroy_all
 Event.destroy_all
 Store.destroy_all
 User.destroy_all
-
-
 puts "DB cleaned"
 # end
 
