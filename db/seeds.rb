@@ -395,7 +395,6 @@ file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/
 boucherie_kamel.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
 boucherie_kamel.save
 
-
 ferme_du_nord = Store.create!(
 user: julien_lefevre,
 description: "La Ferme du Nord est bien plus qu’une simple boucherie :
@@ -419,6 +418,9 @@ game_cash = Store.create!(
   phone_number: "03.62.28.53.07",
   address: "271 Rue Léon Gambetta, 59000 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547600/development/p815wvkcljh4g0010jpehgeyccax.jpg").open
+game_cash.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+game_cash.save
 
 bon_chic = Store.create!(
   user: sophie_elso,
@@ -503,6 +505,9 @@ store1 = Store.create!(
   phone_number: "0320921962",
   address: "5 Pl. de la Solidarité, 59000 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547607/development/uywbpuftc412za5o73l3m3eohgll.jpg").open
+store1.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store1.save
 
 
 store2 = Store.create!(
@@ -513,6 +518,9 @@ store2 = Store.create!(
   phone_number: "0320223344",
   address: "18 rue de Wazemmes, 59000 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547612/development/o41x72fu77t6kvj67s8mbqiiddps.png").open
+store2.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store2.save
 
 store3 = Store.create!(
   user: user3,
@@ -522,6 +530,9 @@ store3 = Store.create!(
   phone_number: "0320456789",
   address: "22 rue de Flandre, 59000 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547610/development/m6v2j1c3aro6qg0d2s19vnjg8ohk.png").open
+store3.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store3.save
 
 
 store4 = Store.create!(
@@ -532,6 +543,9 @@ store4 = Store.create!(
   phone_number: "0320223344",
   address: "18 rue de Wazemmes, 59000 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547611/development/d3imu06hdjb5cqae8b2tre55lwth.jpg").open
+store4.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store4.save
 
 store5 = Store.create!(
   user: user5,
@@ -541,6 +555,10 @@ store5 = Store.create!(
   phone_number: "0320554433",
   address: "14 rue des Arts, 59000 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547612/development/o41x72fu77t6kvj67s8mbqiiddps.png").open
+store5.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store5.save
+
 
 eco_chic = Store.create!(
   user: lazhar_fardia,
