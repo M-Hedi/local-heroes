@@ -29,7 +29,7 @@ puts "Creating users"
 
 puts "Created #{User.count} users"
 
-puts "Request to API"
+# puts "Request to API"
 
 # query = <<~OVERPASS
 # [out:json][timeout:25];
