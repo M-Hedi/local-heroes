@@ -1,20 +1,30 @@
-<div class="container">
-  <div class="card shadow-sm bg-[#fff7ed] hover:bg-[#F2EDDC] card-border border-[#ffead0] hover:border-[#7c2808] card-sm w-100 text-[#7c2808] p-3 truncate transition-colors">
-
+<div class="card card-side bg-[#FFFCF9] shadow-sm h-[200px] border-1 border-[#FFD9AC] truncate">
+  <div class="content flex flex-row">
     <figure class="p-2">
-      <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class:"rounded-[calc(var(--radius-box)-.3rem)]") %>
+      <%= image_tag("photo-test.jpg", class:"p-[8px] rounded-3xl w-70 ") %>
     </figure>
-    <div class="card-body gap-4">
-      <h2 class="text-2xl font-semibold"><%= event.title %></h2>
+    <div class="card-body">
+      <h2 class="card-title"><%= link_to event.title, event_path(event), event: event, class: "hover:text-green-800 ease-in-out duration-300" %></h2>
+      <p class="bg-[#FFD9AC] w-70 h-35 rounded-xl flex justify-center"><%= event.start_date.strftime('%B %d %Y') %> - <%= event.end_date.strftime('%B %d %Y') %></p>
       <p><%= event.description %></p>
-      <p class="font-semibold">Organisateur : <%= event.store.name %></p>
-        <h3 class="flex items-center justify-between">
-          <p class="font-semibold">Début : <%= event.start_date %></p>
-          <p class="font-semibold">Fin : <%= event.end_date %></p>
-          <%= link_to event_path(event) do %>
-            <p class="btn btn-sm btn-[#370a00] text-[#370a00] ">Voir plus</p>
-          <% end %>
-        </h3>
+      <h3 class="font-semibold">Magasins Participants:</h3>
+      <ul class="grid grid-cols-2 place-content-center">
+        <li><%= link_to event.store.name, store_path(event.store), class: "bg-[#FFD9AC] w-65 h-50 rounded-xl hover:text-green-800 ease-in-out duration-300" %></li>
+        <% event.event_partners.last(2).each do |partner| %>
+          <li><%= link_to partner.store.name, store_path(partner.store), class: "bg-[#FFD9AC] w-65 h-50 rounded-xl hover:text-green-800 ease-in-out duration-300" %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
+<%#
+  create_table "events", force: :cascade do |t|
+    t.text "description"
+    t.string "title"
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "store_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_events_on_store_id"
+  end %>

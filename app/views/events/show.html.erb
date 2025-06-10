@@ -1,7 +1,7 @@
 <div class="container mx-auto">
   <div class=" ">
     <div class="flex flex-row justify-around mx-5 items-center">
-      <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: " object-cover",  width: "50%", height:"50vh") %>
+      <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: " object-cover p-3",  width: "50%", height:"50%") %>
       <div class="mx-auto">
         <h1 class="text-5xl font-bold py-3"><%= @event.title %></h1>
         <p class="py-2 font-bold"><%= @event.store.name %></p>
@@ -39,7 +39,7 @@
           <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="productsList">
 
             <% @event.event_products.each do |product| %>
-              <%= render "shared/product_card_small", product: product.product %>
+              <%= render "shared/product_card_v2", product: product.product %>
 
             <% end %>
           </div>

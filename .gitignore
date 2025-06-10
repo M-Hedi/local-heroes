@@ -31,6 +31,10 @@
 
 /public/assets
 
+/app/assets/images/events/
+/app/assets/images/products/
+/app/assets/images/stores/
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 # Ignore .env file containing credentials.
@@ -42,3 +46,5 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+.env*
+.env*
