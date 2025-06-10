@@ -34,7 +34,9 @@
       <br>
     </div>
     <div class="w-full flex justify-center gap-4 m-2" data-controller="alert">
-      <button class="btn btn-md md:btn-md"
+      <button
+      <%= "disabled" if order.items.empty? %>
+      class="btn btn-md md:btn-md"
       data-action="click->alert#initSweetalert"
       data-order-id="<%= order.id %>">Valider</button>
     </div>
