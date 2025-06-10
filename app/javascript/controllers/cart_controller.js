@@ -3,7 +3,21 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="cart"
 export default class extends Controller {
 
-  static targets = ["panel", "order", "content"]
+  static targets = ["panel", "order", "content", "btn", "menu"]
+
+
+
+  transformCard = (event) => {
+    const quantityField = document.querySelector("#quantity")
+    const quantity = event.currentTarget.dataset.quantity
+    const productId = event.currentTarget.dataset.productId
+    const orderId = event.currentTarget.dataset.orderId
+    const btn = document.querySelector(`#btn-${productId}`)
+    const menu = document.querySelector(`#menu-${productId}`)
+    btn.classList.add("hidden")
+    menu.classList.remove("hidden")
+    quantityField.innerText = quantity
+  }
 
   showCart = () => {
     this.panelTarget.classList.remove("translate-x-full")
