@@ -1,19 +1,21 @@
-<div class="card card-side bg-[#FFFCF9] shadow-sm h-[200px] border-1 border-[#FFD9AC] truncate">
-  <div class="content flex flex-row">
-  <figure class="p-2">
-    <%= image_tag("photo-test.jpg", class:"p-[8px] rounded-3xl w-70 ") %>
+<div class="flex border border-[#FFD9AC] bg-white w-xl rounded-3xl ">
+  <figure class="grow p-[16px]">
+        <%= image_tag("photo-test.jpg", class:" rounded-3xl w-[300px] h-[200px]") %>
   </figure>
-  <div class="card-body">
-    <h2 class="card-title"><%= link_to event.title, event_path(event), event: event, class: "hover:text-blue-800 ease-in-out duration-300" %></h2>
-    <p class="bg-[#FFD9AC] w-35 h-18 rounded-xl flex justify-center"><%= event.start_date.strftime("%d") %> - <%= event.end_date.strftime("%d - %m-%Y") %></p>
-    <p><%= event.description %></p>
+  <div class="truncate overflow-hidden py-6 pr-6 w-[30rem]">
+    <h2 class="card-title text-wrap"><%= link_to event.title, event_path(event), event: event %></h2>
+    <p class="bg-[#FFD9AC] w-35 rounded-xl flex justify-center"><%= event.start_date.strftime("%d") %> - <%= event.end_date.strftime("%d - %m-%Y") %></p>
+
+    <p class="truncate"><%= event.description %></p>
+
     <h3 class="font-semibold">Magasins Participants:</h3>
-    <ul class=" grid grid-cols-2 place-content-center">
-      <li><%= link_to event.store.name, store_path(event.store), class: "bg-[#FFD9AC] w-65 h-50 rounded-xl hover:text-blue-800 ease-in-out duration-300" %></li>
+    <div>
+      <ul class="flex flex-wrap gap-4">
+      <li><%= link_to event.store.name, store_path(event.store)%></li>
       <% event.event_partners.last(2).each do |partner| %>
-        <li><%= link_to partner.store.name, store_path(partner.store), class: "hover:text-blue-800 ease-in-out duration-300" %></li>
+        <li><%= link_to partner.store.name, store_path(partner.store)%></li>
       <% end %>
     </ul>
     </div>
   </div>
-</div>
+</div>   
