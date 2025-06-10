@@ -378,7 +378,7 @@ description: "Issu d'une famille de bouchers depuis deux générations,
 François Evrard est un passionné du beau et bon produit.
 Diplômé de l'école de cuisine Ferrandi à Paris et après un passage dans divers
 établissements réputés de la capitale, c'est en 1988 qu'il décide de revenir dans le Nord.",
-name: "François Evrard - Viandes de Collection (Maison Evrard)",
+name: "Maison Evrard",
 category: "boucherie",
 address: "374 Rue Léon Gambetta, 59000 Lille",
 phone_number: "0328380700"
