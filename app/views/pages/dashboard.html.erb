@@ -39,3 +39,8 @@
 
 </div>
 <div class="card bg-base-300 rounded-box grid h-10 place-items-center bm-2"><strong>Evénements</strong></div>
+<div class="grid grid-cols-2 gap-8 m-10 p-9">
+  <% @my_events.each do |event| %>
+    <%= render "shared/event_card", event: event %>
+  <% end %>
+</div>
