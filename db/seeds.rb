@@ -278,7 +278,7 @@ store_1 = Store.create!(
   name: "Le Petit Mousse",
   category: "Poissonnerie",
   phone_number: "0320545506",
-  address:"396 Rue Léon Gambetta, 59000 Lille" #A jouter un addresse au modéle store
+  address:"396 Rue Léon Gambetta, Lille" #A jouter un addresse au modéle store
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543995/store_1_wa59hr.jpg").open
 store_1.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -290,7 +290,7 @@ store_2 = Store.create!(
   name: "Poissonnerie La Marée",
   category: "Poissonnerie",
   phone_number: "0320679832",
-  address: "78 Rue Jules Guesde, 59000 Lille" #A jouter un addresse au modéle store
+  address: "78 Rue Jules Guesde, Lille" #A jouter un addresse au modéle store
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543995/store_2_lhexxj.jpg").open
 store_2.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -302,7 +302,7 @@ store_3 = Store.create!(
   name: "La bonne pêche",
   category: "Poissonnerie",
   phone_number: "0602319656",
-  address: "25 Pl. Nouvelle Aventure, 59000 Lille" #A jouter un addresse au modéle store
+  address: "25 Pl. Nouvelle Aventure, Lille" #A jouter un addresse au modéle store
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543996/store_3_iwzkij.jpg").open
 store_3.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -315,7 +315,7 @@ store_4 = Store.create!(
   name: "Au Petit Poissonnier",
   category: "Poissonnerie",
   phone_number: "0320429750",
-  address: "25 Pl. Nouvelle Aventure, 59000 Lille" #A jouter un addresse au modéle store
+  address: "25 Pl. Nouvelle Aventure, Lille" #A jouter un addresse au modéle store
 )
 
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543996/store_4_prirm4.jpg").open
@@ -328,7 +328,7 @@ store_5 = Store.create!(
   name: "The Shark Poissonnerie",
   category: "Poissonnerie",
   phone_number: "0644176887",
-  address: "325 Av. de Dunkerque, 59160 Lille" #A jouter un addresse au modéle store
+  address: "325 Av. de Dunkerque, Lille" #A jouter un addresse au modéle store
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543997/store_5_ltcae2.jpg").open
 store_5.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -344,7 +344,7 @@ de nos produits, la satisfaction et le soutien de nos clients qui réfléchissen
 ce qu’ils mangent.",
 name: "Ferme du Beau Pays Lille",
 category: "boucherie",
-address: "Pl. Nouvelle Aventure, 59000 Lille",
+address: "Pl. Nouvelle Aventure, Lille",
 phone_number: "0320559025"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie3_ftpxfb.jpg").open
@@ -359,7 +359,7 @@ qualité et goût incomparable. Que ce soit pour un rôti fondant,
 une côte de bœuf savoureuse ou des charcuteries maison,",
 name: "Boucherie ENNASR",
 category: "boucherie",
-address: "34 Pl. Nouvelle Aventure, 59000 Lille",
+address: "34 Pl. Nouvelle Aventure, Lille",
 phone_number: "0320402079"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie4_admlzs.jpg").open
@@ -374,7 +374,7 @@ Diplômé de l'école de cuisine Ferrandi à Paris et après un passage dans div
 établissements réputés de la capitale, c'est en 1988 qu'il décide de revenir dans le Nord.",
 name: "Maison Evrard",
 category: "boucherie",
-address: "374 Rue Léon Gambetta, 59000 Lille",
+address: "374 Rue Léon Gambetta, Lille",
 phone_number: "0328380700"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie2_b9ajwg.jpg").open
@@ -388,13 +388,12 @@ met à l’honneur des viandes issues d’élevages locaux, respectueux du bien-
 et des cycles naturels.",
 name: "Eurl Boucherie Kamel Lille",
 category: "boucherie",
-address: "35 Rue du Marché, 59000 Lille",
+address: "35 Rue du Marché, Lille",
 phone_number: "0320143955"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie5_inn2iq.jpg").open
 boucherie_kamel.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
 boucherie_kamel.save
-
 
 ferme_du_nord = Store.create!(
 user: julien_lefevre,
@@ -404,7 +403,7 @@ C'est l’adresse incontournable pour les amateurs de bonne chère
 et de produits vrais.",
 name: "LA Ferme Du Nord",
 category: "boucherie",
-address: "5 bis Rue Jules Guesde, 59000 Lille",
+address: "5 bis Rue Jules Guesde, Lille",
 phone_number: "0374684276"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie3_ftpxfb.jpg").open
@@ -417,8 +416,11 @@ game_cash = Store.create!(
   name: "GameCash",
   category: "Jeux",
   phone_number: "03.62.28.53.07",
-  address: "271 Rue Léon Gambetta, 59000 Lille"
+  address: "271 Rue Léon Gambetta, Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547600/development/p815wvkcljh4g0010jpehgeyccax.jpg").open
+game_cash.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+game_cash.save
 
 bon_chic = Store.create!(
   user: sophie_elso,
@@ -439,7 +441,7 @@ fromagerie_coeur = Store.create!(
   name: "La fromagerie Au coeur de Lille",
   category: "Fromagerie",
   phone_number: "03 20 40 01 21",
-  address: "Pl. Nouvelle Aventure,  59000 Lille "
+  address: "Pl. Nouvelle Aventure, Lille "
 )
 
 
@@ -451,7 +453,7 @@ fromagerie_philippe = Store.create!(
   name: "Fromagerie Philippe Olivier - Les Bons Pâturages",
   category: "Fromagerie",
   phone_number: "03 21 31 94 74 ",
-  address: "345, Rue Léon Gambetta, 59000 Lille"
+  address: "345, Rue Léon Gambetta, Lille"
 )
 
 
@@ -462,7 +464,7 @@ souk_alep = Store.create!(
   name: "Le Souk d'Alep - épicerie orientale",
   category: "Épicerie",
   phone_number: "06 68 00 60 10",
-  address: "61 rue d'Arcole, 59000 Lille"
+  address: "61 rue d'Arcole, Lille"
 )
 
 
@@ -478,7 +480,7 @@ epicerie_equitable = Store.create!(
   name: "L'épicerie équitable Lille Wazemmes",
   category: "Épicerie",
   phone_number: "03 20 51 21 46",
-  address: "Pl. Nouvelle Aventure, 59000 Lille"
+  address: "Pl. Nouvelle Aventure, Lille"
 )
 
 
@@ -492,7 +494,7 @@ afrobeauty = Store.create!(
   name: "Afrobeauty.store",
   category: "Beauté",
   phone_number: " 03 20 19 64 51",
-  address: "281 rue Leon gambetta, Lille, France 59000"
+  address: "281 rue Leon gambetta, Lille"
 )
 
 store1 = Store.create!(
@@ -501,8 +503,11 @@ store1 = Store.create!(
   name: "Boulangerie Au P'tit Louis",
   category: "Boulangerie",
   phone_number: "0320921962",
-  address: "5 Pl. de la Solidarité, 59000 Lille"
+  address: "5 Pl. de la Solidarité, Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547607/development/uywbpuftc412za5o73l3m3eohgll.jpg").open
+store1.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store1.save
 
 
 store2 = Store.create!(
@@ -511,8 +516,11 @@ store2 = Store.create!(
   name: "Maison Dupont",
   category: "Boulangerie",
   phone_number: "0320223344",
-  address: "18 rue de Wazemmes, 59000 Lille"
+  address: "18 rue de Wazemmes, Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547612/development/o41x72fu77t6kvj67s8mbqiiddps.png").open
+store2.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store2.save
 
 store3 = Store.create!(
   user: user3,
@@ -520,8 +528,11 @@ store3 = Store.create!(
   name: "Boulangerie Sophie",
   category: "Boulangerie",
   phone_number: "0320456789",
-  address: "22 rue de Flandre, 59000 Lille"
+  address: "22 rue de Flandre, Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547610/development/m6v2j1c3aro6qg0d2s19vnjg8ohk.png").open
+store3.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store3.save
 
 
 store4 = Store.create!(
@@ -530,8 +541,11 @@ store4 = Store.create!(
   name: "Boulangerie Aziza",
   category: "Boulangerie",
   phone_number: "0320223344",
-  address: "18 rue de Wazemmes, 59000 Lille"
+  address: "18 rue de Wazemmes, Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547611/development/d3imu06hdjb5cqae8b2tre55lwth.jpg").open
+store4.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store4.save
 
 store5 = Store.create!(
   user: user5,
@@ -539,8 +553,12 @@ store5 = Store.create!(
   name: "Boulangerie Legrand",
   category: "Boulangerie",
   phone_number: "0320554433",
-  address: "14 rue des Arts, 59000 Lille"
+  address: "14 rue des Arts, Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547612/development/o41x72fu77t6kvj67s8mbqiiddps.png").open
+store5.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+store5.save
+
 
 eco_chic = Store.create!(
   user: lazhar_fardia,

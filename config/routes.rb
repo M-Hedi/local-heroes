@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :event_participants, only: [:create, :destroy]
-  resources :events
   resources :stores do
+    resources :events
     resources :orders, only: [:create]
     resources :products, only: [:new, :create, :show, :edit, :update]
   end
