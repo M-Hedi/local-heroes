@@ -22,7 +22,7 @@
   <hr>
 </div>
 
-<div class="grid grid-cols-2 gap-8 m-10 p-9">
+<div class="flex flex-wrap justify-between gap-4 m-10 p-9">
   <% Event.last(6).each do |event| %>
     <%= render "shared/event_card", event: event %>
   <% end %>
