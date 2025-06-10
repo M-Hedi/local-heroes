@@ -35,3 +35,10 @@
     <%= render "shared/store_card_event_show", store: store %>
   <% end %>
 </div>
+<div class="flex justify-center">
+  <div style="width: 80%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>

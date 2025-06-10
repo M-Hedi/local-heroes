@@ -2,6 +2,14 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    @stores = Store.all
+    @markers = @stores.geocoded.map do |store|
+      {
+        lat:store.latitude,
+        lng:store.longitude
+      }
+    end
+
   end
 
   def dashboard

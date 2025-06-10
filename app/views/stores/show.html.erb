@@ -1,58 +1,65 @@
+<div class="container mt-8 mx-auto " data-controller="cart">
+  <div class="bg-[#FFFCF9] h-120 rounded-lg shadow-2xl mb-10 opacity-80">
+    <div class="flex justify-center">
+      <h1 class="text-5xl font-bold py-6"><%= @store.name %></h1>
+    </div>
+    <div class="flex flex-row">
+      <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
+      <div class="mx-auto text-xl flex flex-col justify-center w-[50%]">
+        <p class="py-2 font-bold"> Qui sommes-nous ?</p>
+        <p class="py-2 text-pretty"><%= @store.description %></p>
+        <p class="py-2 font-bold"> Où sommes-nous ?</p>
+        <p class="py-2"><i class="fa-solid fa-map-pin"></i> <%= @store.address %></p>
+        <p class="py-2 font-bold"> Nous contacter ?</p>
+        <p class="py-1"><i class="fa-solid fa-phone"></i> <%= @store.phone_number %></p>
+      </div>
+      <div class="flex justify-end content-end items-end">
+        <p class="mr-7 py-3 bg-[#FFD9AC] w-45 h-15 rounded-xl text-center font-bold text-xl"><%= @store.category %> <i class="fa-solid fa-cow"></i></p>
+      </div>
+    </div>
+  </div>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-<%= console %>
-<div class="container mt-8 mx-auto" data-controller="cart">
 
-  <div class="bg-white h-110 rounded-lg shadow-2xl">
-    <div class="flex justify-center">
-      <h1 class="text-3xl font-bold py-3"><%= @store.name %></h1>
-    </div>
-    <div class="flex justify-center">
-      <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
-      <div class="mx-auto">
-        <p class="py-2 font-bold"> Qui sommes-nous ?</p>
-        <p class="py-2"><%= @store.description %></p>
-        <p class="py-2 font-bold"> Où sommes-nous ?</p>
-        <p class="py-2"><%= @store.address  %></p>
-        <p class="py-2 font-bold"> Nous contacter ?</p>
-        <p class="py-1"><%= @store.phone_number %></p></p>
-        <p class="py-2"> catégorie : <%= @store.category %></p></p>
-
-      </div>
-
-    </div>
-  </div>
 
   <div>
-    <div class="flex justify-between items-center">
-      <h1 class="text-2xl font-bold py-10 text-shadow-2xs"> Nos évènements </h1>
-      <% if @store.user == current_user %>
-        <%= link_to "Ajouter évènement", new_event_path, class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
-      <% end %>
-    </div>
-
-      <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
-          <% @store.events.each do |event| %>
-            <%= render "shared/event_card", event: event %>
+  <br>
+    <div class="">
+      <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold"> Nos évènements </h2>
+          <% if @store.user == current_user %>
+            <%= link_to "Ajouter évènement", new_event_path, class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
           <% end %>
+    </div>
+
+    <br>
+    <div class="overflow-hidden rounded-xl">
+      <div class="snap-x flex space-x-4 py-4 overflow-x-scroll">
+        <% @store.events.each do |event| %>
+          <div class="snap-center w-[80%]">
+            <%= render "shared/event_card", event: event %>
+          </div>
+        <% end %>
       </div>
+    </div>
   </div>
 
   <div>
+  <br>
     <div class="pb-8">
-      <div class="flex justify-between items-center">
-        <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
+      <div class="flex justify-center">
+        <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold">Nos produits</h2>
         <%# button add rajouter si le user commercant  %>
         <% if @store.user == current_user %>
           <%= link_to "Ajouter produit", new_store_product_path(@store), class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
         <% end %>
       </div>
 
-      <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
+      <br>
+      <div class="grid grid-cols-3 gap-4">
             <% @store.products.each do |product| %>
               <%= render "shared/product_card", product: product %>
             <% end %>
