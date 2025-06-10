@@ -31,13 +31,14 @@
         </button>
       <% end %>
     </div>
-
-      <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
-          <% @store.events.each do |event| %>
-            <%= render "shared/event_card", event: event %>
-          <% end %>
-      </div>
   </div>
+
+   <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
+            <% @store.events.each do |event| %>
+              <%= render "shared/event_card", event: event%>
+            <% end %>
+        </div>
+    </div>
 
   <div>
     <div class="pb-8">
@@ -107,3 +108,4 @@
   </div>
 </dialog>
 </div>
+<%= console %>
