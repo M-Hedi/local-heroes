@@ -1,29 +1,32 @@
-<div class="card bg-[#fff7ed] shadow-sm flex flex-col card-border border-[#ffead0] card-sm w-70 text-[#7c2808] p-3">
+<div class="card bg-white shadow-sm flex flex-col card-border border-[#FFD9AC] card-sm w-70 text-[#7c2808] p-3">
   <figure>
     <div class="relative inline-block">
         <%# <%= image_tag("shoes_1.jpg", size: "100x50", alt: "Edit Entry")%>
           <%# <%=image_tag("shoes_1.jpg", height: '100', width: '32')%>
-          <%= image_tag("shoes_1.jpg",style: "max-width: 350px;", alt: "Edit Entry", class: "rounded-[10px] shadow-md") %>
+          <%= image_tag("boucherie1.jpg", alt: "photo de viande", class: "rounded-2xl p-[8px]") %>
           <%# <img src="images/shoes_1.jpg" alt="Image produit" class="rounded-md w-full max-w-xs"> %>
     </div>
   </figure>
 
   <div class="card-body">
-    <h2 class="card-title truncate"><%= product.name %></h2>
-    <p><%= product.category.capitalize %></p>
-    <p><%= product.store.user.first_name %> <%= product.store.user.last_name %></p>
-    <p><%= product.price %>€</p>
-    <%# button add rajouter si le user commercant  %>
+    <h2 class="card-title truncate text-xl"><%= product.name %></h2>
+    <p class="bg-[#FFD9AC] w-20 h-5 rounded-xl flex justify-center"><%= product.category.capitalize %></p>
+    <p class="text-sm"><%= product.description %></p>
+    <p class="text-sm"><%= product.price %>€</p>
+
+      <div class="end flex justify-end">
+        <%# button add rajouter si le user commercant  %>
       <div class="end flex justify-end space-x-30">
         <% if product.store.user == current_user %>
-          <%= link_to "Edit", edit_store_product_path(product.store, product), class: "btn btn-sm bg-orange-300 text-orange-900 hover:bg-orange-500 mx-45" %>
-          <button class="btn btn-sm btn-[#370a00] text-[#370a00] flex justify-center hidden"
+          <%= link_to "Edit", edit_store_product_path(product.store, product), class: "btn btn-sm bg-[#FFBA69] text-[#7C2807]" %>
+          <button class="btn btn-sm bg-[#FFBA69] text-[#7C2807] flex justify-center hidden"
           data-action="click->cart#createOrder click->cart#showCart click->cart#addItem"
           data-cart-url="<%= store_orders_path(product.store) %>"
           data-product-id="<%= product.id %>">Panier</button>
       </div>
         <% else %>
-          <button class="btn btn-sm btn-[#370a00] text-[#370a00] flex justify-center"
+          <%# JONAS - rajoute ton code stimulus ici %>
+          <button class="btn btn-sm bg-[#FF9E2C] text-[#7C2807] flex justify-center hover:bg-orange-500"
             data-action="click->cart#createOrder click->cart#showCart click->cart#addItem"
             data-cart-url="<%= store_orders_path(product.store) %>"
             data-product-id="<%= product.id %>">Panier</button>

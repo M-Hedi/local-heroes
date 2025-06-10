@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :event_participants, only: [:create, :destroy]
   resources :events
   resources :stores do
     resources :orders, only: [:create]
