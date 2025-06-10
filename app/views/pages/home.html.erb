@@ -15,18 +15,22 @@
 </div>
 
 <div>
-  <h2 class="text-center bg-[#fff7ed] rounded-full m-auto size-fit p-3 text-3xl font-bold border-3">Evénements en cours!</h2>
+  <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold">Evénements en cours!</h2>
+  <br>
+  <hr>
 </div>
 
-<div class="grid grid-cols-2 gap-8 bg-white border-3 rounded-xl m-10 p-9">
+<div class="grid grid-cols-2 gap-8 m-10 p-9">
   <% Event.last(6).each do |event| %>
     <%= render "shared/event_card", event: event %>
   <% end %>
 </div>
 
-<h2 class="text-center bg-[#fff7ed] rounded-full m-auto size-fit p-3 text-3xl font-bold border-3">Vos magasins favoris</h2>
+<h2 class="text-center rounded-full m-auto size-fit p-3 text-3xl font-bold">Vos magasins favoris</h2>
+<br>
+<hr>
 
-<div class="grid grid-cols-5 gap-8 bg-white border-3 shadow-lg rounded-xl m-10 p-9">
+<div class="grid grid-cols-5 gap-8 m-10 p-9">
   <% Store.last(10).each do |store| %>
     <%= render "shared/store_card_event_show", store: store %>
   <% end %>
