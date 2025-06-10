@@ -1,5 +1,5 @@
-<div class="container mx-auto">
-  <div class=" ">
+<div class="container mx-auto" data-controller="favorite">
+  <div>
     <div class="flex flex-row justify-around mx-5 items-center">
       <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: " object-cover p-3",  width: "50%", height:"50%") %>
       <div class="mx-auto">
@@ -12,6 +12,7 @@
         <p class="py-1"><%= @event.store.phone_number %></p>
         <p>france-admissions@lewagon.org.</p>
       </div>
+
     </div>
   </div>
 

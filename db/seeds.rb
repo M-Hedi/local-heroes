@@ -30,7 +30,6 @@ puts "DB cleaned"
 puts "Creating users"
 
 
-
 # query = <<~OVERPASS
 # [out:json][timeout:25];
 # area["name"="Lille"]["admin_level"="8"]->.searchArea;
