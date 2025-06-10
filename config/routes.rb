@@ -18,10 +18,12 @@ Rails.application.routes.draw do
 
   resources :event_participants, only: [:create, :destroy]
   resources :stores do
-    resources :events
+    resources :events, only: [:new, :create]
     resources :orders, only: [:create]
     resources :products, only: [:new, :create, :show, :edit, :update]
   end
 
-   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
+  resources :events, except: [:new, :create]
+
+  get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
 end
