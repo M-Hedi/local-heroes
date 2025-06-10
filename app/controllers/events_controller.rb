@@ -22,7 +22,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
+    @event.store = Store.find(params[:store_id])
+    if @event.save
+      redirect_to store_event_path(@event.store, @event), notice: "Événement créé avec succès."    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -30,7 +34,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path(@event)
+      redirect_to store_path(@store)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +47,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :start_date, :end_date, :store_id)
+    params.require(:event).permit(:title, :description, :start_date, :end_date, :store_id, :photo)
   end
 
 

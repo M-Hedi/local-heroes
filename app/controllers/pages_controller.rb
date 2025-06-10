@@ -9,7 +9,6 @@ class PagesController < ApplicationController
         lng:store.longitude
       }
     end
-
   end
 
   def dashboard
@@ -21,6 +20,7 @@ class PagesController < ApplicationController
     @orders_accepted_count = @orders_accepted.count
     @orders_refused_count = @orders_refused.count
     @confirmation_rate = @orders_accepted_count.to_f / (@orders_accepted_count + @orders_pending_count) * 100
+    @my_events = Event.where(store_id: current_user.stores.ids)
 
   end
 

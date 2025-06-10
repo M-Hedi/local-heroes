@@ -24,16 +24,24 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-
-  <div>
+<div>
   <br>
     <div class="">
       <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold"> Nos évènements </h2>
           <% if @store.user == current_user %>
             <%= link_to "Ajouter évènement", new_event_path, class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
           <% end %>
-    </div>
+  <%# button add évenement rajouter si le user commercant  %> <%# Modal evenement %>
+      <div>
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold py-10 text-shadow-2xs"> Nos évènements </h1>
+          <% if @store.user == current_user %>
+            <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
+            onclick="document.getElementById('event_modal').showModal()">
+            Ajouter évènement
+            </button>
+          <% end %>
+        </div>
 
     <br>
     <div class="overflow-hidden rounded-xl">
@@ -50,11 +58,14 @@
   <div>
   <br>
     <div class="pb-8">
-      <div class="flex justify-center">
-        <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold">Nos produits</h2>
-        <%# button add rajouter si le user commercant  %>
+      <div class="flex justify-center items-center">
+        <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
+        <%# button add produit rajouter si le user commercant  %> <%# Modal produit %>
         <% if @store.user == current_user %>
-          <%= link_to "Ajouter produit", new_store_product_path(@store), class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
+          <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
+          onclick="document.getElementById('product_modal').showModal()">
+          Ajouter produit
+        </button>
         <% end %>
       </div>
 
@@ -89,4 +100,28 @@
         </div>
       </div>
   <% end %>
+<%# Modal produit %>
+  <dialog id="product_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg mb-4">Ajouter un produit</h3>
+    <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
+    <div class="modal-action mt-4">
+      <form method="dialog">
+        <button class="btn">Fermer</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+<%# Modal évenement %>
+<dialog id="event_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg mb-4">Ajouter un évènement</h3>
+    <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
+    <div class="modal-action mt-4">
+      <form method="dialog">
+        <button class="btn">Fermer</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 </div>

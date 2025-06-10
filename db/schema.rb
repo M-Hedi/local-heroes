@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_10_081357) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "event_participants", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_participants_on_event_id"
+    t.index ["user_id"], name: "index_event_participants_on_user_id"
+  end
+
   create_table "event_partners", force: :cascade do |t|
     t.bigint "store_id", null: false
     t.bigint "event_id", null: false
@@ -148,6 +157,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_10_081357) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "event_participants", "events"
+  add_foreign_key "event_participants", "users"
   add_foreign_key "event_partners", "events"
   add_foreign_key "event_partners", "stores"
   add_foreign_key "event_products", "events"
