@@ -12,9 +12,10 @@
         <h2 class="text-2xl font-semibold truncate"><%= store.name %></h2>
         <p class="font-semibold"><%= store.category %></p>
         <p class="truncate"><%= store.description %></p>
-          <%= link_to store_path(store) do %>
-            <p class="btn btn-sm btn-[#370a00] text-[#370a00] ">Voir plus</p>
-          <% end %>
+          <%#= link_to store_path(store) do %>
+            <%# <p class="btn btn-sm btn-[#370a00] text-[#370a00] ">Voir plus</p> %>
+          <%# end %>
+          <%= link_to "Voir plus", store_path(store) %>
       </div>
     </div>
 </div>
