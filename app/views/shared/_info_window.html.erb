@@ -1,2 +1,2 @@
-<h2><%= store.name %></h2>
-<p><%= store.address %></p>
+<h2><%= point.respond_to?(:name) ? point.name : "Vous" %></h2>
+<p><%= point.address %></p>
