@@ -31,24 +31,16 @@
               label_html: { class: "block font-semibold mb-1 text-[#7c2808]" } %>
         </div>
       </div>
-
-      <div class="grid grid-cols-2" >
-        <%= f.association :events,
-              collection: store.events,
-              label: "Événement associé",
-              label_html: { class: "block font-semibold mb-1 text-[#7c2808]" },
-              input_html: { class: "w-full p-2 border border-[#ffead0] rounded bg-white focus:outline-none focus:ring-2 focus:ring-[#7c2808]" } %>
+          <%= f.association :events, prompt: "Choisissez évènements",
+              collection: store.events, label: false %>
 
         <%= f.input :description, as: :text,
             input_html: { class: "w-full h-32 p-2 border border-[#ffead0] rounded resize-none focus:outline-none focus:ring-2 focus:ring-[#7c2808] bg-white text-[#7c2808]" },
             label_html: { class: "block font-semibold mb-1 text-[#7c2808]" } %>
-
         <%= f.button :submit, "Enregistrer",
               class: "bg-[#7c2808] hover:bg-[#ffead0] hover:text-[#7c2808] text-white font-semibold py-2 px-6 rounded-lg shadow-sm transition-colors duration-300" %>
 
-      </div>
-
-  </div>
     <% end %>
+  </div>
   </div>
 </div>

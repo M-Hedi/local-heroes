@@ -6,11 +6,13 @@
       <h1 class="text-5xl font-bold py-6"><%= @store.name %></h1>
     </div>
     <div class="flex flex-row">
+
     <% if @store.photo.attached? %>
     <%= image_tag @store.photo, class: "rounded-lg shadow-2xl m-8", width: "300px", alt: @store.name %>
     <% else %>
     <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
     <% end %>
+
       <div class="mx-auto text-xl flex flex-col justify-center w-[50%]">
         <p class="py-3 font-bold text-3xl"> Qui sommes-nous ?</p>
         <p class="py-3 text-pretty text-2xl"><%= @store.description %></p>
@@ -37,21 +39,18 @@
 <div>
   <br>
   <%# button add évenement rajouter si le user commercant  %> <%# Modal evenement %>
-  <div>
+  <div  >
     <div class="flex justify-between items-center">
       <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md"> NOS EVENEMENTS </h2>
       <br>
       <hr>
       <% if @store.user == current_user %>
-        <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
-        onclick="my_modal_2.showModal()">
-        Ajouter évènement
-        </button>
+        <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" onclick="my_modal_2.showModal()">Ajouter évènement</button>
       <% end %>
     </div>
     <br>
     <div class="overflow-hidden rounded-xl">
-      <div class="snap-x flex space-x-4 py-4 overflow-x-scroll">
+      <div class="snap-x flex space-x-4 py-4 overflow-x-scroll border-4 border-solid  border-orange-300 bg-orange-100 rounded-xl">
         <% @store.events.each do |event| %>
           <div class="snap-center w-[80%]">
             <%= render "shared/event_card", event: event %>
@@ -117,6 +116,7 @@
         </div>
       </div>
   <% end %>
+  </div>
 </div>
 <%# Modal produit %>
   <dialog id="my_modal_1" class="modal">
@@ -126,8 +126,8 @@
       </div>
     </div>
       <form method="dialog" class="modal-backdrop">
-      <button>close</button>
-    </form>
+        <button>close</button>
+      </form>
   </dialog>
 
 <%# Modal évenement %>
@@ -138,6 +138,6 @@
       </div>
     </div>
       <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
+        <button>close</button>
+      </form>
   </dialog>
