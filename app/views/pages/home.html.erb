@@ -1,16 +1,11 @@
 <% content_for :title, "Bienvenue sur Local Heroes ! | Local Heroes" %>
 
 <div
-  class="hero m-auto h-[600px] mb-10 border-1 shadow-lg"
-  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
-
-  <div class="hero-overlay"  style="background-color: rgba(13, 189, 13, 0.4);"></div>
-  <div class="hero-content text-neutral-content text-center m-auto">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">40 milliards d'euros dans la poche!</h1>
-      <p class="mb-5">
-        Soyez un bon consommateur: rendez-nous riches!
-      </p>
+  class="hero m-auto h-[600px] bg-cover bg-center mb-10 shadow-lg"
+  style="background-image: url(<%= asset_path 'banniere_local_hero.jpg' %>);">
+  <div class=""></div>
+  <div class="hero-content">
+    <div class="">
       <%= render "shared/searchbar" %>
     </div>
   </div>
