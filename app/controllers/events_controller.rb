@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[new show create edit update]
+  before_action :set_event, only: %i[show edit update]
 
   def index
     @events = Event.all
@@ -18,10 +18,12 @@ class EventsController < ApplicationController
   end
 
   def new
+    @store = Store.find(params[:store_id])
     @event = Event.new
   end
 
   def create
+    @store = Store.find(params[:store_id])
     @event = Event.new(event_params)
     @event.store = @store
     if @event.save
@@ -51,7 +53,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :start_date, :end_date, :store_id, :photo)
   end
-
-
-
 end

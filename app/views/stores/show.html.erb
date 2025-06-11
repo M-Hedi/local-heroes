@@ -49,7 +49,6 @@
       </div>
     </div>
   </div>
-
   <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
             <% @store.events.each do |event| %>
               <%= render "shared/event_card", event: event%>
@@ -59,26 +58,25 @@
 
   <div>
   <br>
-    <div class="pb-8">
-      <div class="flex justify-between items-center">
-        <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
-        <%# button add produit rajouter si le user commercant  %> <%# Modal produit %>
-        <% if @store.user == current_user %>
-          <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
-          onclick="document.getElementById('product_modal').showModal()">
-          Ajouter produit
-        </button>
-        <% end %>
-      </div>
-
-      <br>
-      <div class="grid grid-cols-3 gap-4">
-            <% @store.products.each do |product| %>
-              <%= render "shared/product_card", product: product, order: @order %>
-            <% end %>
-        </div>
+  <div class="pb-8">
+    <div class="flex justify-between items-center">
+      <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
+      <%# button add produit rajouter si le user commercant  %> <%# Modal produit %>
+      <% if @store.user == current_user %>
+        <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
+        onclick="document.getElementById('product_modal').showModal()">
+        Ajouter produit
+      </button>
+      <% end %>
     </div>
   </div>
+  <br>
+  <div class="grid grid-cols-3 gap-4">
+        <% @store.products.each do |product| %>
+          <%= render "shared/product_card", product: product, order: @order %>
+        <% end %>
+  </div>
+
   <% if @store.user == current_user %>
     <div class="fixed top-1/2 -translate-y-1/2 right-0 w-80 transform translate-x-full transition-transform duration-300 z-50 hidden" data-cart-target="panel" >
       <button

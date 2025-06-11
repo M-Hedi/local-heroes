@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.where(user: current_user)
-    @orders_pending = Order.where(user: current_user, status_store: "pending")
-    @orders_accepted = Order.where(user: current_user, status_store: "accepted")
-    @orders_refused = Order.where(user: current_user, status_store: "refused")
+    @orders = Order.where(store: current_user.store)
+    @orders_pending = Order.where(store: current_user.store, status_store: "pending")
+    @orders_accepted = Order.where(store: current_user.store, status_store: "accepted")
+    @orders_refused = Order.where(store: current_user.store, status_store: "refused")
     @orders_pending_count = @orders_pending.count
     @orders_accepted_count = @orders_accepted.count
     @orders_refused_count = @orders_refused.count
