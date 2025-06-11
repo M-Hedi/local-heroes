@@ -1,66 +1,164 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
-
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
 </head>
 
 <body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #C4A884, #7A9B57);
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .error-container {
+    text-align: center;
+    color: white;
+    z-index: 10;
+    position: relative;
+  }
+
+  .explosion-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+  }
+
+  .explosion {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: explode 1.5s ease-out forwards;
+  }
+
+  .explosion:nth-child(1) { background: #ff6b35; animation-delay: 0s; }
+  .explosion:nth-child(2) { background: #f7931e; animation-delay: 0.1s; }
+  .explosion:nth-child(3) { background: #ffcc02; animation-delay: 0.2s; }
+  .explosion:nth-child(4) { background: #ff4757; animation-delay: 0.05s; }
+  .explosion:nth-child(5) { background: #ff3742; animation-delay: 0.15s; }
+  .explosion:nth-child(6) { background: #ff6348; animation-delay: 0.25s; }
+  .explosion:nth-child(7) { background: #ffa502; animation-delay: 0.1s; }
+  .explosion:nth-child(8) { background: #ff7675; animation-delay: 0.3s; }
+
+  @keyframes explode {
+    0% {
+      transform: translate(-50%, -50%) scale(0) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% + var(--dy, 0px))
+      ) scale(3) rotate(180deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% + var(--dy, 0px))
+      ) scale(0) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .explosion:nth-child(1) { --dx: -80px; --dy: -80px; }
+  .explosion:nth-child(2) { --dx: 80px; --dy: -80px; }
+  .explosion:nth-child(3) { --dx: -80px; --dy: 80px; }
+  .explosion:nth-child(4) { --dx: 80px; --dy: 80px; }
+  .explosion:nth-child(5) { --dx: -120px; --dy: 0px; }
+  .explosion:nth-child(6) { --dx: 120px; --dy: 0px; }
+  .explosion:nth-child(7) { --dx: 0px; --dy: -120px; }
+  .explosion:nth-child(8) { --dx: 0px; --dy: 120px; }
+
+  .content {
+    animation: fadeIn 2s ease-in 1.5s both;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: white;
+    color: #7A9B57;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+
+  .server-icon {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    animation: shake 0.5s ease-in-out 0.5s 3;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+  }
+</style>
+
+
+<!-- Animation d'explosion -->
+<div class="explosion-container">
+  <div class="explosion"></div>
+  <div class="explosion"></div>
+  <div class="explosion"></div>
+  <div class="explosion"></div>
+  <div class="explosion"></div>
+  <div class="explosion"></div>
+  <div class="explosion"></div>
+  <div class="explosion"></div>
+</div>
+
+<!-- Contenu de la page -->
+<div class="error-container">
+  <div class="content">
+    <div class="server-icon">💥</div>
+    <h1>500</h1>
+    <p>Oups ! Notre serveur a explosé !</p>
+    <p>C'est sans doute à cause de Chahnez!</p>
+    <a href="/" class="btn">Retour à l'accueil</a>
   </div>
+</div>
+
 </body>
 </html>

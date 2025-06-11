@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :items, only: [:create, :update, :destroy]
   resources :orders do
     member do
-    patch :accepted
-    patch :refused
+      patch :accepted
+      patch :refused
     end
   end
 
