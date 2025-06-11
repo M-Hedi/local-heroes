@@ -10,7 +10,7 @@ require "open-uri"
 # #   end
 
 
-if Rails.env.development?
+# if Rails.env.development?
 puts "Deleting DB"
 EventProduct.destroy_all
 EventPartner.destroy_all
@@ -22,7 +22,7 @@ Event.destroy_all
 Store.destroy_all
 User.destroy_all
 
-end
+# end
 
 puts "DB cleaned"
 # end
