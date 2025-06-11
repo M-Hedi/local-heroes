@@ -2,17 +2,17 @@
   <figure class="grow p-[16px]">
         <%= image_tag("photo-test.jpg", class:" rounded-3xl w-[300px] h-[200px]") %>
   </figure>
-  <div class="truncate overflow-hidden py-6 pr-6 w-[30rem]">
-    <h2 class="card-title text-wrap"><%= link_to event.title, event_path(event), event: event %></h2>
+  <div class="truncate overflow-hidden py-10 pr-6 w-[30rem]">
+    <h2 class="card-title text-wrap text-2xl font-bold"><%= link_to event.title, event_path(event), event: event %></h2>
     <p class="bg-[#FFD9AC] w-35 rounded-xl flex justify-center"><%= event.start_date.strftime("%d") %> - <%= event.end_date.strftime("%d - %m-%Y") %></p>
 
     <p class="truncate"><%= event.description %></p>
 
     <h3 class="font-semibold">Magasins Participants:</h3>
     <div>
-      <ul class="flex flex-wrap gap-4">
+      <ul class="flex flex-wrap gap-2">
       <li><%= link_to event.store.name, store_path(event.store)%></li>
-      <% event.event_partners.last(2).each do |partner| %>
+      <% event.event_partners.last(1).each do |partner| %>
         <li><%= link_to partner.store.name, store_path(partner.store)%></li>
       <% end %>
     </ul>
