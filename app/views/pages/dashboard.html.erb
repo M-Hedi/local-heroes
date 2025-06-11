@@ -1,22 +1,23 @@
 <% content_for :title, "Gérez facilement le profil de votre commerce et de vos événéments | Local Heroes" %>
 
-<h1>Bonjour <%=@user.first_name%>, voici les actualités</h1>
-
-<div class="card bg-base-300 rounded-box grid h-10 place-items-center mb-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>Commandes</strong></div>
+<div class="card bg-base-300 rounded-box grid h-10 place-items-center bm-2"><strong>Réservations</strong></div>
 <div class="flex flex-wrap justify-center gap-4 m-2 overflow-x-auto">
   <div class="stats shadow w-full">
     <div class="stat bg-white">
-      <div class="stat-figure ">
-      <i class="fa-solid fa-circle-question text-3xl text-color-success"></i>
+      <div class="stat-figure text-secondary">
+      <i class="fa-solid fa-circle-question text-[#F3B916] text-3xl"></i>
+
       </div>
       <div class="stat-title text-xl">A valider</div>
       <div class="stat-value"><%=@orders_pending_count%></div>
     <div class="stat-desc text-xl"><%= link_to "Afficher", orders_path(onglet: "a_valider"), class: "link" %></div>
     </div>
 
-    <div class="stat bg-white text-color-success">
-      <div class="stat-figure">
-        <i class="fa-solid fa-circle-check text-3xl text-color-success"></i>
+
+    <div class="stat bg-white">
+      <div class="stat-figure text-secondary">
+        <i class="fa-solid fa-circle-check text-[#116850] text-3xl"></i>
+
       </div>
       <div class="stat-title text-xl text-color-success">En cours</div>
       <div class="stat-value text-color-success"><%=@orders_accepted_count%></div>
@@ -24,8 +25,10 @@
     </div>
 
     <div class="stat bg-white">
-      <div class="stat-figure text-secondary text-color-accent">
-        <i class="fa-solid fa-circle-xmark text-3xl text-color-accent"></i>
+
+      <div class="stat-figure text-secondary">
+        <i class="fa-solid fa-circle-xmark text-[#852226] text-3xl"></i>
+
       </div>
       <div class="stat-title text-xl text-color-accent">Refusées</div>
       <div class="stat-value text-color-accent"><%=@orders_refused_count%></div>
