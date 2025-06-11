@@ -602,6 +602,9 @@ pain_siegle_store_five = Product.create!(
       description: "Pain rustique à base de farine de seigle, au goût légèrement acidulé, idéal avec du fromage.",
       store: store5
     )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749631603/pain_de_seigle_lkchmd.jpg").open
+pain_siegle_store_five.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+pain_siegle_store_five.save
 
 
 pain_au_lait_store_five = Product.create!(
@@ -615,6 +618,9 @@ pain_au_lait_store_five = Product.create!(
       description: "Petit pain moelleux au lait, parfait pour le goûter ou le petit-déjeuner des enfants.",
       store: store5
       )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749550312/development/vehgr6z475n893o3i13ioohon7si.webp").open
+pain_au_lait_store_five.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+pain_au_lait_store_five.save
 
 tartelette_citron_store_five = Product.create!(
  name: "Tarte Citron",
@@ -626,7 +632,9 @@ tartelette_citron_store_five = Product.create!(
       status: ['available', 'unavailable'].sample,
       description: "Pâte sablée croustillante garnie d'une crème au citron acidulée et d'une meringue légère.",
       store: store5)
-
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749631606/tartelette_citron_meringue_x4lpxn.jpg").open
+tartelette_citron_store_five.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+tartelette_citron_store_five.save
 
 
 pain_aux_olives_store_five = Product.create!(
@@ -639,6 +647,10 @@ pain_aux_olives_store_five = Product.create!(
       status: ['available', 'unavailable'].sample,
       description: "Pain moelleux agrémenté d'olives noires, parfait pour accompagner vos apéritifs et repas.",
       store: store5)
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749631603/pain_aux_olives_ughxfl.jpg").open
+pain_aux_olives_store_five.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+pain_aux_olives_store_five.save
+
 
 
 pain_siegle_store_four = Product.create!(
@@ -652,6 +664,9 @@ pain_siegle_store_four = Product.create!(
       description: "Pain rustique à base de farine de seigle, au goût légèrement acidulé, idéal avec du fromage.",
       store: store4
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749631603/pain_de_seigle_lkchmd.jpg").open
+pain_siegle_store_four.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+pain_siegle_store_four.save
 
 pain_au_lait_store_four = Product.create!(
    name: "Pain au Lait",
