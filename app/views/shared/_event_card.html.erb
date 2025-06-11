@@ -3,13 +3,14 @@
         <%= image_tag("photo-test.jpg", class:" rounded-3xl w-[300px] h-[200px]") %>
   </figure>
   <div class="truncate overflow-hidden pr-6 w-[30rem] py-2">
-    <h2 class="card-title text-wrap text-2xl font-bold py-2"><%= link_to event.title, event_path(event), event: event %></h2>
+    <h2 class="card-title text-wrap text-3xl font-bold py-2"><%= link_to event.title, event_path(event), event: event %></h2>
     <p class="bg-[#FFD9AC] w-30 rounded-xl flex justify-center"><%= event.start_date.strftime("%d/%m") %> - <%= event.end_date.strftime("%d/%m") %></p>
 
-    <p class="py-2 truncate"><%= event.description %></p>
+    <%# < class="text-sm text-justify"><%= event.description %>
+    <p class="text-sm text-justify whitespace-pre-line line-clamp-2"><%= event.description %></p>
     <%= link_to "voir plus...", event_path(event), class:"btn btn-ghost p-1 hover:bg-[#FFBA69] " %>
 
-    <h3 class="py-1 font-semibold">Magasin(s) Participant(s):</h3>
+    <h3 class="py-1 text-2xl font-semibold">Magasin(s) Participant(s):</h3>
     <div>
       <ul class="flex flex-wrap gap-3 items-center">
       <li class="bg-[#FFD9AC] w-50 flex justify-center rounded-xl"><%= event.event_partners.count %> Magasin(s) Partenaire(s)</li>
