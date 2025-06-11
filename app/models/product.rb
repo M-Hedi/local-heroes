@@ -14,4 +14,15 @@ class Product < ApplicationRecord
   # validates :status, presence: true, inclusion: { in: ['available', 'unavailable'] }
   validates :description, length: { maximum: 500 }
 
+  def price
+    if discount && discount.positive?
+      discount
+    else
+      self[:price]
+    end
+  end
+
+  def exact_price
+    price
+  end
 end
