@@ -1,6 +1,6 @@
 
 
-<div class="container flex justify-center items-center min-h-screen px-4">
+<div class="container flex justify-center items-center px-4">
   <div class="card shadow-sm bg-[#fff7ed] card-border border-[#ffead0] w-full max-w-6xl text-[#7c2808] p-6 rounded-2xl">
 
     <h1 class="text-2xl font-semibold text-center mb-8">
@@ -9,7 +9,7 @@
 
     <%= simple_form_for([store, event], html: { class: "space-y-6" }) do |f| %>
 
-      <div class="grid grid-cols-3 gap-6">
+      <div class="grid">
         <div class="space-y-4">
           <%= f.input :title,
               input_html: { class: "w-full p-2 border border-[#ffead0] rounded focus:outline-none focus:ring-2 focus:ring-[#7c2808] bg-white text-[#7c2808]" },
@@ -20,7 +20,9 @@
           <%= f.input :start_date, as: :date, html5: true,
               input_html: { class: "w-full p-2 border border-[#ffead0] rounded focus:outline-none focus:ring-2 focus:ring-[#7c2808] bg-white text-[#7c2808]" },
               label_html: { class: "block font-semibold mb-1 text-[#7c2808]" } %>
+           </div>
 
+        <div class="space-y-4">
           <%= f.input :end_date, as: :date, html5: true,
               input_html: { class: "w-full p-2 border border-[#ffead0] rounded focus:outline-none focus:ring-2 focus:ring-[#7c2808] bg-white text-[#7c2808]" },
               label_html: { class: "block font-semibold mb-1 text-[#7c2808]" } %>
@@ -31,14 +33,14 @@
               input_html: { class: "w-full p-2 border border-[#ffead0] rounded bg-white focus:outline-none focus:ring-2 focus:ring-[#7c2808]"},
               label_html: { class: "block font-semibold mb-1 text-[#7c2808]" } %>
         </div>
-      </div>
 
-      <div class="grid grid-cols-2 gap-6 items-end">
-        <%= f.input :description, as: :text,
+        <div class="space-y-4">
+              <%= f.input :description, as: :text,
             input_html: { class: "w-full h-32 p-2 border border-[#ffead0] rounded resize-none focus:outline-none focus:ring-2 focus:ring-[#7c2808] bg-white text-[#7c2808]" },
             label_html: { class: "block font-semibold mb-1 text-[#7c2808]" } %>
+        </div>
+      </div>
 
-        <div class="flex justify-end">
           <%= f.button :submit, "Enregistrer",
               class: "bg-[#7c2808] hover:bg-[#ffead0] hover:text-[#7c2808] text-white font-semibold py-2 px-6 rounded-lg shadow-sm transition-colors duration-300" %>
         </div>

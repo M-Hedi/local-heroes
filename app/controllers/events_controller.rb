@@ -15,6 +15,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
+    @store = @event.store
+    @marker = [{
+                lat: @store.latitude,
+                lng: @store.longitude,
+                info_window_html: render_to_string(partial: "shared/info_window", locals: {store: @store})
+              }]
   end
 
   def new
@@ -29,7 +36,8 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to store_path(@event.store), notice: "Événement créé avec succès."
     else
-      render :new, status: :unprocessable_entity
+      @order = Order.find_or_create_by(user: current_user, store: @store, status_customer: "pending", status_store: "pending")
+      render "stores/show", status: :unprocessable_entity
     end
   end
 

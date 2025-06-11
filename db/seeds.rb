@@ -1536,14 +1536,14 @@ puts "Created #{Product.count} products"
 
 Event.create!(
   store: store1,
-  title: "Fête du Pain – Dégustation gratuite",
+  title: "Fête du Pain",
   description: "À l'occasion de la fête du pain, la boulangerie Au p’tit Louis vous invite à une journée exceptionnelle de dégustation gratuite. Venez découvrir nos pains artisanaux faits maison avec des farines locales, nos viennoiseries pur beurre et nos brioches moelleuses. Des démonstrations de façonnage et de cuisson seront également proposées tout au long de la journée, pour petits et grands. Offres spéciales sur les produits du jour et surprises gourmandes garanties !",
   start_date: Date.today,
   end_date: Date.today + 1
 )
 Event.create!(
   store: store2,
-  title: "Atelier pâtisserie pour enfants",
+  title: "Atelier pâtisserie",
   description: "La boulangerie Au p’tit Louis organise un atelier pâtisserie réservé aux enfants de 6 à 12 ans. Encadrés par notre chef pâtissier, les apprentis boulangers apprendront à préparer leur propre brioche et de délicieux petits sablés. L’objectif est de transmettre notre passion du fait maison tout en s’amusant ! Chaque participant repartira avec ses créations et un diplôme du petit pâtissier. Les places sont limitées, pensez à réserver rapidement pour cet événement gourmand et pédagogique.",
   start_date: Date.today + 7,
   end_date: Date.today + 8
@@ -1551,7 +1551,7 @@ Event.create!(
 
 Event.create!(
   store: store_1,
-  title: "Festival du Poisson Frais à Wazemmes",
+  title: "Festival du Poisson",
   description: "Au cœur de l’été, Au Petit Poissonnier vous invite à découvrir la richesse des produits de la mer à travers un festival local dédié au goût et à la fraîcheur. Au programme : dégustations gratuites de poissons grillés, stand de fruits de mer, conseils de conservation et démonstrations de filetage. Une occasion unique d’échanger avec des artisans passionnés, de profiter d’offres spéciales et de célébrer les savoir-faire du quartier de Wazemmes dans une ambiance festive et chaleureuse.",
   start_date: Date.new(2025, 7, 19),
   end_date: Date.new(2025, 7, 21)
@@ -1579,7 +1579,7 @@ Event.create!(
 
 Event.create!(
   store: game_cash,
-  title: "Quartier en Vrac – Le Marché des Trésors Cachés",
+  title: "Quartier en Vrac",
   start_date: Date.new(2025, 7, 3),
   end_date: Date.new(2025, 7, 20),
   description: "Le quartier Gambetta s’anime pour un week-end de chine et de découvertes !
@@ -1590,7 +1590,7 @@ Event.create!(
 )
 Event.create!(
   store: boucherie_ervrard,
-  title: "Nocturne Gourmande Wazemmes",
+  title: "Nocturne Gourmande",
   description: "La Nocturne gourmande de Waz’en bouche revient jeudi 12 juin,
   à partir de 18h, parvis des Halles et rue Gambetta. Les artisans
   et commerces de bouche de Wazemmes vont vous régaler !",
@@ -1599,7 +1599,7 @@ Event.create!(
 )
 Event.create!(
   store: ferme_du_beau,
-  title: "Lille Street Food festival",
+  title: "Street Food Festival",
   description: "2 au 5 octobre 2025
   Euratechnologies
 Place de Saintignon, 165 Avenue de Bretagne, Lille

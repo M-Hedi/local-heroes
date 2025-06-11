@@ -1,3 +1,5 @@
+<% content_for :title, "Gérez facilement le profil de votre commerce et de vos événéments | Local Heroes" %>
+
 <h1>Bonjour <%=@user.first_name%>, voici les actualités</h1>
 
 <div class="card bg-base-300 rounded-box grid h-10 place-items-center bm-2"><strong>Réservations</strong></div>
@@ -9,7 +11,7 @@
       </div>
       <div class="stat-title text-xl">A valider</div>
       <div class="stat-value"><%=@orders_pending_count%></div>
-    <div class="stat-desc text-xl"><%= link_to "Détail", orders_path, class: "link"%></div>
+    <div class="stat-desc text-xl"><%= link_to "Détail", orders_path(onglet: "a_valider"), class: "link" %></div>
     </div>
 
     <div class="stat bg-white">
@@ -18,7 +20,7 @@
       </div>
       <div class="stat-title text-xl">En cours</div>
       <div class="stat-value"><%=@orders_accepted_count%></div>
-      <div class="stat-desc text-xl"> <%= link_to "Détail", "#encours", class: "link", data: { action: "tabs#goToEncours" } %></div>
+      <div class="stat-desc text-xl"><%= link_to "Détail", orders_path(onglet: "encours"), class: "link" %></div>
     </div>
 
     <div class="stat bg-white">
@@ -27,7 +29,7 @@
       </div>
       <div class="stat-title text-xl">Refusées</div>
       <div class="stat-value"><%=@orders_refused_count%></div>
-      <div class="stat-desc text-xl">Detail</div>
+      <div class="stat-desc text-xl"><%= link_to "Détail", orders_path(onglet: "refusées"), class: "link" %></div>
     </div>
     <div class="stat bg-white">
     <div class="stat-title text-xl">Réservations complètes</div>
