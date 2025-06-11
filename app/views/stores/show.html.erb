@@ -6,7 +6,11 @@
       <h1 class="text-5xl font-bold py-6"><%= @store.name %></h1>
     </div>
     <div class="flex flex-row">
-      <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
+    <% if @store.photo.attached? %>
+    <%= image_tag @store.photo, class: "rounded-lg shadow-2xl m-8", width: "300px", alt: @store.name %>
+    <% else %>
+    <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
+    <% end %>
       <div class="mx-auto text-xl flex flex-col justify-center w-[50%]">
         <p class="py-3 font-bold text-3xl"> Qui sommes-nous ?</p>
         <p class="py-3 text-pretty text-2xl"><%= @store.description %></p>

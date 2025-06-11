@@ -34,8 +34,10 @@
 <br>
 <hr>
 
+
 <div class="grid grid-cols-4 gap-8 m-10 p-9">
   <% Store.last(10).each do |store| %>
+
     <%= render "shared/store_card", store: store %>
   <% end %>
 </div>

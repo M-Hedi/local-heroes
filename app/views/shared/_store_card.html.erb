@@ -6,7 +6,9 @@
   <% if store.photo.attached? %>
     <%= image_tag store.photo, class: "rounded-xl", alt: store.name %>
     <% else %>
-    <img class="h-45 rounded" src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="<%= store.name %>" />
+
+    <img class="h-45" src="https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie3_ftpxfb.jpg" alt="<%= store.name %>" />
+
     <% end %>
   </figure>
   <div class="card-body">

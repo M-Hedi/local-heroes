@@ -289,8 +289,10 @@ store_2 = Store.create!(
   description: "Poissonnerie du marché de Wazemmes, offre poissons frais et fruits de mer variés, ambiance conviviale, service expert et tarif correct.",
   name: "Poissonnerie La Marée",
   category: "Poissonnerie",
-  phone_number: "03.20.67.98.32",
-  address: "78 Rue Jules Guesde, Lille" #A jouter un addresse au modéle store
+
+  phone_number: "0320679832",
+  address: "rue caurmartin, Lille" #A jouter un addresse au modéle store
+
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543995/store_2_lhexxj.jpg").open
 store_2.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -327,8 +329,10 @@ store_5 = Store.create!(
   description: "Au Petit Poissonnier",
   name: "The Shark Poissonnerie",
   category: "Poissonnerie",
-  phone_number: "06.44.17.68.87",
-  address: "325 Av. de Dunkerque, Lille" #A jouter un addresse au modéle store
+
+  phone_number: "0644176887",
+  address: "rue Jules Lefebvre, Lille" #A jouter un addresse au modéle store
+
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543997/store_5_ltcae2.jpg").open
 store_5.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -403,8 +407,10 @@ C'est l’adresse incontournable pour les amateurs de bonne chère
 et de produits vrais.",
 name: "LA Ferme Du Nord",
 category: "Boucherie",
-address: "5 bis Rue Jules Guesde, Lille",
-phone_number: "03.74.68.42.76"
+
+address: "rue Van Dyck, Lille",
+phone_number: "0374684276"
+
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie3_ftpxfb.jpg").open
 ferme_du_nord.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -573,7 +579,7 @@ forum_batiment = Store.create!(
   name: "Forum Bâtiment",
   category: "Quincaillerie",
   phone_number: "03.61.26.41.41",
-  address:"238 rue Roger Salengro, 59260 Lille"
+  address:"rue d'Arcole, 59260 Lille"
 )
 
 chez_henry = Store.create!(
@@ -869,6 +875,9 @@ cordon_bleu = Product.create!(
   A commander 4 heures à l'avance minimum.",
   store: boucherie_kamel
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749631608/cordon_bleu_vldpm0.jpg").open
+cordon_bleu.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+cordon_bleu.save
 
 cote_de_boeuf = Product.create!(
   name: "Cote de Boeuf",
@@ -1563,7 +1572,7 @@ Event.create!(
   end_date: Date.new(2025, 8, 10)
 )
 
-Event.create!(
+friperie =Event.create!(
   store: bon_chic,
   title: "Fripes en Fête",
   start_date: Date.new(2025, 6, 16),
@@ -1574,8 +1583,11 @@ Event.create!(
   portants extérieurs, et pièces uniques à prix mini. L’occasion rêvée de (re)découvrir les pépites
   vintage de Lille et soutenir la seconde main locale."
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749670988/te%CC%81le%CC%81chargement_-_Edited_rz2jqc.jpg").open
+friperie.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+friperie.save
 
-Event.create!(
+vrac = Event.create!(
   store: game_cash,
   title: "Quartier en Vrac",
   start_date: Date.new(2025, 7, 3),
@@ -1586,7 +1598,10 @@ Event.create!(
   sélection d’objets insolites et looks vintage à petits prix.
   Un marché urbain festif et coloré à ciel ouvert, entre trouvailles, musique et bonne humeur."
 )
-Event.create!(
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749671416/louche_dor_credit-christian-vr_-_Edited_qzdvtb.jpg").open
+vrac.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+vrac.save
+nocturne_g = Event.create!(
   store: boucherie_ervrard,
   title: "Nocturne Gourmande",
   description: "La Nocturne gourmande de Waz’en bouche revient jeudi 12 juin,
@@ -1595,7 +1610,11 @@ Event.create!(
   start_date: Date.new(2025, 6, 12),
   end_date: Date.new(2025, 6, 12)
 )
-Event.create!(
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749668689/d66275b9-36d0-4346-b8c8-c8e1b8419504_-_Edited_saknyc.jpg").open
+nocturne_g.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+nocturne_g.save
+
+street = Event.create!(
   store: ferme_du_beau,
   title: "Street Food Festival",
   description: "2 au 5 octobre 2025
@@ -1605,7 +1624,11 @@ Métros Canteleu Euratechnologies ou Bois Blancs (Ligne 2)",
   start_date: Date.new(2025, 10, 2),
   end_date: Date.new(2025, 10, 5)
 )
-Event.create!(
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749671901/manger-canard-Lille-e1491313944662_-_Edited_tnjuic.jpg").open
+street.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+street.save
+
+moza = Event.create!(
   store: fromagerie_coeur,
   title: "Fais ta Mozza",
   description: " Tu es le.la bienvenue ce samedi pour apprendre à faire ta propre mozza
@@ -1615,8 +1638,11 @@ Event.create!(
   start_date: Date.new(2025, 6, 12),
   end_date: Date.new(2025, 6, 13)
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749672052/GIBwSDdGvLv0NkY0C0K7vHo9IVfjiHPSKAgJ5Oas_-_Edited_epspwo.jpg").open
+moza.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+moza.save
 
-Event.create!(
+atelier_b = Event.create!(
   store: souk_alep,
   title: "Atelier boulettes épicées",
   description: " Viens découvrir comment faire des boulettes de boeuf avec tous
@@ -1626,6 +1652,9 @@ Event.create!(
   start_date: Date.new(2025, 6, 22),
   end_date: Date.new(2025, 6, 23)
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749668924/Jardins-Sauvages-1024x683_-_Edited_cpl4wo.jpg").open
+atelier_b.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+atelier_b.save
 
 puts "Created #{Event.count} events"
 
@@ -1661,7 +1690,7 @@ end
 
 puts "Created #{EventPartner.count} event partners"
 
-80.times do
+40.times do
   EventProduct.create!(
     product: Product.order("RANDOM()").first,
     event: Event.order("RANDOM()").first
@@ -1670,3 +1699,11 @@ end
 
 
 puts "Created #{EventProduct.count} event products"
+
+80.times do
+  EventParticipant.create!(
+    user: User.all.sample,
+    event: Event.all.sample,
+  )
+end
+puts "Created #{EventParticipant.count} event participants"
