@@ -20,13 +20,8 @@
       </div>
     </div>
   </div>
-<div class="rounded xl" style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
 
-<%# <div> %>
+<div>
   <br>
   <%# button add évenement rajouter si le user commercant  %> <%# Modal evenement %>
   <div>
@@ -85,9 +80,16 @@
     <% else %>
       <div class="fixed top-1/2 -translate-y-1/2 right-0 w-80 transform translate-x-full transition-transform duration-300 z-50 " data-cart-target="panel" >
         <button
+          data-cart-target="showArrow"
           data-action="click->cart#showCart"
           class="absolute left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
           &lt;
+        </button>
+         <button
+          data-cart-target="closeArrow"
+          data-action="click->cart#closeCart"
+          class="absolute hidden left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
+          &gt;
         </button>
         <div data-cart-target="content">
           <%= render "shared/cart", order: @order%>

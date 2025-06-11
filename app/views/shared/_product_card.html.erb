@@ -9,35 +9,36 @@
     </div>
   </figure>
 
-  <div class="card-body">
-    <h2 class="card-title truncate text-xl"><%= product.name %></h2>
-    <p class="bg-[#FFD9AC] w-20 h-5 rounded-xl flex justify-center"><%= product.category.capitalize %></p>
-    <p class="text-sm"><%= product.description %></p>
+  <div class="card-body w-full">
+    <h2 class="card-title truncate text-xl mx-auto"><%= product.name %></h2>
+    <p class="bg-[#FFD9AC] w-20 h-5 rounded-xl flex justify-center mx-auto"><%= product.category.capitalize %></p>
+    <p class="text-sm text-center"><%= product.description %></p>
     <% if product.price == product.exact_price %>
-      <p class="text-2xl font-bold text-green-500"><%= formatted_price(product.price) %>€</p>
+      <p class="card-title truncate font-bold text-2xl mx-auto"><%= formatted_price(product.price) %>€</p>
     <% else %>
       <div class="mt-4 text-center scale-125">
-        <span class="top-2 right-2 badge badge-xs badge-success px-2 py-1">
+        <span class="top-2 right-2 badge badge-sm badge-success px-2 py-1">
           PROMO
         </span>
-        <div class="text-2xl font-bold text-red-500"><%= formatted_price(product.price) %>€</div>
-        <div class="text-sm line-through text-gray-400"><%= formatted_price(product.exact_price) %>€</div>
+        <div class="text-3xl font-bold text-red-500"><%= formatted_price(product.price) %>€</div>
+        <div class="text-sm line-through text-gray-700"><%= formatted_price(product.exact_price) %>€</div>
       </div>
       <br>
     <% end %>
 
-    <div class="end flex justify-end">
+    <div class="">
       <%# button add rajouter si le user commercant  %>
-      <div class="end flex justify-end space-x-30">
+      <div class="flex ">
         <% if product.store.user == current_user %>
-          <%= link_to "Edit", edit_store_product_path(product.store, product), class: "btn btn-sm bg-[#FFBA69] text-[#7C2807]" %>
+          <%= link_to "Edit", edit_store_product_path(product.store, product), class: "btn btn-block w-1/2 bg-[#39a20b] text-[#ffd30f] mr-1" %>
+          <button class="btn btn-block w-1/2 bg-[#852226] text-[#ffd30f]  ml-1">Delete</button>
           <button class="btn btn-sm bg-[#FFBA69] text-[#7C2807] flex justify-center hidden"
           data-action="click->cart#showCart click->cart#addItem"
           data-cart-url="<%= store_orders_path(product.store) %>"
           data-product-id="<%= product.id %>">Panier</button>
       </div>
         <% else %>
-          <div id="btn-<%= product.id %>">
+          <div id="btn-<%= product.id %>" class="w-full">
             <%= render "shared/add_to_cart", product: product %>
           </div>
       </div>

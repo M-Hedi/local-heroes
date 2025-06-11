@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="favorite"
 export default class extends Controller {
-  static targets = ["registered", "unregistered"]
+  static targets = ["registered", "unregistered", "label"]
 
   addEventParticipant = (event) => {
     const eventId = event.currentTarget.dataset.eventId
@@ -33,10 +33,10 @@ export default class extends Controller {
   register = (event) => {
     if (event.currentTarget.checked) {
       this.addEventParticipant(event)
-      this.registeredTarget.innerText = "Vous êtes inscrit à cet événement"
+      this.labelTarget.innerText = "Vous êtes inscrit à cet événement"
     } else {
       this.removeEventParticipant(event)
-      this.unregisteredTarget.innerText = "Vous n'êtes plus inscrit à cet événément"
+      this.labelTarget.innerText = "Vous n'êtes plus inscrit à cet événément"
     }
   }
 }
