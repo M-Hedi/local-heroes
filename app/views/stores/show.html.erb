@@ -41,7 +41,7 @@
         Ajouter évènement
         </button>
       <% end %>
-     </div>
+    </div>
 
     <br>
     <div class="overflow-hidden rounded-xl">
@@ -55,7 +55,7 @@
     </div>
   </div>
 
-   <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
+  <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
             <% @store.events.each do |event| %>
               <%= render "shared/event_card", event: event%>
             <% end %>
