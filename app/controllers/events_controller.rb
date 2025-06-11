@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @marker = [{
                 lat: @store.latitude,
                 lng: @store.longitude,
-                info_window_html: render_to_string(partial: "shared/info_window", locals: {store: @store})
+                info_window_html: render_to_string(partial: "shared/info_window", locals: {point: @store})
               }]
   end
 

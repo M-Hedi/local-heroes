@@ -6,12 +6,11 @@ class StoresController < ApplicationController
   def show
     @store = Store.find(params[:id])
 
-    @stores = Store.all
-    @markers = @stores.geocoded.map do |store|
+    @markers = [current_user, @store].map do |point|
     {
-      lat: @store.latitude,
-      lng: @store.longitude,
-      info_window_html: render_to_string(partial: "shared/info_window", locals: {store: store})
+      lng: point.longitude,
+      lat: point.latitude,
+      info_window_html: render_to_string(partial: "shared/info_window", locals: {point: point})
     }
   end
 
