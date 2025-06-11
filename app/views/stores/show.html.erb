@@ -26,7 +26,7 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div>
+<%# <div> %>
   <br>
   <%# button add évenement rajouter si le user commercant  %> <%# Modal evenement %>
   <div>
@@ -38,7 +38,7 @@
         Ajouter évènement
         </button>
       <% end %>
-  </div>
+    </div>
     <br>
     <div class="overflow-hidden rounded-xl">
       <div class="snap-x flex space-x-4 py-4 overflow-x-scroll">
@@ -50,12 +50,8 @@
       </div>
     </div>
   </div>
-  <div class="flex space-x-4 grid grid-cols-3 gap-4 bg-none-xl">
-            <% @store.events.each do |event| %>
-              <%= render "shared/event_card", event: event%>
-            <% end %>
-        </div>
-    </div>
+
+    <%# </div> %>
 
   <div>
   <br>
