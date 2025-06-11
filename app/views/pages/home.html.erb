@@ -35,8 +35,8 @@
 <hr>
 
 <div class="grid grid-cols-5 gap-8 m-10 p-9">
-  <% Store.first(10).each do |store| %>
-    <%= render "shared/store_card_event_show", store: store %>
+  <% Store.last(10).each do |store| %>
+    <%= render "shared/store_card", store: store %>
   <% end %>
 </div>
 <div class="flex justify-center">
