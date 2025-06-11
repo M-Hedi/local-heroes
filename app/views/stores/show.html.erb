@@ -29,7 +29,7 @@
     <div class="">
       <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold"> Nos évènements </h2>
           <% if @store.user == current_user %>
-            <%= link_to "Ajouter évènement", new_event_path, class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
+          <%= link_to "Ajouter évènement", new_store_event_path(@store), class: "btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" %>
           <% end %>
   <%# button add évenement rajouter si le user commercant  %> <%# Modal evenement %>
   <div>
