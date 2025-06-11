@@ -1,6 +1,10 @@
 <div class="flex border border-[#FFD9AC] bg-white w-xl rounded-3xl">
   <figure class="grow p-[16px]">
-        <%= image_tag("photo-test.jpg", class:" rounded-3xl w-[300px] h-[200px]") %>
+  <% if event.photo.attached? %>
+    <%= image_tag event.photo, class: " rounded-3xl w-[300px] h-[200px]", alt: event.title %>
+    <% else %>
+    <%= image_tag("photo-test.jpg", class:" rounded-3xl w-[300px] h-[200px]") %>
+    <% end %>
   </figure>
   <div class="truncate overflow-hidden pr-6 w-[30rem] py-2">
     <h2 class="card-title text-wrap text-2xl font-bold py-2"><%= link_to event.title, event_path(event), event: event %></h2>
