@@ -7,6 +7,8 @@ export default class extends Controller {
     markers: Array
   }
 
+
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -21,8 +23,10 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     })
   }
@@ -31,4 +35,5 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
+
 }

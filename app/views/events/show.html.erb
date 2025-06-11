@@ -1,29 +1,33 @@
 <div class="container mx-auto" data-controller="favorite">
-  <div>
-    <div class="flex flex-row justify-around mx-5 items-center">
-      <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: " object-cover p-3",  width: "50%", height:"50%") %>
-      <div class="mx-auto">
-        <h1 class="text-5xl font-bold py-3"><%= @event.title %></h1>
-        <p class="py-2 font-bold"><%= @event.store.name %></p>
-        <p class="py-4"><%= @event.description %></p>
-        <p class="py-2 font-bold"> Où sommes-nous ?</p>
-        <p class="py-2">2 avenue des saules 59160 Lille</p>
-        <p class="py-2 font-bold"> Nous contacter ?</p>
-        <p class="py-1"><%= @event.store.phone_number %></p>
-      </div>
-      <div class="flex flex-col">
-        <%= render "shared/participate_button", event: @event %>
-        <div class="rounded xl" style="width: 100%; height: 100px;"
+<div class="border border-base-100 p-7 rounded-xl shadow-lg">
+  <div class="flex justify-center">
+    <h1 class="text-5xl font-bold py-3"><%= @event.title %></h1>
+  </div>
+  <div class="flex justify-around my-5">
+    <p class="py-3 font-bold text-3xl">Organisateur : <%= @event.store.name %></p>
+    <%= render "shared/participate_button", event: @event %>
+  </div>
+  <div class="flex flex-row justify-around mx-5 items-center">
+    <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: " object-cover p-3",  width: "50%", height:"50%") %>
+    <div class="mx-auto w-[600px]">
+      <p class="py-5 text-2xl"><%= @event.description %></p>
+      <div class="flex flex-row">
+        <div class="1 mx-auto">
+          <p class="py-3 font-bold text-2xl"> Où sommes-nous ?</p>
+          <p class="py-3 text-2xl"><i class="fa-solid fa-map-pin"></i> <%= @event.store.address %></p>
+          <p class="py-3 font-bold text-2xl"> Nous contacter ?</p>
+          <p class="py-1 text-2xl"><i class="fa-solid fa-phone"></i> <%= @event.store.phone_number %></p>
+        </div>
+        <div class="rounded xl border border-base-100" style="width: 50%; height: 250px;"
           data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-markers-value="<%= @marker.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>
   </div>
-
-<%= @event.store.name %>
-
+</div>
+  <br>
   <div class="content">
     <div class="lists-container flex flex-col jutify-center px-40 pt-10" data-controller="toggle-list">
       <div class="join join-vertical lg:join-horizontal mb-4 flex justify-center font-semibold">

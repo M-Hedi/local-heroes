@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_store, only: %i[new create edit update]
+  before_action :set_store, only: %i[new create edit update ]
 
   def index
     @events = Event.all
@@ -15,6 +15,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
+    @store = @event.store
+    @marker = [{
+                lat: @store.latitude,
+                lng: @store.longitude,
+                info_window_html: render_to_string(partial: "shared/info_window", locals: {store: @store})
+              }]
   end
 
   def new
