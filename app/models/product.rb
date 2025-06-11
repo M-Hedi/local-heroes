@@ -23,6 +23,6 @@ class Product < ApplicationRecord
   end
 
   def exact_price
-    price
+    self[:price]
   end
 end
