@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_store, only: %i[new show create edit update]
+  before_action :set_store, only: %i[new create edit update]
 
   def index
     @events = Event.all

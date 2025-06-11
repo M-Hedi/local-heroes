@@ -10,9 +10,15 @@
         <p class="py-2">2 avenue des saules 59160 Lille</p>
         <p class="py-2 font-bold"> Nous contacter ?</p>
         <p class="py-1"><%= @event.store.phone_number %></p>
-        <p>france-admissions@lewagon.org.</p>
       </div>
-      <%= render "shared/participate_button", event: @event %>
+      <div class="flex flex-col">
+        <%= render "shared/participate_button", event: @event %>
+        <div class="rounded xl" style="width: 100%; height: 100px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
     </div>
   </div>
 
