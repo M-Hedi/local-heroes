@@ -1,10 +1,11 @@
 <div class="card bg-white shadow-sm flex flex-col card-border border-[#FFD9AC] card-sm w-70 text-[#7c2808] p-3">
   <figure>
     <div class="relative inline-block">
-        <%# <%= image_tag("shoes_1.jpg", size: "100x50", alt: "Edit Entry")%>
-          <%# <%=image_tag("shoes_1.jpg", height: '100', width: '32')%>
-          <%= image_tag("boucherie1.jpg", alt: "photo de viande", class: "rounded-2xl p-[8px]") %>
-          <%# <img src="images/shoes_1.jpg" alt="Image produit" class="rounded-md w-full max-w-xs"> %>
+      <% if product.photo.attached? %>
+      <%= image_tag product.photo, class: "rounded-2xl p-[8px]", alt: product.name %>
+      <% else %>
+      <img class="rounded-2xl p-[8px]" src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="<%= store.name %>" />
+      <% end %>
     </div>
   </figure>
 
