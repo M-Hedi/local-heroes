@@ -7,8 +7,25 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <title>Local Heroes - Soutenez vos commerces locaux</title>
+    <meta name="description" content="Participez à la vie des commerces locaux. Devenez des Local Heroes et soutenez votre communauté.">
+    <meta name="keywords" content="local, commerce, consommation, responsable, communauté, petits commerces, local heroes">
+    <meta name="author" content="Local Heroes">
+
+    <meta property="og:title" content="Local Heroes - Soutenez vos commerces locaux">
+    <meta property="og:description" content="Participez à la vie des commerces locaux. Devenez des Local Heroes et soutenez votre communauté.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:image" content="<%= asset_url('socials.webp') %>">
+    <meta property="og:site_name" content="Local Heroes">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Local Heroes - Soutenez vos commerces locaux">
+    <meta name="twitter:description" content="Participez à la vie des commerces locaux.">
+    <meta name="twitter:image" content="<%= asset_url('socials.webp') %>">
   </head>
 
 <body class=" bg-linear-to-br from-base-100 to-base-300">

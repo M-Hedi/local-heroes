@@ -1,34 +1,25 @@
 <div>
   <div class="list bg-base-100 rounded-box shadow-md">
     <i class="fa-regular fa-circle-xmark text-xl ml-1 mt-1 cursor-pointer" data-cart-target="cross" data-action="click->cart#close"></i>
-      <% order.items.each do |item|%>
-        <li class="list-row">
-        <div><%= image_tag "shoes_1.jpg", class: "size-10 rounded-box" %></div>
-          <div>
-            <div><%=item.product.name %></div>
-            <div class="text-xs uppercase font-semibold opacity-60"><%=item.quantity%> X <%=item.product.price%> € TOTAL = <%= number_to_currency(item.quantity * item.product.price, unit: "") %> €</div>
-          </div>
-          <div class="ml-auto">
-            <button class="btn btn-square btn-ghost"
-            data-action="click->cart#removeItem"
-            data-item-id="<%= item.id %>">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-            <button class="btn btn-square btn-ghost"
-            data-action="click->cart#decreaseQuantity"
-            data-item-id="<%= item.id %>"
-            data-item-quantity="<%= item.quantity%>"
-            data-order-id="<%= order.id %>">
-              <i class="fa-solid fa-square-minus"></i>
-            </button>
-            <button class="btn btn-square btn-ghost"
-            data-action="click->cart#increaseQuantity"
-            data-item-id="<%= item.id %>">
-              <i class="fa-solid fa-square-plus"></i>
-            </button>
-          </div>
-        </li>
-      <%end%>
+    <% order.items.each do |item|%>
+      <li class="list-row">
+      <div><%= image_tag "shoes_1.jpg", class: "size-10 rounded-box" %></div>
+        <div>
+          <div><%=item.product.name %></div>
+          <div class="text-xs uppercase font-semibold opacity-60"><%=item.quantity%> X <%=item.product.price%> € TOTAL = <%= number_to_currency(item.quantity * item.product.price, unit: "") %> €</div>
+        </div>
+        <div class="ml-auto">
+          <button class="btn btn-square btn-ghost"
+          data-action="click->cart#removeItem"
+          data-item-id="<%= item.id %>"
+          data-item-quantity="<%= item.quantity %>"
+          data-order-id="<%= item.order.id %>"
+          data-product-id="<%= item.product.id %>">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </li>
+    <%end%>
     <div data-cart-target="order" data-order-id="<%= order.id %>" class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = order.items.sum { |item| item.quantity * item.product.price } %>
       <strong>Total de la commande : <%= number_to_currency(total, unit: "") %> € </strong>
       <br>

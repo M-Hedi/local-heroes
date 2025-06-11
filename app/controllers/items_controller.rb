@@ -13,7 +13,8 @@ class ItemsController < ApplicationController
       respond_to do |format|
       format.json do
         render json: {
-          cart_html: render_to_string(partial: "shared/cart", locals: { order: @order }, formats: [:html])
+          cart_html: render_to_string(partial: "shared/cart", locals: { order: @order }, formats: [:html]),
+          quantity_html: render_to_string(partial: "shared/product_quantity", locals: { item: @item }, formats: [:html])
         }
       end
       format.html { head :ok }
@@ -23,7 +24,8 @@ class ItemsController < ApplicationController
       respond_to do |format|
         format.json do
           render json: {
-            cart_html: render_to_string(partial: "shared/cart", locals: { order: @order }, formats: [:html])
+            cart_html: render_to_string(partial: "shared/cart", locals: { order: @order }, formats: [:html]),
+            quantity_html: render_to_string(partial: "shared/product_quantity", locals: { item: @item }, formats: [:html])
           }
         end
         format.html { head :ok }
@@ -41,10 +43,15 @@ class ItemsController < ApplicationController
       @item.quantity += -1
       @item.save
     end
+
+    @order = @item.order
+    @order.reload
+
     respond_to do |format|
       format.json do
         render json: {
-          cart_html: render_to_string(partial: "shared/cart", locals: { order: @item.order }, formats: [:html])
+          cart_html: render_to_string(partial: "shared/cart", locals: { order: @item.order }, formats: [:html]),
+          quantity_html: render_to_string(partial: "shared/product_quantity", locals: { item: @item }, formats: [:html])
         }
       end
       format.html { head :ok }
@@ -57,7 +64,8 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.json do
         render json: {
-          cart_html: render_to_string(partial: "shared/cart", locals: { order: @item.order }, formats: [:html])
+          cart_html: render_to_string(partial: "shared/cart", locals: { order: @item.order }, formats: [:html]),
+          button_html: render_to_string(partial: "shared/add_to_cart", locals: { product: @item.product }, formats: [:html])
         }
       end
       format.html { head :ok }
