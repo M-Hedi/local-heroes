@@ -4,7 +4,7 @@
       <% if product.photo.attached? %>
       <%= image_tag product.photo, class: "rounded-2xl p-[8px]", alt: product.name %>
       <% else %>
-      <img class="rounded-2xl p-[8px]" src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="<%= store.name %>" />
+      <img class="rounded-2xl p-[8px]" src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="<%= product.name %>" />
       <% end %>
     </div>
   </figure>
