@@ -20,21 +20,17 @@
         <% if product.store.user == current_user %>
           <%= link_to "Edit", edit_store_product_path(product.store, product), class: "btn btn-sm bg-[#FFBA69] text-[#7C2807]" %>
           <button class="btn btn-sm bg-[#FFBA69] text-[#7C2807] flex justify-center hidden"
-          data-action="click->cart#createOrder click->cart#showCart click->cart#addItem"
+          data-action="click->cart#showCart click->cart#addItem"
           data-cart-url="<%= store_orders_path(product.store) %>"
           data-product-id="<%= product.id %>">Panier</button>
       </div>
         <% else %>
-        <div>
-          <button class="btn btn-block bg-[#FF9E2C] text-[#7C2807] flex justify-center hover:bg-orange-500"
-            data-action="click->cart#createOrder click->cart#showCart click->cart#addItem click->cart#transformCard"
-            data-cart-url="<%= store_orders_path(product.store) %>"
-            data-product-id="<%= product.id %>"
-            id="btn-<%= product.id %>">Ajouter au panier</button>
-          </div>
-          <div id="menu-<%= product.id %>" class="hidden">
-            <%= render "shared/product_quantity", order: @order, product: product %>
-          </div>
+        <div id="btn-<%= product.id %>">
+          <%= render "shared/add_to_cart", product: product %>
+        </div>
+        <div id="menu-<%= product.id %>" class="hidden">
+
+        </div>
         </div>
       </div>
       <% end %>

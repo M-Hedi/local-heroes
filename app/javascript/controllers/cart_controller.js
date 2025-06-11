@@ -5,18 +5,16 @@ export default class extends Controller {
 
   static targets = ["panel", "order", "content", "btn", "menu"]
 
+  transformBackCard = (event) => {
 
+  }
 
   transformCard = (event) => {
-    const quantityField = document.querySelector("#quantity")
-    const quantity = event.currentTarget.dataset.quantity
     const productId = event.currentTarget.dataset.productId
-    const orderId = event.currentTarget.dataset.orderId
     const btn = document.querySelector(`#btn-${productId}`)
     const menu = document.querySelector(`#menu-${productId}`)
     btn.classList.add("hidden")
     menu.classList.remove("hidden")
-    quantityField.innerText = quantity
   }
 
   showCart = () => {
@@ -32,6 +30,8 @@ export default class extends Controller {
   addItem = (event) => {
     const productId = event.currentTarget.dataset.productId
     const orderId = this.orderTarget.dataset.orderId
+    const output = document.querySelector(`#menu-${productId}`)
+
     fetch("/items", {
       method: "POST",
       headers: {
@@ -44,12 +44,15 @@ export default class extends Controller {
     .then(response => response.json())
     .then(data => {
       this.contentTarget.innerHTML = data.cart_html
+      output.innerHTML = data.quantity_html
     })
   }
 
   removeItem = (event) => {
     const itemId = event.currentTarget.dataset.itemId
-    const orderId = event.currentTarget.dataset.orderId
+    const productId = event.currentTarget.dataset.productId
+    const hide = document.querySelector(`#menu-${productId}`)
+    const show = document.querySelector(`#btn-${productId}`)
 
     fetch(`/items/${itemId}`, {
       method: "DELETE",
@@ -62,6 +65,8 @@ export default class extends Controller {
     .then(response => response.json())
     .then(data => {
       this.contentTarget.innerHTML = data.cart_html
+      hide.classList.add('hidden')
+      show.classList.remove("hidden")
       const remainingItems = this.contentTarget.querySelectorAll('.list-row').length
 
     if (remainingItems === 0) {
@@ -79,6 +84,8 @@ export default class extends Controller {
 
   increaseQuantity = (event) => {
     const itemId = event.currentTarget.dataset.itemId
+    const productId = event.currentTarget.dataset.productId
+    const output = document.querySelector(`#menu-${productId}`)
     console.log(itemId)
     fetch(`/items/${itemId}`, {
       method: "PATCH",
@@ -92,12 +99,15 @@ export default class extends Controller {
     .then(response => response.json())
     .then(data => {
     this.contentTarget.innerHTML = data.cart_html
+    output.innerHTML = data.quantity_html
   })
   }
 
   decreaseQuantity = (event) => {
     const itemId = event.currentTarget.dataset.itemId
+    const productId = event.currentTarget.dataset.productId
     const itemQuantity = event.currentTarget.dataset.itemQuantity
+    const output = document.querySelector(`#menu-${productId}`)
 
     if ( itemQuantity <= 1) {
       const confirmDelete = window.confirm("Voulez-vous supprimer cet élément de votre commande?")
@@ -121,6 +131,7 @@ export default class extends Controller {
     .then(response => response.json())
     .then(data => {
     this.contentTarget.innerHTML = data.cart_html
+    output.innerHTML = data.quantity_html
   })
   }
 }
