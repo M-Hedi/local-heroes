@@ -33,7 +33,7 @@
 <hr>
 
 <div class="grid grid-cols-5 gap-8 m-10 p-9">
-  <% Store.last(10).each do |store| %>
+  <% Store.first(10).each do |store| %>
     <%= render "shared/store_card_event_show", store: store %>
   <% end %>
 </div>

@@ -1,7 +1,7 @@
 <div class="w-full flex flex-wrap justify-center gap-4 m-2 overflow-x-auto">
   <div class="tabs tabs-lift">
     <label class="tab">
-      <input type="radio" name="my_tabs_4" checked="checked"/>
+      <input type="radio" name="my_tabs_4" <%= "checked" if params[:onglet] == "a_valider" || "" %>/>
       <i class="fa-solid fa-circle-question"></i>
       _<%=@orders_pending_count%>_A valider
     </label>
@@ -42,9 +42,10 @@
     </div>
 
     <label class="tab" id="encours">
-      <input type="radio" name="my_tabs_4" data-tabs-target="encoursRadio"/>
+    <%= console %>
+      <input type="radio" name="my_tabs_4" <%= "checked" if params[:onglet] == "encours" %>/>
       <i class="fa-solid fa-circle-check"></i>
-      _<%=@orders_accepted_count%>_En cours
+      <%=@orders_accepted_count%>_En cours
     </label>
     <div class="tab-content bg-base-100 border-base-300 p-6">
     <div class="grid grid-cols-3 grid-rows-5 gap-4">
@@ -79,9 +80,9 @@
     </div>
 
     <label class="tab">
-      <input type="radio" name="my_tabs_4" />
+      <input type="radio" name="my_tabs_4" <%= "checked" if params[:onglet] == "refusées" %>/>
       <i class="fa-solid fa-circle-xmark"></i>
-      _<%=@orders_refused_count%>_Refusée
+      _<%=@orders_refused_count%>_Refusées
     </label>
     <div class="tab-content bg-base-100 border-base-300 p-6">
     <div class="grid grid-cols-3 grid-rows-5 gap-4">
