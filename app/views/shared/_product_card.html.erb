@@ -26,8 +26,8 @@
       <br>
     <% end %>
 
-      <div class="end flex justify-end">
-        <%# button add rajouter si le user commercant  %>
+    <div class="end flex justify-end">
+      <%# button add rajouter si le user commercant  %>
       <div class="end flex justify-end space-x-30">
         <% if product.store.user == current_user %>
           <%= link_to "Edit", edit_store_product_path(product.store, product), class: "btn btn-sm bg-[#FFBA69] text-[#7C2807]" %>
@@ -37,14 +37,14 @@
           data-product-id="<%= product.id %>">Panier</button>
       </div>
         <% else %>
-        <div id="btn-<%= product.id %>">
-          <%= render "shared/add_to_cart", product: product %>
-        </div>
+          <div id="btn-<%= product.id %>">
+            <%= render "shared/add_to_cart", product: product %>
+          </div>
+      </div>
         <div id="menu-<%= product.id %>" class="hidden">
 
         </div>
-        </div>
-      </div>
-      <% end %>
+    <% end %>
+    </div>
   </div>
 </div>

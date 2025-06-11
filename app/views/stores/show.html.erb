@@ -20,13 +20,13 @@
       </div>
     </div>
   </div>
+<div class="rounded xl" style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
+<%# <div> %>
   <br>
   <%# button add évenement rajouter si le user commercant  %> <%# Modal evenement %>
   <div>
@@ -34,12 +34,11 @@
       <h1 class="text-2xl font-bold py-10 text-shadow-2xs"> Nos évènements </h1>
       <% if @store.user == current_user %>
         <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
-        onclick="document.getElementById('event_modal').showModal()">
+        onclick="my_modal_2.showModal()">
         Ajouter évènement
         </button>
       <% end %>
     </div>
-
     <br>
     <div class="overflow-hidden rounded-xl">
       <div class="snap-x flex space-x-4 py-4 overflow-x-scroll">
@@ -50,29 +49,28 @@
         <% end %>
       </div>
     </div>
+  </div>
+
+    <%# </div> %>
 
   <div>
   <br>
-    <div class="pb-8">
-      <div class="flex justify-between items-center">
-        <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
-        <%# button add produit rajouter si le user commercant  %> <%# Modal produit %>
-        <% if @store.user == current_user %>
-          <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
-          onclick="document.getElementById('product_modal').showModal()">
-          Ajouter produit
-        </button>
-        <% end %>
-      </div>
-
-      <br>
-      <div class="grid grid-cols-3 gap-4">
-            <% @store.products.each do |product| %>
-              <%= render "shared/product_card", product: product, order: @order %>
-            <% end %>
-        </div>
+  <div class="pb-8">
+    <div class="flex justify-between items-center">
+      <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
+      <%# button add produit rajouter si le user commercant  %> <%# Modal produit %>
+      <% if @store.user == current_user %>
+        <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" onclick="my_modal_1.showModal()">Ajouter produit</button>
+      <% end %>
     </div>
   </div>
+  <br>
+  <div class="grid grid-cols-3 gap-4">
+        <% @store.products.each do |product| %>
+          <%= render "shared/product_card", product: product, order: @order %>
+        <% end %>
+  </div>
+
   <% if @store.user == current_user %>
     <div class="fixed top-1/2 -translate-y-1/2 right-0 w-80 transform translate-x-full transition-transform duration-300 z-50 hidden" data-cart-target="panel" >
       <button
@@ -96,28 +94,27 @@
         </div>
       </div>
   <% end %>
+</div>
 <%# Modal produit %>
-  <dialog id="product_modal" class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg mb-4">Ajouter un produit</h3>
-    <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
-    <div class="modal-action mt-4">
-      <form method="dialog">
-        <button class="btn">Fermer</button>
-      </form>
-    </div>
-  </div>
-</dialog>
-<%# Modal évenement %>
-  <dialog id="event_modal" class="modal">
+  <dialog id="my_modal_1" class="modal">
     <div class="modal-box">
-      <h3 class="font-bold text-lg mb-4">Ajouter un évènement</h3>
-      <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
+      <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
       <div class="modal-action mt-4">
-        <form method="dialog">
-          <button class="btn">Fermer</button>
-        </form>
       </div>
     </div>
+      <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
   </dialog>
-</div>
+
+<%# Modal évenement %>
+  <dialog id="my_modal_2" class="modal">
+    <div class="modal-box">
+      <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
+      <div class="modal-action mt-4">
+      </div>
+    </div>
+      <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+  </dialog>

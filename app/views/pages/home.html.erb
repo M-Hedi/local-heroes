@@ -36,11 +36,11 @@
 
 <div class="grid grid-cols-5 gap-8 m-10 p-9">
   <% Store.last(10).each do |store| %>
-    <%= render "shared/store_card_event_show", store: store %>
+    <%= render "shared/store_card", store: store %>
   <% end %>
 </div>
 <div class="flex justify-center">
-  <div style="width: 80%; height: 600px;"
+  <div class="rounded xl" style="width: 80%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

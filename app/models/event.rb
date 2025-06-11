@@ -8,6 +8,8 @@ class Event < ApplicationRecord
   has_many :products, through: :event_products
   has_many :stores, through: :event_partners
 
+  validates :title, presence: true
+
 
   include PgSearch::Model
     multisearchable against: [:title, :description]
