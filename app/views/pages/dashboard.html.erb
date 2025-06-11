@@ -33,8 +33,10 @@
     </div>
     <div class="stat bg-white">
     <div class="stat-title text-xl">Réservations complètes</div>
+    <% if @orders_accepted_count > 0 || @orders_refused_count > 0 %>
     <div class="radial-progress text-primary mx-auto" style="--value:<%=@confirmation_rate.ceil%>;" aria-valuenow="40" role="progressbar"><%=@confirmation_rate.ceil%>%
     </div>
+    <% end %>
     </div>
   </div>
 
