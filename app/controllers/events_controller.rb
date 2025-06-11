@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update]
+  before_action :set_event, only: %i[new show create edit update]
 
   def index
     @events = Event.all
@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -22,7 +23,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
+    @event.store = @store
+    if @event.save
+      redirect_to store_path(@event.store), notice: "Événement créé avec succès."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -30,7 +36,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path(@event)
+      redirect_to store_path(@store)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +49,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :start_date, :end_date, :store_id)
+    params.require(:event).permit(:title, :description, :start_date, :end_date, :store_id, :photo)
   end
 
 

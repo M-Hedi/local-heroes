@@ -22,7 +22,7 @@
   <hr>
 </div>
 
-<div class="grid grid-cols-2 gap-8 m-10 p-9">
+<div class="flex flex-wrap justify-between gap-4 m-10 p-9">
   <% Event.last(6).each do |event| %>
     <%= render "shared/event_card", event: event %>
   <% end %>
@@ -36,4 +36,11 @@
   <% Store.last(10).each do |store| %>
     <%= render "shared/store_card_event_show", store: store %>
   <% end %>
+</div>
+<div class="flex justify-center">
+  <div style="width: 80%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
