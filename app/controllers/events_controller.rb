@@ -29,7 +29,8 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to store_path(@event.store), notice: "Événement créé avec succès."
     else
-      render :new, status: :unprocessable_entity
+      @order = Order.find_or_create_by(user: current_user, store: @store, status_customer: "pending", status_store: "pending")
+      render "stores/show", status: :unprocessable_entity
     end
   end
 
