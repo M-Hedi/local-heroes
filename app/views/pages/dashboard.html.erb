@@ -31,16 +31,22 @@
     </div>
     <div class="stat bg-white">
     <div class="stat-title text-xl">Réservations complètes</div>
-    <div class="radial-progress text-primary mx-auto" style="--value:<%=@confirmation_rate%>;" aria-valuenow="40" role="progressbar"><%=@confirmation_rate%>%
+    <div class="radial-progress text-primary mx-auto" style="--value:<%=@confirmation_rate.ceil%>;" aria-valuenow="40" role="progressbar"><%=@confirmation_rate.ceil%>%
     </div>
     </div>
   </div>
 
 
 </div>
-<div class="card bg-base-300 rounded-box grid h-10 place-items-center bm-2"><strong>Evénements</strong></div>
+<div class="card bg-base-300 rounded-box grid h-10 place-items-center bm-2"><strong>Mes événements</strong></div>
 <div class="grid grid-cols-2 gap-8 m-10 p-9">
   <% @my_events.each do |event| %>
     <%= render "shared/event_card", event: event %>
+  <% end %>
+</div>
+<div class="card bg-base-300 rounded-box grid h-10 place-items-center bm-2"><strong>Mes produits</strong></div>
+<div class="grid grid-cols-2 gap-8 m-10 p-9">
+  <% @my_products.each do |product| %>
+    <%= render "shared/product_card", product: product%>
   <% end %>
 </div>
