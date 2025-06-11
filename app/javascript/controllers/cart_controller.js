@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="cart"
 export default class extends Controller {
 
-  static targets = ["panel", "order", "content", "btn", "menu"]
+  static targets = ["panel", "order", "content", "btn", "menu", "showArrow", "closeArrow"]
 
   transformBackCard = (event) => {
 
@@ -20,11 +20,15 @@ export default class extends Controller {
   showCart = () => {
     this.panelTarget.classList.remove("translate-x-full")
     this.panelTarget.classList.add("translate-x-0")
+    this.showArrowTarget.classList.add("hidden")
+    this.closeArrowTarget.classList.remove("hidden")
   }
 
-  close = () => {
+  closeCart = () => {
     this.panelTarget.classList.add("translate-x-full")
     this.panelTarget.classList.remove("translate-x-0")
+    this.showArrowTarget.classList.remove("hidden")
+    this.closeArrowTarget.classList.add("hidden")
   }
 
   addItem = (event) => {
@@ -53,6 +57,7 @@ export default class extends Controller {
     const productId = event.currentTarget.dataset.productId
     const hide = document.querySelector(`#menu-${productId}`)
     const show = document.querySelector(`#btn-${productId}`)
+    const orderId = this.orderTarget.dataset.orderId
 
     fetch(`/items/${itemId}`, {
       method: "DELETE",
@@ -78,6 +83,7 @@ export default class extends Controller {
         "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
         },
       })
+      this.closeCart()
     }
     })
   }
