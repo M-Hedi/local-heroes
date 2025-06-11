@@ -1,7 +1,7 @@
-<div class="flex items-center justify-center gap-2 mt-4">
+<div class="flex items-center justify-between w-full">
   <button
     type="button"
-    class="btn btn-sm btn-circle bg-[#FFBA69] text-[#7C2807] hover:bg-orange-400"
+    class="btn btn-md btn-circle bg-[#FFBA69] text-[#7C2807] hover:bg-orange-400"
     data-action="click->cart#decreaseQuantity"
     data-item-id="<%= item.id %>"
     data-item-quantity="<%= item.quantity %>"
@@ -9,12 +9,12 @@
     data-product-id="<%= item.product.id %>">
     -
   </button>
-  <span class="text-lg font-semibold w-8 text-center">
+  <span class="text-xl font-semibold flex-1 text-center">
     <%= item.quantity %>
   </span>
   <button
     type="button"
-    class="btn btn-sm btn-circle bg-[#FFBA69] text-[#7C2807] hover:bg-orange-400"
+    class="btn btn-md btn-circle bg-[#FFBA69] text-[#7C2807] hover:bg-orange-400"
     data-action="click->cart#increaseQuantity"
     data-item-id="<%= item.id %>"
     data-item-quantity="<%= item.quantity%>"

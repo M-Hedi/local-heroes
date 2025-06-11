@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :items, only: [:create, :update, :destroy]
   resources :orders do
     member do
-    patch :accepted
-    patch :refused
+      patch :accepted
+      patch :refused
     end
   end
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :stores do
     resources :events, only: [:new, :create]
     resources :orders, only: [:create]
-    resources :products, only: [:new, :create, :show, :edit, :update]
+    resources :products, only: [:new, :create, :show, :edit, :update, :delete]
   end
 
   resources :events, except: [:new, :create]
