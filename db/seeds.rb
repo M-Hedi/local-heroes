@@ -277,7 +277,7 @@ store_1 = Store.create!(
   description: "Poissonnerie iconique à Wazemmes, sel et savoir-faire familial, poissons et fruits de mer ultra‑frais, pêche durable et traiteur local. réunion.",
   name: "Le Petit Mousse",
   category: "Poissonnerie",
-  phone_number: "0320545506",
+  phone_number: "03.20.54.55.06",
   address:"396 Rue Léon Gambetta, Lille" #A jouter un addresse au modéle store
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543995/store_1_wa59hr.jpg").open
@@ -289,8 +289,10 @@ store_2 = Store.create!(
   description: "Poissonnerie du marché de Wazemmes, offre poissons frais et fruits de mer variés, ambiance conviviale, service expert et tarif correct.",
   name: "Poissonnerie La Marée",
   category: "Poissonnerie",
+
   phone_number: "0320679832",
-  address: "78 Rue Jules Guesde, Lille" #A jouter un addresse au modéle store
+  address: "rue caurmartin, Lille" #A jouter un addresse au modéle store
+
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543995/store_2_lhexxj.jpg").open
 store_2.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -301,7 +303,7 @@ store_3 = Store.create!(
   description: "Poissonnerie “La Bonne Pêche” aux Halles de Wazemmes : poissons & fruits de mer de Boulogne, fraîcheur quotidienne, service convivial.",
   name: "La bonne pêche",
   category: "Poissonnerie",
-  phone_number: "0602319656",
+  phone_number: "06.02.31.96.56",
   address: "25 Pl. Nouvelle Aventure, Lille" #A jouter un addresse au modéle store
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543996/store_3_iwzkij.jpg").open
@@ -314,7 +316,7 @@ store_4 = Store.create!(
   description: "Poissonnerie de Wazemmes, poissons frais du jour, crustacés variés et accueil chaleureux. Qualité et conseils personnalisés garantis.",
   name: "Au Petit Poissonnier",
   category: "Poissonnerie",
-  phone_number: "0320429750",
+  phone_number: "03.20.42.97.50",
   address: "25 Pl. Nouvelle Aventure, Lille" #A jouter un addresse au modéle store
 )
 
@@ -327,8 +329,10 @@ store_5 = Store.create!(
   description: "Au Petit Poissonnier",
   name: "The Shark Poissonnerie",
   category: "Poissonnerie",
+
   phone_number: "0644176887",
-  address: "325 Av. de Dunkerque, Lille" #A jouter un addresse au modéle store
+  address: "rue Jules Lefebvre, Lille" #A jouter un addresse au modéle store
+
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543997/store_5_ltcae2.jpg").open
 store_5.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -345,7 +349,7 @@ ce qu’ils mangent.",
 name: "Ferme du Beau Pays",
 category: "Boucherie",
 address: "Pl. Nouvelle Aventure, Lille",
-phone_number: "0320559025"
+phone_number: "03.20.55.90.25"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie3_ftpxfb.jpg").open
 ferme_du_beau.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -360,7 +364,7 @@ une côte de bœuf savoureuse ou des charcuteries maison,",
 name: "Boucherie ENNASR",
 category: "Boucherie",
 address: "34 Pl. Nouvelle Aventure, Lille",
-phone_number: "0320402079"
+phone_number: "03.20.40.20.79"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie4_admlzs.jpg").open
 boucherie_ennasr.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -375,7 +379,7 @@ Diplômé de l'école de cuisine Ferrandi à Paris et après un passage dans div
 name: "Maison Evrard",
 category: "Boucherie",
 address: "374 Rue Léon Gambetta, Lille",
-phone_number: "0328380700"
+phone_number: "03.28.38.07.00"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie2_b9ajwg.jpg").open
 boucherie_ervrard.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -389,7 +393,7 @@ et des cycles naturels.",
 name: "Boucherie Kamel",
 category: "Boucherie",
 address: "35 Rue du Marché, Lille",
-phone_number: "0320143955"
+phone_number: "03.20.14.39.55"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie5_inn2iq.jpg").open
 boucherie_kamel.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -403,8 +407,10 @@ C'est l’adresse incontournable pour les amateurs de bonne chère
 et de produits vrais.",
 name: "LA Ferme Du Nord",
 category: "Boucherie",
-address: "5 bis Rue Jules Guesde, Lille",
+
+address: "rue Van Dyck, Lille",
 phone_number: "0374684276"
+
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543990/boucherie3_ftpxfb.jpg").open
 ferme_du_nord.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
@@ -440,7 +446,7 @@ fromagerie_coeur = Store.create!(
 		Halles de Wazemmes",
   name: "Au coeur de Lille",
   category: "Fromagerie",
-  phone_number: "03 20 40 01 21",
+  phone_number: "03.20.40.01.21",
   address: "Pl. Nouvelle Aventure, Lille "
 )
 
@@ -452,7 +458,7 @@ fromagerie_philippe = Store.create!(
 		Dimanche: 9h à 12h45",
   name: "Fromagerie P.Olivier",
   category: "Fromagerie",
-  phone_number: "03 21 31 94 74 ",
+  phone_number: "03.21.31.94.74 ",
   address: "345, Rue Léon Gambetta, Lille"
 )
 
@@ -463,7 +469,7 @@ souk_alep = Store.create!(
 		Du Lundi au Dimanche: 9h30-21h",
   name: "Souk d'Alep",
   category: "Épicerie",
-  phone_number: "06 68 00 60 10",
+  phone_number: "06.68.00.60.10",
   address: "61 rue d'Arcole, Lille"
 )
 
@@ -479,7 +485,7 @@ epicerie_equitable = Store.create!(
 		dimanche : 8h30 à 15h00",
   name: "L'épicerie équitable",
   category: "Épicerie",
-  phone_number: "03 20 51 21 46",
+  phone_number: "03.20.51.21.46",
   address: "Pl. Nouvelle Aventure, Lille"
 )
 
@@ -488,12 +494,10 @@ afrobeauty = Store.create!(
   user: linhdan_nguyen,
   description: "Beauté, cosmétique et soins
 		Magasin capillaires et cosmétiques
-		📍Lille: 281 Rue Léon Gambetta - 59000
-		📍Roubaix: 8-10 grande Rue - 59100
-		📍Amiens : 13 rue de Noyon - 80000",
+		📍Lille: 281 Rue Léon Gambetta - 59000",
   name: "Afrobeauty",
   category: "Beauté",
-  phone_number: " 03 20 19 64 51",
+  phone_number: " 03.20.19.64.51",
   address: "281 rue Leon gambetta, Lille"
 )
 
@@ -502,7 +506,7 @@ store1 = Store.create!(
   description: "Au p’tit Louis est né en 2013 grâce à la complicité de deux anciens collègues partageant les mêmes valeurs : respect du produit, proximité avec le client et éco-responsabilité.",
   name: "Au P'tit Louis",
   category: "Boulangerie",
-  phone_number: "0320921962",
+  phone_number: "03.20.92.19.62",
   address: "5 Pl. de la Solidarité, Lille"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547607/development/uywbpuftc412za5o73l3m3eohgll.jpg").open
@@ -515,7 +519,7 @@ store2 = Store.create!(
   description: "La Maison Dupont, boulangerie artisanale fondée en 2010, privilégie le goût authentique et les produits locaux pour une qualité optimale.",
   name: "Maison Dupont",
   category: "Boulangerie",
-  phone_number: "0320223344",
+  phone_number: "03.20.22.33.44",
   address: "18 rue de Wazemmes, Lille"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547612/development/o41x72fu77t6kvj67s8mbqiiddps.png").open
@@ -527,7 +531,7 @@ store3 = Store.create!(
   description: "La Boulangerie Sophie allie tradition et modernité pour offrir à ses clients des produits frais et savoureux chaque jour.",
   name: "Chez Sophie",
   category: "Boulangerie",
-  phone_number: "0320456789",
+  phone_number: "03.20.45.67.89",
   address: "22 rue de Flandre, Lille"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547610/development/m6v2j1c3aro6qg0d2s19vnjg8ohk.png").open
@@ -540,7 +544,7 @@ store4 = Store.create!(
   description: "La Boulangerie Aziza, reconnue à Wazemmes pour ses produits frais et son savoir-faire traditionnel.",
   name: "L'Aziza",
   category: "Boulangerie",
-  phone_number: "0320223344",
+  phone_number: "03.20.22.33.44",
   address: "18 rue de Wazemmes, Lille"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547611/development/d3imu06hdjb5cqae8b2tre55lwth.jpg").open
@@ -552,7 +556,7 @@ store5 = Store.create!(
   description: "La Boulangerie Legrand, depuis 2005, propose une large gamme de pains et pâtisseries faits maison, en alliant tradition et innovation.",
   name: "B.Legrand",
   category: "Boulangerie",
-  phone_number: "0320554433",
+  phone_number: "03.20.55.44.33",
   address: "14 rue des Arts, Lille"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547612/development/o41x72fu77t6kvj67s8mbqiiddps.png").open
@@ -575,7 +579,7 @@ forum_batiment = Store.create!(
   name: "Forum Bâtiment",
   category: "Quincaillerie",
   phone_number: "03.61.26.41.41",
-  address:"238 rue Roger Salengro, 59260 Lille"
+  address:"rue d'Arcole, 59260 Lille"
 )
 
 chez_henry = Store.create!(
@@ -871,6 +875,9 @@ cordon_bleu = Product.create!(
   A commander 4 heures à l'avance minimum.",
   store: boucherie_kamel
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749631608/cordon_bleu_vldpm0.jpg").open
+cordon_bleu.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+cordon_bleu.save
 
 cote_de_boeuf = Product.create!(
   name: "Cote de Boeuf",
@@ -1565,7 +1572,7 @@ Event.create!(
   end_date: Date.new(2025, 8, 10)
 )
 
-Event.create!(
+friperie =Event.create!(
   store: bon_chic,
   title: "Fripes en Fête",
   start_date: Date.new(2025, 6, 16),
@@ -1576,8 +1583,11 @@ Event.create!(
   portants extérieurs, et pièces uniques à prix mini. L’occasion rêvée de (re)découvrir les pépites
   vintage de Lille et soutenir la seconde main locale."
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749670988/te%CC%81le%CC%81chargement_-_Edited_rz2jqc.jpg").open
+friperie.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+friperie.save
 
-Event.create!(
+vrac = Event.create!(
   store: game_cash,
   title: "Quartier en Vrac",
   start_date: Date.new(2025, 7, 3),
@@ -1588,7 +1598,10 @@ Event.create!(
   sélection d’objets insolites et looks vintage à petits prix.
   Un marché urbain festif et coloré à ciel ouvert, entre trouvailles, musique et bonne humeur."
 )
-Event.create!(
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749671416/louche_dor_credit-christian-vr_-_Edited_qzdvtb.jpg").open
+vrac.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+vrac.save
+nocturne_g = Event.create!(
   store: boucherie_ervrard,
   title: "Nocturne Gourmande",
   description: "La Nocturne gourmande de Waz’en bouche revient jeudi 12 juin,
@@ -1597,7 +1610,11 @@ Event.create!(
   start_date: Date.new(2025, 6, 12),
   end_date: Date.new(2025, 6, 12)
 )
-Event.create!(
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749668689/d66275b9-36d0-4346-b8c8-c8e1b8419504_-_Edited_saknyc.jpg").open
+nocturne_g.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+nocturne_g.save
+
+street = Event.create!(
   store: ferme_du_beau,
   title: "Street Food Festival",
   description: "2 au 5 octobre 2025
@@ -1607,9 +1624,13 @@ Métros Canteleu Euratechnologies ou Bois Blancs (Ligne 2)",
   start_date: Date.new(2025, 10, 2),
   end_date: Date.new(2025, 10, 5)
 )
-Event.create!(
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749671901/manger-canard-Lille-e1491313944662_-_Edited_tnjuic.jpg").open
+street.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+street.save
+
+moza = Event.create!(
   store: fromagerie_coeur,
-  title: "Fais ta mozza",
+  title: "Fais ta Mozza",
   description: " Tu es le.la bienvenue ce samedi pour apprendre à faire ta propre mozza
   dans notre magasin avec le fromager Didier Laiteau.
   Tu as juste à venir au créneau de ton choix, prévois 10 euros de participation. Fais ta mozza
@@ -1617,8 +1638,11 @@ Event.create!(
   start_date: Date.new(2025, 6, 12),
   end_date: Date.new(2025, 6, 13)
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749672052/GIBwSDdGvLv0NkY0C0K7vHo9IVfjiHPSKAgJ5Oas_-_Edited_epspwo.jpg").open
+moza.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+moza.save
 
-Event.create!(
+atelier_b = Event.create!(
   store: souk_alep,
   title: "Atelier boulettes épicées",
   description: " Viens découvrir comment faire des boulettes de boeuf avec tous
@@ -1628,6 +1652,9 @@ Event.create!(
   start_date: Date.new(2025, 6, 22),
   end_date: Date.new(2025, 6, 23)
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749668924/Jardins-Sauvages-1024x683_-_Edited_cpl4wo.jpg").open
+atelier_b.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+atelier_b.save
 
 puts "Created #{Event.count} events"
 
@@ -1663,7 +1690,7 @@ end
 
 puts "Created #{EventPartner.count} event partners"
 
-80.times do
+40.times do
   EventProduct.create!(
     product: Product.order("RANDOM()").first,
     event: Event.order("RANDOM()").first
@@ -1672,3 +1699,11 @@ end
 
 
 puts "Created #{EventProduct.count} event products"
+
+80.times do
+  EventParticipant.create!(
+    user: User.all.sample,
+    event: Event.all.sample,
+  )
+end
+puts "Created #{EventParticipant.count} event participants"

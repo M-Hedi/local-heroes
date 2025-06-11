@@ -1,48 +1,48 @@
 <% content_for :title, "Bienvenue sur Local Heroes ! | Local Heroes" %>
 
 <div
-  class="hero m-auto h-[600px] mb-10 border-1 shadow-lg"
-  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
-
-  <div class="hero-overlay"  style="background-color: rgba(13, 189, 13, 0.4);"></div>
-  <div class="hero-content text-neutral-content text-center m-auto">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">40 milliards d'euros dans la poche!</h1>
-      <p class="mb-5">
-        Soyez un bon consommateur: rendez-nous riches!
-      </p>
+  class="hero m-auto h-[600px] bg-cover bg-center mb-10 shadow-lg"
+  style="background-image: url(<%= asset_path 'banniere_local_hero.jpg' %>);">
+  <div class=""></div>
+  <div class="hero-content">
+    <div class="">
       <%= render "shared/searchbar" %>
     </div>
   </div>
 </div>
 
-
-
 <div>
-  <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold">Evénements en cours!</h2>
+  <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">EVENEMENTS EN COURS</h2>
   <br>
   <hr>
+  <br>
 </div>
 
-<div class="flex flex-wrap justify-between gap-4 m-10 p-9">
+<div class="grid grid-cols-6 gap-4 mx-10 px-40">
   <% Event.last(6).each do |event| %>
     <%= render "shared/event_card", event: event %>
   <% end %>
 </div>
 
-<h2 class="text-center rounded-full m-auto size-fit p-3 text-3xl font-bold">Vos magasins favoris</h2>
+<br>
+<h2 class="text-center rounded-full m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">MAGASINS FAVORIS</h2>
 <br>
 <hr>
 
-<div class="grid grid-cols-5 gap-8 m-10 p-9">
+
+<div class="grid grid-cols-4 gap-8 m-10 p-9">
   <% Store.last(10).each do |store| %>
+
     <%= render "shared/store_card", store: store %>
   <% end %>
 </div>
-<div class="flex justify-center">
-  <div class="rounded xl" style="width: 80%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="flex flex-col">
+    <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">MAGASINS AUTOURS DE MOI</h2>
+    <div class="flex justify-center">
+      <div class="rounded xl border border-base-100" style="width: 50%; height: 500px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
-</div>
