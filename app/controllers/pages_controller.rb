@@ -6,7 +6,8 @@ class PagesController < ApplicationController
     @markers = @stores.geocoded.map do |store|
       {
         lat:store.latitude,
-        lng:store.longitude
+        lng:store.longitude,
+        info_window_html: render_to_string(partial: "shared/info_window", locals: {store: store})
       }
     end
   end
