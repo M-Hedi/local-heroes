@@ -34,7 +34,7 @@
       <h1 class="text-2xl font-bold py-10 text-shadow-2xs"> Nos évènements </h1>
       <% if @store.user == current_user %>
         <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
-        onclick="document.getElementById('event_modal').showModal()">
+        onclick="my_modal_2.showModal()">
         Ajouter évènement
         </button>
       <% end %>
@@ -64,10 +64,7 @@
       <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
       <%# button add produit rajouter si le user commercant  %> <%# Modal produit %>
       <% if @store.user == current_user %>
-        <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
-        onclick="document.getElementById('product_modal').showModal()">
-        Ajouter produit
-      </button>
+        <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" onclick="my_modal_1.showModal()">Ajouter produit</button>
       <% end %>
     </div>
   </div>
@@ -101,28 +98,27 @@
         </div>
       </div>
   <% end %>
+</div>
 <%# Modal produit %>
-  <dialog id="product_modal" class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg mb-4">Ajouter un produit</h3>
-    <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
-    <div class="modal-action mt-4">
-      <form method="dialog">
-        <button class="btn">Fermer</button>
-      </form>
-    </div>
-  </div>
-</dialog>
-<%# Modal évenement %>
-  <dialog id="event_modal" class="modal">
+  <dialog id="my_modal_1" class="modal">
     <div class="modal-box">
-      <h3 class="font-bold text-lg mb-4">Ajouter un évènement</h3>
-      <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
+      <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
       <div class="modal-action mt-4">
-        <form method="dialog">
-          <button class="btn">Fermer</button>
-        </form>
       </div>
     </div>
+      <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
   </dialog>
-</div>
+
+<%# Modal évenement %>
+  <dialog id="my_modal_2" class="modal">
+    <div class="modal-box">
+      <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
+      <div class="modal-action mt-4">
+      </div>
+    </div>
+      <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+  </dialog>
