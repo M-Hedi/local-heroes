@@ -105,7 +105,7 @@
           class="absolute left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
           &lt;
         </button>
-         <button
+        <button
           data-cart-target="closeArrow"
           data-action="click->cart#closeCart"
           class="absolute hidden left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
@@ -120,25 +120,45 @@
 </div>
 </div>
 <%# Modal produit %>
-  <dialog id="my_modal_1" class="modal">
-    <div class="modal-box">
-      <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
-      <div class="modal-action mt-4">
-      </div>
-    </div>
-      <form method="dialog" class="modal-backdrop">
-        <button>close</button>
+ <dialog id="my_modal_1" class="modal">
+  <div class="modal-box relative">
+    <!-- Bouton de fermeture visible -->
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+
+    <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
+
+    <div class="modal-action mt-4">
+      <form method="dialog">
+        <button class="btn">Fermer</button>
       </form>
-  </dialog>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button type="submit">close</button>
+  </form>
+</dialog>
 
 <%# Modal évenement %>
-  <dialog id="my_modal_2" class="modal">
-    <div class="modal-box">
-      <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
-      <div class="modal-action mt-4">
-      </div>
-    </div>
-      <form method="dialog" class="modal-backdrop">
-        <button>close</button>
+ <dialog id="my_modal_2" class="modal">
+  <div class="modal-box relative">
+    <!-- Bouton de fermeture visible -->
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+
+    <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
+
+    <div class="modal-action mt-4">
+      <form method="dialog">
+        <%# <button class="btn">Fermer</button> %>
       </form>
-  </dialog>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button type="submit">close</button>
+  </form>
+</dialog>
