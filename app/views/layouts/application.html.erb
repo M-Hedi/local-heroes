@@ -29,11 +29,13 @@
   </head>
 
 <body class=" bg-linear-to-br from-base-100 to-base-200">
-    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-
-    <%= yield %>
-
-    <%= render "shared/footer" %>
+    <div class="main flex flex-col min-h-screen">
+    <%= render "shared/navbar" %>
+      <div class="flex-grow">
+        <%= yield %>
+      </div>
+        <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
