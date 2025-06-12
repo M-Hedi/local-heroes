@@ -1,5 +1,6 @@
 
 <%= link_to event_path(event), class:"block" do %>
+
   <div class="flex flex-col shadow-sm border-2 border-[#FFD9AC] bg-base-100 rounded-xl hover:bg-base-200 duration-400 ease-in-out">
     <% if event.photo.attached? %>
         <%= cl_image_tag event.photo.key, class: "rounded-2xl p-[8px] h-[30vh] object-cover", alt: event.title %>
@@ -22,6 +23,8 @@
         </h3>
           <i class="fa-solid fa-user px-3"> <%= event.event_participants.count %></i> <%# Jonas tu peux mettre code ici %>
       </div>
+
     </div>
   </div>
+</div>
 <% end %>

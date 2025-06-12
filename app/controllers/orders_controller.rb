@@ -53,12 +53,13 @@ end
 
   def index_baskets
     @orders = Order.where(user: current_user)
-  #   @orders_pending = Order.where(current_user: current_user.order, status_store: "pending")
-  #   @orders_accepted = Order.where(current_user: current_user.order, status_store: "accepted")
-  #   @orders_refused = Order.where(current_user: current_user.order, status_store: "refused")
-  #   @orders_pending_count = @orders_pending.count
-  #   @orders_accepted_count = @orders_accepted.count
-  #   @orders_refused_count = @orders_refused.count
+    @orders_baskets_non_valides = Order.where(user: current_user, status_customer: "pending")
+    @orders_baskets_valides = Order.where(user: current_user, status_customer: "validated")
+    @orders_pending_accepted = Order.where(user: current_user, status_store: "accepted", status_customer: "validated")
+    @orders_baskets_non_valides_count = @orders_baskets_non_valides.count
+    @orders_baskets_valides_count = @orders_baskets_valides.count
+    @orders_pending_accepted_count = @orders_pending_accepted.count
+    @orders_baskets_refused = Order.where(user: current_user, status_store: "refused", status_customer: "validated")
+    @orders_baskets_refused_count = @orders_baskets_refused.count
   end
-
 end
