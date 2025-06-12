@@ -564,7 +564,7 @@ store5 = Store.create!(
   name: "B.Legrand",
   category: "Boulangerie",
   phone_number: "03.20.55.44.33",
-  address: "14 rue des Arts, Lille"
+  address: "142 rue Léon Gambetta, Lille"
 )
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547612/development/o41x72fu77t6kvj67s8mbqiiddps.png").open
 store5.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
