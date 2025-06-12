@@ -1,13 +1,24 @@
-<label class="swap swap-flip text-4xl cursor-pointer">
-  <input type="checkbox" <%= 'checked="checked"' if event.users.include?(current_user) %>
-  data-event-id="<%= event.id %>"
-  data-action="click->favorite#register" />
+<div class="flex items-center">
+  <label class="swap swap-flip text-4xl cursor-pointer">
+    <input type="checkbox" <%= 'checked="checked"' if event.users.include?(current_user) %>
+    data-event-id="<%= event.id %>"
+    data-action="click->favorite#register" />
 
-  <div class="swap-on flex items-center gap-2">
-    ❤️ <span class="text-lg" data-favorite-target="registered">Vous êtes inscrit à cet événement</span>
-  </div>
+      <div class="swap-on flex items-center gap-2">
+        ❤️ <span class="text-lg" data-favorite-target="registered"></span>
+      </div>
 
-  <div class="swap-off flex items-center gap-2">
-    🤍 <span class="text-lg" data-favorite-target="unregistered">S'inscrire à cet événement</span>
-  </div>
-</label>
+      <div class="swap-off flex items-center gap-2">
+        🤍 <span class="text-lg" data-favorite-target="unregistered"></span>
+      </div>
+
+  </label>
+
+  <span class="text-lg ml-2 inline-block align-middle transition-all duration-200 w-[350px]" data-favorite-target="label">
+    <% if event.users.include?(current_user) %>
+      Vous êtes inscrit à cet événement !
+    <% else %>
+      Inscrivez-vous à cet événement !
+    <% end %>
+  </span>
+</div>

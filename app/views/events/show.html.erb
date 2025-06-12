@@ -1,7 +1,9 @@
 <% content_for :title, "#{@event.title} - Evénement local | Local Heroes" %>
 
-<div class="container mx-auto" data-controller="favorite">
+
+<div class="container  mx-auto" data-controller="favorite">
 <div class="border border-base-100 p-7 rounded-xl shadow-lg">
+
   <div class="flex justify-center">
     <h1 class="text-5xl font-bold py-3"><%= @event.title %></h1>
   </div>
@@ -9,8 +11,14 @@
     <p class="py-3 font-bold text-3xl">Organisateur : <%= @event.store.name %></p>
     <%= render "shared/participate_button", event: @event %>
   </div>
+
   <div class="flex flex-row justify-around mx-5 items-center">
-    <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: " object-cover p-3",  width: "50%", height:"50%") %>
+   <% if @event.photo.attached? %>
+    <%= image_tag @event.photo, class: " object-cover p-3",  width: "50%", height:"50%", alt: @event.title %>
+    <% else %>
+     <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: " object-cover p-3",  width: "50%", height:"50%") %>
+    <% end %>
+
     <div class="mx-auto w-[600px]">
       <p class="py-5 text-2xl"><%= @event.description %></p>
       <div class="flex flex-row">
@@ -33,10 +41,10 @@
   <div class="content">
     <div class="lists-container flex flex-col jutify-center px-40 pt-10" data-controller="toggle-list">
       <div class="join join-vertical lg:join-horizontal mb-4 flex justify-center font-semibold">
-        <button class="btn join-item toggle-active" data-toggle-list-target="storesBtn" data-action="click->toggle-list#displayStores">
+        <button class="btn p-5 text-2xl join-item toggle-active" data-toggle-list-target="storesBtn" data-action="click->toggle-list#displayStores">
           Liste des magasins participants
         </button>
-        <button class="btn join-item" data-toggle-list-target="productsBtn" data-action="click->toggle-list#displayProducts">
+        <button class="btn p-5 text-2xl join-item" data-toggle-list-target="productsBtn" data-action="click->toggle-list#displayProducts">
           Liste des produits en promotion
         </button>
       </div>
@@ -64,7 +72,7 @@
 
 <style>
 .toggle-active {
-  background-color: #7c2808 ;
-  color: #feecd3
+  background-color: #7c2808;
+  color: #FFF7ED;
 }
 </style>

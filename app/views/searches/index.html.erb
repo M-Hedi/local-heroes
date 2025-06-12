@@ -9,15 +9,28 @@
   <div class="search">
     <p class=" text-neutral-content p-5">Mes recherches : </p>
     <div class="cards px-3">
-      <div class="grid grid-cols-3 gap-2 pt-5">
-        <% @results.each do |result| %>
-          <% if result.is_a?(Event) %>
-            <%= render "shared/event_card", event: result %>
-          <% elsif result.is_a?(Store) %>
-            <%= render "shared/store_card", store: result %>
-          <% end %>
-        <% end %>
-      </div>
+    <div class="grid grid-cols-3 gap-2 pt-5">
+  <% if @results.any? { |r| r.is_a?(Event) } %>
+    <div class="col-span-3 my-4">
+      <h2 class="text-xl font-bold text-orange-600">Événements</h2>
+      <hr class="border-orange-300">
+    </div>
+    <% @results.select { |r| r.is_a?(Event) }.each do |event| %>
+      <%= render "shared/event_card", event: event %>
+    <% end %>
+  <% end %>
+
+  <% if @results.any? { |r| r.is_a?(Store) } %>
+    <div class="col-span-3 my-4">
+      <h2 class="text-xl font-bold text-orange-600">Commerces</h2>
+      <hr class="border-orange-300">
+    </div>
+    <% @results.select { |r| r.is_a?(Store) }.each do |store| %>
+      <%= render "shared/store_card", store: store %>
+    <% end %>
+  <% end %>
+</div>
+
     </div>
   </div>
 </div>

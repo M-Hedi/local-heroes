@@ -1,25 +1,32 @@
 <% content_for :title, "#{@store.name} - Commerce local | Local Heroes" %>
 
 <div class="container mt-8 mx-auto " data-controller="cart">
-  <div class="bg-[#FFFCF9] h-120 rounded-lg shadow-2xl mb-10 opacity-80">
+  <div class="bg-base-100 h-150 rounded-lg shadow-2xl mb-10 opacity-80">
     <div class="flex justify-center">
       <h1 class="text-5xl font-bold py-6"><%= @store.name %></h1>
     </div>
     <div class="flex flex-row">
-      <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
+
+    <% if @store.photo.attached? %>
+    <%= image_tag @store.photo, class: "rounded-lg shadow-2xl m-8", width: "300px", alt: @store.name %>
+    <% else %>
+    <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
+    <% end %>
+
       <div class="mx-auto text-xl flex flex-col justify-center w-[50%]">
-        <p class="py-2 font-bold"> Qui sommes-nous ?</p>
-        <p class="py-2 text-pretty"><%= @store.description %></p>
-        <p class="py-2 font-bold"> Où sommes-nous ?</p>
-        <p class="py-2"><i class="fa-solid fa-map-pin"></i> <%= @store.address %></p>
-        <p class="py-2 font-bold"> Nous contacter ?</p>
-        <p class="py-1"><i class="fa-solid fa-phone"></i> <%= @store.phone_number %></p>
-      </div>
-      <div class="flex justify-end content-end items-end">
-        <p class="mr-7 py-3 bg-[#FFD9AC] w-45 h-15 rounded-xl text-center font-bold text-xl"><%= @store.category %> <i class="fa-solid fa-shop"></i></p>
+        <p class="py-3 font-bold text-3xl"> Qui sommes-nous ?</p>
+        <p class="py-3 text-pretty text-2xl"><%= @store.description %></p>
+        <p class="py-3 font-bold text-3xl"> Où sommes-nous ?</p>
+        <p class="py-3 text-2xl"><i class="fa-solid fa-map-pin"></i> <%= @store.address %></p>
+        <p class="py-3 font-bold text-3xl"> Nous contacter ?</p>
+        <p class="py-2 text-2xl"><i class="fa-solid fa-phone"></i> <%= @store.phone_number %></p>
+        <div class="flex justify-end content-end items-end">
+          <p class="mr-7 py-3 bg-[#FFD9AC] w-45 h-15 rounded-xl text-center font-bold text-2xl"><%= @store.category %> <i class="fa-solid fa-shop"></i></p>
+        </div>
       </div>
     </div>
   </div>
+
   <h2 id="distance" class="text-center"></h2>
 <div class="rounded xl" style="width: 100%; height: 600px;"
   data-controller="map"
@@ -27,22 +34,30 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<%# <div> %>
+  <div class="flex justify-center">
+    <div class="rounded xl border border-base-100" style="width: 60%; height: 400px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+
+<div>
   <br>
   <%# button add évenement rajouter si le user commercant  %> <%# Modal evenement %>
-  <div>
+  <div  >
     <div class="flex justify-between items-center">
-      <h1 class="text-2xl font-bold py-10 text-shadow-2xs"> Nos évènements </h1>
+      <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md"> NOS EVENEMENTS </h2>
+      <br>
+      <hr>
       <% if @store.user == current_user %>
-        <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500"
-        onclick="my_modal_2.showModal()">
-        Ajouter évènement
-        </button>
+        <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" onclick="my_modal_2.showModal()">Ajouter évènement</button>
       <% end %>
     </div>
     <br>
     <div class="overflow-hidden rounded-xl">
-      <div class="snap-x flex space-x-4 py-4 overflow-x-scroll">
+      <div class="snap-x flex space-x-4 py-4 overflow-x-scroll border-4 border-solid  border-orange-300 bg-orange-100 rounded-xl">
         <% @store.events.each do |event| %>
           <div class="snap-center w-[80%]">
             <%= render "shared/event_card", event: event %>
@@ -58,7 +73,9 @@
   <br>
   <div class="pb-8">
     <div class="flex justify-between items-center">
-      <h1 class="text-2xl font-bold py-6 text-shadow-2xs">Nos produits</h1>
+      <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">NOS PRODUITS</h2>
+      <br>
+      <hr>
       <%# button add produit rajouter si le user commercant  %> <%# Modal produit %>
       <% if @store.user == current_user %>
         <button class="btn btn-md md:btn-md px-6 bg-orange-300 text-orange-900 hover:bg-orange-500" onclick="my_modal_1.showModal()">Ajouter produit</button>
@@ -66,11 +83,15 @@
     </div>
   </div>
   <br>
-  <div class="grid grid-cols-3 gap-4">
+    <div class="overflow-hidden rounded-xl">
+      <div class="snap-x flex space-x-4 py-4 overflow-x-scroll">
         <% @store.products.each do |product| %>
-          <%= render "shared/product_card", product: product, order: @order %>
+          <div class="snap-center w-[80%]">
+            <%= render "shared/product_card", product: product, order: @order %>
+          </div>
         <% end %>
-  </div>
+      </div>
+    </div>
 
   <% if @store.user == current_user %>
     <div class="fixed top-1/2 -translate-y-1/2 right-0 w-80 transform translate-x-full transition-transform duration-300 z-50 hidden" data-cart-target="panel" >
@@ -86,15 +107,23 @@
     <% else %>
       <div class="fixed top-1/2 -translate-y-1/2 right-0 w-80 transform translate-x-full transition-transform duration-300 z-50 " data-cart-target="panel" >
         <button
+          data-cart-target="showArrow"
           data-action="click->cart#showCart"
           class="absolute left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
           &lt;
+        </button>
+         <button
+          data-cart-target="closeArrow"
+          data-action="click->cart#closeCart"
+          class="absolute hidden left-[-36px] top-1/2 -translate-y-1/2 bg-[#fff7ed] text-[#7c2808] font-bold px-3 py-1 rounded-l-full cursor-pointer">
+          &gt;
         </button>
         <div data-cart-target="content">
           <%= render "shared/cart", order: @order%>
         </div>
       </div>
   <% end %>
+  </div>
 </div>
 <%# Modal produit %>
   <dialog id="my_modal_1" class="modal">
@@ -104,8 +133,8 @@
       </div>
     </div>
       <form method="dialog" class="modal-backdrop">
-      <button>close</button>
-    </form>
+        <button>close</button>
+      </form>
   </dialog>
 
 <%# Modal évenement %>
@@ -116,6 +145,6 @@
       </div>
     </div>
       <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
+        <button>close</button>
+      </form>
   </dialog>
