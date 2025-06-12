@@ -1680,7 +1680,7 @@ User.all.each do |user|
   Order.create!(
     user: user,
     status_store: ['pending', 'accepted', 'refused'].sample,
-    status_customer: ['pending', 'validated', 'canceled'].sample,
+    status_customer: ['pending', 'validated'].sample,
     store_id: Store.all.sample.id
   )
 end
