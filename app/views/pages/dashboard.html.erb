@@ -1,6 +1,6 @@
 <% content_for :title, "Gérez facilement le profil de votre commerce et de vos événéments | Local Heroes" %>
 
-<div class="card bg-base-300 rounded-box grid h-10 place-items-center mb-10 mt-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>Mes commandes</strong></div>
+<div class="card rounded-box grid h-10 place-items-center mb-10 mt-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>MES COMMANDES</strong></div>
 <div class="flex flex-wrap justify-center gap-4 m-2 overflow-x-auto">
   <div class="stats shadow w-full">
     <div class="stat bg-white">
@@ -59,13 +59,13 @@
 
 
 </div>
-<div class="card bg-base-300 rounded-box grid h-10 place-items-center mb-10 mt-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>Mes événements</strong></div>
-<div class="flex flex-wrap justify-center gap-4 m-10 p-9 mx-auto">
+<div class="card rounded-box grid h-10 place-items-center mb-10 mt-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>MES EVENEMENTS</strong></div>
+<div class="flex flex-wrap justify-center gap-4 m-10 p-9 mx-auto grid grid-cols-3 p-5">
   <% @my_events.each do |event| %>
     <%= render "shared/event_card", event: event %>
   <% end %>
 </div>
-<div class="card bg-base-300 rounded-box grid h-10 place-items-center mb-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>Mes produits</strong></div>
+<div class="card rounded-box grid h-10 place-items-center mb-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>MES PRODUITS</strong></div>
 <div class="flex flex-wrap justify-center gap-4 m-10 p-9 mx-auto">
   <% @my_products.each do |product| %>
     <%= render "shared/product_card", product: product%>
