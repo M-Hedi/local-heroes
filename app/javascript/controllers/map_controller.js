@@ -39,7 +39,7 @@ export default class extends Controller {
     //on transforme nos coordonées en string pour l'appel de l'API
     const coordsString = coords.join(';');
     //choix du type d'itinéraire que l'on souhaite calculer (par exemple avec "walking" on ne fera pas le tour d'un rond point, avec "driving" si.
-    const typeRoute = 'driving'; //cycling, walking, driving-traffic
+    const typeRoute = 'walking'; //cycling, walking, driving-traffic
     const directionsRequest = 'https://api.mapbox.com/directions/v5/mapbox/'+typeRoute+'/' + coordsString + '?geometries=geojson&access_token=' + this.apiKeyValue;
 
     const xhr = new XMLHttpRequest();
