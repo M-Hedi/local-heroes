@@ -1,7 +1,7 @@
 <% content_for :title, "Bienvenue sur Local Heroes ! | Local Heroes" %>
 
 <div
-  class="hero m-auto h-[600px] bg-cover bg-center mb-10 shadow-lg"
+  class="hero m-auto h-[75vh] bg-cover bg-center mb-10 shadow-lg"
   style="background-image: url(<%= asset_path 'banniere_local_hero.jpg' %>);">
   <div class=""></div>
   <div class="hero-content">
@@ -34,8 +34,8 @@
   <div style="text-align: center; margin-bottom: 1rem;">
     <button
       data-action="click->dropdown-map#toggle"
-      class="map-button">
-      Voir la carte
+      class="map-button text-center">
+      <span class="mapbtn">Voir la carte</span><span class="mapbtn hidden">Voir la liste</span>
     </button>
   </div>
 
@@ -57,17 +57,17 @@
     <% end %>
   </div>
 </div>
-                           
+
  <style>
-                                
+
  .map-dropdown {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transform: translateY(-10px);
   transition: all 0.4s ease;
-  }                              
-                                
+  }
+
 .map-dropdown.show {
   max-height: 1000px; /* Same or larger than map height */
   opacity: 1;
@@ -90,4 +90,3 @@
 }
 
 </style>
-

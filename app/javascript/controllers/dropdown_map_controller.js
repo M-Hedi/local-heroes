@@ -6,8 +6,11 @@ export default class extends Controller {
   toggle() {
     const map = this.contentTarget;
     const grid = this.gridTarget;
-
+    const mapButtons = document.querySelectorAll(".mapbtn")
     const mapIsVisible = map.classList.contains("max-h-[700px]");
+    mapButtons.forEach(button => {
+      button.classList.toggle("hidden")
+    })
 
     if (mapIsVisible) {
       // Hide map, show grid
