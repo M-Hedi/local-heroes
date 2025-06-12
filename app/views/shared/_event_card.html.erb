@@ -1,4 +1,28 @@
 
+<<<<<<< feature/button_toggle_map_homepage
+<%= link_to event_path(event), class: "block" do %>
+  <div class="flex flex-col shadow-sm border-2 border-[#FFD9AC] bg-base-100 rounded-xl hover:bg-base-200 transition-colors">
+    <% if event.photo.attached? %>
+      <%= image_tag event.photo, class: "rounded-2xl p-[8px] h-[50%]", alt: event.title %>
+    <% else %>
+      <%= image_tag("photo-test.jpg", class:"rounded-xl w-[100%] h-[50%] p-1") %>
+    <% end %>
+    <div class="truncate overflow-hidden w-full">
+      <h2 class="text-wrap text-3xl px-3 py-3 text-center font-bold"><%= event.title %></h2>
+      <p class="bg-[#FFD9AC] w-full text-xl px-3 flex justify-center"><%= event.start_date.strftime("%d/%m") %> - <%= event.end_date.strftime("%d/%m") %></p>
+      <p class="truncate px-3 text-lg py-3"><%= event.description %></p>
+      <p class="flex justify-end font-bold py-3 px-2">Voir plus...</p>
+      <div class="bg-base-200 w-full hover:bg-base-200 border-t border-base-300 flex items-center justify-between">
+        <h3 class="font-semibold text-xl px-3 py-3">
+          <% count = event.event_partners.count %>
+          <% if count == 0 %>
+            0 Magasin Participant
+          <% else %>
+            <%= pluralize(count, "Magasin Participant", "Magasins Participants") %>
+          <% end %>
+        </h3>
+        <i class="fa-solid fa-user px-3"> <%= event.event_participants.count %></i>
+=======
 <%= link_to event_path(event), class:"block" do %>
   <div class="flex flex-col shadow-sm border-2 border-[#FFD9AC] bg-base-100 rounded-xl hover:bg-base-200 duration-4gco 00 ease-in-out">
     <% if event.photo.attached? %>
@@ -21,6 +45,7 @@
         <% end %>
         </h3>
           <i class="fa-solid fa-user px-3"> <%= event.event_participants.count %></i> <%# Jonas tu peux mettre code ici %>
+>>>>>>> master
       </div>
     </div>
   </div>
