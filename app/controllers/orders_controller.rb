@@ -32,9 +32,16 @@ class OrdersController < ApplicationController
   end
 
   def create
-    return if Order.exists?(user: current_user, store: Store.find(params[:store_id]))
-    @order = Order.create(user: current_user, store: Store.find(params[:store_id]), status_customer: "pending", status_store: "pending")
+  store = Store.find(params[:store_id])
+  @order = Order.find_or_create_by(user: current_user, store: store) do |order|
+    order.status_customer = "pending"
+    order.status_store = "pending"
   end
+
+  respond_to do |format|
+    format.json { render json: { order_id: @order.id } }
+  end
+end
 
   def destroy
     @order = Order.find(params[:id])

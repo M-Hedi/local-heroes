@@ -5,8 +5,18 @@ export default class extends Controller {
 
   static targets = ["panel", "order", "content", "btn", "menu", "showArrow", "closeArrow"]
 
-  transformBackCard = (event) => {
-
+  createOrder = (storeId) => {
+    return fetch('/orders', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
+      },
+      body: JSON.stringify({ store_id: storeId }),
+    })
+    .then(response => response.json())
+    .then(data => data.order_id)
   }
 
   transformCard = (event) => {
@@ -33,24 +43,27 @@ export default class extends Controller {
 
   addItem = (event) => {
     const productId = event.currentTarget.dataset.productId
-    const orderId = this.orderTarget.dataset.orderId
+    const storeId = event.currentTarget.dataset.storeId
+    console.log(storeId)
     const output = document.querySelector(`#menu-${productId}`)
 
-    fetch("/items", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
-      },
-      body: JSON.stringify({ item: { product_id: productId, order_id: orderId } })
-    })
-    .then(response => response.json())
-    .then(data => {
-      this.contentTarget.innerHTML = data.cart_html
-      output.innerHTML = data.quantity_html
-    })
-  }
+    this.createOrder(storeId)
+    .then(orderId => {
+      fetch("/items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
+        },
+        body: JSON.stringify({ item: { product_id: productId, order_id: orderId } })
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.contentTarget.innerHTML = data.cart_html
+        output.innerHTML = data.quantity_html
+      })})
+    }
 
   removeItem = (event) => {
     const itemId = event.currentTarget.dataset.itemId
