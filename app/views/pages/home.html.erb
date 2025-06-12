@@ -11,40 +11,40 @@
   </div>
 </div>
 
-<div>
-  <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">EVENEMENTS EN COURS</h2>
+<div class="container mx-auto">
+
+    <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">EVENEMENTS EN COURS</h2>
+    <br>
+    <br>
+
+    <div class="grid grid-cols-6 gap-10 justify-center">
+      <% Event.last(6).each do |event| %>
+        <%= render "shared/event_card", event: event %>
+      <% end %>
+    </div>
+
   <br>
-  <hr>
   <br>
-</div>
-
-<div class="grid grid-cols-3 gap-4 mx-10 px-10">
-  <% Event.last(6).each do |event| %>
-    <%= render "shared/event_card", event: event %>
-  <% end %>
-</div>
-
-<br>
-<h2 class="text-center rounded-full m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">MAGASINS FAVORIS</h2>
-<br>
-<hr>
+  <h2 class="text-center rounded-full m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">MAGASINS FAVORIS</h2>
+  <br>
+  <br>
 
 
-<div class="grid grid-cols-4 gap-8 m-10 p-9">
-  <% Store.last(8).each do |store| %>
+    <div class="grid grid-cols-4 gap-10 justify-center">
+      <% Store.last(8).each do |store| %>
+        <%= render "shared/store_card", store: store %>
+      <% end %>
+    </div>
+</div> 
 
-    <%= render "shared/store_card", store: store %>
-  <% end %>
-</div>
+  <%# <div class="flex flex-col">
 
-
-  <div class="flex flex-col">
     <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">MAGASINS AUTOURS DE MOI</h2>
     <div class="flex justify-center">
       <div class="rounded xl border border-base-100" style="width: 50%; height: 500px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+        <%# data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>
+      <%# </div>
     </div>
-  </div>
+  </div> %>
