@@ -36,7 +36,6 @@
   </div>
 
 
-<div>
   <br>
   <div>
     <div class="flex justify-between items-center">
@@ -52,17 +51,15 @@
       <% end %>
     </div>
     <br>
-      <div class=" <%= "hidden" if @store.events.empty? %> border-4 border-solid  border-orange-300 bg-orange-100 rounded-xl grid grid-cols-3 p-5">
-        <% @store.events.each do |event| %>
-            <%= render "shared/event_card", event: event %>
-        <% end %>
-        </div>
-      </div>
+    <div class="<%= "hidden" if @store.events.empty? %> border-4 border-solid  border-orange-300 bg-orange-100 rounded-xl grid grid-cols-3 p-5">
+      <% @store.events.each do |event| %>
+          <%= render "shared/event_card", event: event %>
+      <% end %>
     </div>
+  </div>
 
-    <%# </div> %>
 
-  <div>
+
   <br>
   <div class="pb-8">
     <div class="flex justify-between items-center">
@@ -76,6 +73,7 @@
     </div>
   </div>
   <br>
+    <div class="container mt-8 mx-auto">
     <div class="overflow-hidden rounded-xl">
       <div class="snap-x flex space-x-4 py-4 overflow-x-scroll">
         <% @store.products.each do |product| %>
@@ -84,6 +82,7 @@
           </div>
         <% end %>
       </div>
+    </div>
     </div>
 
   <% if @store.user == current_user %>
@@ -116,54 +115,53 @@
         </div>
       </div>
   <% end %>
-<%# Modal produit %>
- <dialog id="my_modal_1" class="modal">
-  <div class="modal-box relative">
-    <!-- Bouton de fermeture visible -->
-    <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-    </form>
 
-    <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
 
-    <div class="modal-action mt-4">
+
+  <%# Modal produit %>
+  <dialog id="my_modal_1" class="modal">
+    <div class="modal-box relative">
+      <!-- Bouton de fermeture visible -->
       <form method="dialog">
-        <button class="btn">Fermer</button>
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
       </form>
+
+      <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
+
+      <div class="modal-action mt-4">
+        <form method="dialog">
+          <button class="btn">Fermer</button>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <form method="dialog" class="modal-backdrop">
-    <button type="submit">close</button>
-  </form>
-</dialog>
-
-<%# Modal évenement %>
- <dialog id="my_modal_2" class="modal">
-  <div class="modal-box relative">
-    <!-- Bouton de fermeture visible -->
-    <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    <form method="dialog" class="modal-backdrop">
+      <button type="submit">close</button>
     </form>
-
-    <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
-
-    <div class="modal-action mt-4">
-      <form method="dialog">
-        <%# <button class="btn">Fermer</button> %>
-      </form>
-
   </dialog>
 
-</div>
+<%# Modal évenement %>
+  <dialog id="my_modal_2" class="modal">
+    <div class="modal-box relative">
+      <!-- Bouton de fermeture visible -->
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      </form>
 
+      <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
+
+      <div class="modal-action mt-4">
+        <form method="dialog">
+          <%# <button class="btn">Fermer</button> %>
+        </form>
+      </div>
     </div>
-  </div>
+  </dialog>
+
 
   <form method="dialog" class="modal-backdrop">
     <button type="submit">close</button>
   </form>
-</dialog>
 
-<h2 id="distance"></h2>
-
+<h2 id="distance" class ="hidden"></h2>
+</div>
