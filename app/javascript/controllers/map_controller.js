@@ -9,7 +9,15 @@ function pinSVG(color = "#e53935") {
       <circle cx="18" cy="18" r="8" fill="white"/>
     </svg>
     `;
-}
+  }
+  function formatDistance(distance) {
+    if (distance >= 1000) {
+      return (distance / 1000).toFixed(2) + ' km';
+    } else {
+      return Math.round(distance) + ' m';
+    }
+  }
+
 export default class extends Controller {
   static targets = ["distance"];
 
@@ -44,6 +52,9 @@ export default class extends Controller {
     this.element._mapboxInstance = this.map;
   }
 
+
+
+
   #displayJourneyReshaped(map, coords) {
     //on transforme nos coordonées en string pour l'appel de l'API
     const coordsString = coords.join(';');
@@ -57,7 +68,7 @@ export default class extends Controller {
         if (xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
 
-            document.querySelector('#distance').innerText = response.routes[0].distance.toFixed(0) + ' m'; //on affiche la distance de l'itinéraire calculé
+            document.querySelector('#distance').innerText = formatDistance(response.routes[0].distance); //on affiche la distance de l'itinéraire calculé
             //on récupère la données calculé qui nous permettra d'afficher l'itinéraire
             const route = response.routes[0].geometry;
             //add layer
