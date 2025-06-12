@@ -9,7 +9,7 @@ class PagesController < ApplicationController
         lat:store.latitude,
         lng:store.longitude,
         info_window_html: render_to_string(partial: "shared/info_window", locals: {point: store}),
-        is_user_store: user_signed_in? ? store.id == current_user.store.id : false
+        is_user_store: user_signed_in? && store.id == current_user.store.id
     }
     end
   end
