@@ -21,7 +21,7 @@
         <p class="py-3 font-bold text-3xl"> Nous contacter ?</p>
         <p class="py-2 text-2xl"><i class="fa-solid fa-phone"></i> <%= @store.phone_number %></p>
         <div class="flex justify-end content-end items-end">
-          <p class="mr-7 py-3 bg-[#FFD9AC] w-45 h-15 rounded-xl text-center font-bold text-2xl"><%= @store.category %> <i class="fa-solid fa-shop"></i></p>
+          <p class="mr-7 p-3 <%= @store.category.downcase %>  h-15 rounded-xl text-center font-bold text-2xl"><%= @store.category %> <i class="fa-solid fa-shop"></i></p>
         </div>
       </div>
     </div>
