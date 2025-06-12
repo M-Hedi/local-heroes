@@ -554,7 +554,7 @@ store4 = Store.create!(
   phone_number: "03.20.22.33.44",
   address: "18 rue de Wazemmes, Lille"
 )
-file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547611/development/d3imu06hdjb5cqae8b2tre55lwth.jpg").open
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749727138/284258_-_Edited_m9rbc1.jpg").open
 store4.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
 store4.save
 
@@ -1617,6 +1617,7 @@ vrac = Event.create!(
 file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749671416/louche_dor_credit-christian-vr_-_Edited_qzdvtb.jpg").open
 vrac.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
 vrac.save
+
 nocturne_g = Event.create!(
   store: boucherie_ervrard,
   title: "Nocturne Gourmande",

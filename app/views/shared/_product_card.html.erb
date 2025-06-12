@@ -11,7 +11,7 @@
 
   <div class="card-body w-full">
     <h2 class="card-title truncate text-xl mx-auto"><%= product.name %></h2>
-    <p class="bg-[#FFD9AC] w-20 h-5 rounded-xl flex justify-center mx-auto"><%= product.category.capitalize %></p>
+    <p class="bg-[#FFD9AC] rounded-xl max-w-fit px-4 py-2" style="max-height:fit-content;"><%= product.category.capitalize %></p>
     <p class="text-sm text-center"><%= product.description %></p>
     <% if product.price == product.exact_price %>
       <p class="card-title truncate font-bold text-2xl mx-auto"><%= formatted_price(product.price) %>€</p>
