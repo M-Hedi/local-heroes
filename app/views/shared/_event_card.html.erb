@@ -1,5 +1,5 @@
 <%= link_to event_path(event), class:"block" do %>
-  <div class="flex flex-col shadow-sm border-2 border-[#FFD9AC] bg-base-100 rounded-xl hover:bg-base-200 duration-400 ease-in-out">
+  <div class="flex flex-col shadow-sm border-2 border-[#FFD9AC] bg-base-100 rounded-xl hover:bg-base-200 duration-400 ease-in-out max-w-[500px] w-full mx-auto">
     <% if event.photo.attached? %>
       <%= cl_image_tag event.photo.key, class: "rounded-2xl p-[8px] h-[30vh] object-cover", alt: event.title %>
     <% else %>
