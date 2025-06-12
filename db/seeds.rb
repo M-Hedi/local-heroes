@@ -12,13 +12,14 @@ require "open-uri"
 
 # if Rails.env.development?
 puts "Deleting DB"
+# Delete dependent records first to avoid foreign key violations
+EventParticipant.destroy_all
 EventProduct.destroy_all
 EventPartner.destroy_all
 Event.destroy_all
 Item.destroy_all
 Order.destroy_all
 Product.destroy_all
-Event.destroy_all
 Store.destroy_all
 User.destroy_all
 
@@ -89,9 +90,9 @@ user4 = User.create!(
   phone_number: "06 70 22 33 44"
 )
 user5 = User.create!(
-  first_name: "Claire",
-  last_name: "Legrand",
-  email: "claire.legrand@example.com",
+  first_name: "Simon",
+  last_name: "Jacquot",
+  email: "simon.jacquot@lewagon.com",
   password: "password",
   address: "14 rue des Arts, 59000 Lille, France",
   phone_number: "06 55 44 33 22"
@@ -488,6 +489,9 @@ epicerie_equitable = Store.create!(
   phone_number: "03.20.51.21.46",
   address: "Pl. Nouvelle Aventure, Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543994/epicerie_equitable_rdnvra.jpg").open
+epicerie_equitable.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+epicerie_equitable.save
 
 
 afrobeauty = Store.create!(
@@ -500,6 +504,9 @@ afrobeauty = Store.create!(
   phone_number: " 03.20.19.64.51",
   address: "281 rue Leon gambetta, Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543989/afrobeauty_wp4p3k.jpg").open
+afrobeauty.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+afrobeauty.save
 
 store1 = Store.create!(
   user: user1,
@@ -522,7 +529,7 @@ store2 = Store.create!(
   phone_number: "03.20.22.33.44",
   address: "18 rue de Wazemmes, Lille"
 )
-file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749547612/development/o41x72fu77t6kvj67s8mbqiiddps.png").open
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749543991/boulangerie_2_tdcb82.jpg").open
 store2.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
 store2.save
 
@@ -572,6 +579,9 @@ eco_chic = Store.create!(
   phone_number: "03.88.28.53.15",
   address: "204 Rue Léon Gambetta, 59000 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749722682/unnamed_-_Edited_btkxqx.jpg").open
+eco_chic.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+eco_chic.save
 
 forum_batiment = Store.create!(
   user: jean_naim,
@@ -581,6 +591,9 @@ forum_batiment = Store.create!(
   phone_number: "03.61.26.41.41",
   address:"rue d'Arcole, 59260 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749723002/unnamed_1_-_Edited_gfykkk.jpg").open
+forum_batiment.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+forum_batiment.save
 
 chez_henry = Store.create!(
   user: henry_lacroix,
@@ -590,6 +603,9 @@ chez_henry = Store.create!(
   phone_number: "03.88.78.93.55",
   address: "158 Rue Léon Gambetta, 59000 Lille"
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749723002/unnamed_2_-_Edited_swcwqj.jpg").open
+chez_henry.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+chez_henry.save
 
 puts "Created #{Store.count} stores"
 

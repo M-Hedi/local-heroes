@@ -1,6 +1,6 @@
 <% content_for :title, "Gérez facilement le profil de votre commerce et de vos événéments | Local Heroes" %>
 
-<div class="card bg-base-300 rounded-box grid h-10 place-items-center bm-2"><strong>Réservations</strong></div>
+<div class="card bg-base-300 rounded-box grid h-10 place-items-center mb-10 mt-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>Mes commandes</strong></div>
 <div class="flex flex-wrap justify-center gap-4 m-2 overflow-x-auto">
   <div class="stats shadow w-full">
     <div class="stat bg-white">
@@ -8,7 +8,7 @@
       <i class="fa-solid fa-circle-question text-[#F3B916] text-3xl"></i>
 
       </div>
-      <div class="stat-title text-xl">A valider</div>
+      <div class="stat-title text-xl"><%= pluralize(@orders_pending_count, "commande à valider") %></div>
       <div class="stat-value"><%=@orders_pending_count%></div>
     <div class="stat-desc text-xl"><%= link_to "Afficher", orders_path(onglet: "a_valider"), class: "link" %></div>
     </div>
@@ -19,7 +19,14 @@
         <i class="fa-solid fa-circle-check text-[#116850] text-3xl"></i>
 
       </div>
-      <div class="stat-title text-xl text-color-success">En cours</div>
+      <div class="stat-title text-xl text-color-success">
+        <% count = @orders_accepted_count %>
+        <% if count == 0 %>
+          0 Commande Validée
+        <% else %>
+          <%= pluralize(count, "Commande Validée", "Commandes Validées") %>
+        <% end %>
+      </div>
       <div class="stat-value text-color-success"><%=@orders_accepted_count%></div>
       <div class="stat-desc text-xl text-color-success"><%= link_to "Afficher", orders_path(onglet: "encours"), class: "link" %></div>
     </div>
@@ -30,13 +37,20 @@
         <i class="fa-solid fa-circle-xmark text-[#852226] text-3xl"></i>
 
       </div>
-      <div class="stat-title text-xl text-color-accent">Refusées</div>
+      <div class="stat-title text-xl text-color-accent">
+      <% count = @orders_refused_count %>
+        <% if count == 0 %>
+          0 Commande Refusée
+        <% else %>
+          <%= pluralize(count, "Commande Refusée", "Commandes Refusées") %>
+        <% end %>
+      </div>
       <div class="stat-value text-color-accent"><%=@orders_refused_count%></div>
       <div class="stat-desc text-xl"><%= link_to "Afficher", orders_path(onglet: "refusées"), class: "link" %></div>
     </div>
     <div class="stat bg-white">
-    <div class="stat-title text-xl">Commandes complètes</div>
-    <% if @orders_accepted_count > 0 && @orders_refused_count > 0 %>
+    <div class="stat-title text-xl">Pourcentage confirmation</div>
+    <% if @orders_accepted_count > 0 || @orders_pending_count > 0 %>
     <div class="radial-progress text-primary mx-auto" style="--value:<%=@confirmation_rate.ceil%>;" aria-valuenow="40" role="progressbar"><%=@confirmation_rate.ceil%>%
     </div>
     <% end %>

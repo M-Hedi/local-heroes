@@ -22,7 +22,7 @@ export default class extends Controller {
 
     Swal.fire({
       title: "Prêt à passer votre commande ?",
-      timer: 2000,
+      timer: 10000,
       text: "Votre commande sera disponible chez votre commerçant pendant 48 heures.",
       icon: "question",
       showCancelButton: true,

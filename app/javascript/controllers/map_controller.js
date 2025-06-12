@@ -2,6 +2,14 @@ import { Controller } from "@hotwired/stimulus";
 import mapboxgl from "mapbox-gl"; // Don't forget this!
 
 // import 'mapbox-gl/dist/mapbox-gl.css';
+function pinSVG(color = "#e53935") {
+  return `
+    <svg width="36" height="48" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 47C18 47 32 29.5 32 18C32 8.61116 25.3888 2 18 2C10.6112 2 4 8.61116 4 18C4 29.5 18 47 18 47Z" fill="${color}"/>
+      <circle cx="18" cy="18" r="8" fill="white"/>
+    </svg>
+    `;
+}
 export default class extends Controller {
   static targets = ["distance"];
 
@@ -9,6 +17,7 @@ export default class extends Controller {
     apiKey: String,
     markers: Array,
   };
+
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
@@ -39,7 +48,7 @@ export default class extends Controller {
     //on transforme nos coordonées en string pour l'appel de l'API
     const coordsString = coords.join(';');
     //choix du type d'itinéraire que l'on souhaite calculer (par exemple avec "walking" on ne fera pas le tour d'un rond point, avec "driving" si.
-    const typeRoute = 'driving'; //cycling, walking, driving-traffic
+    const typeRoute = 'walking'; //cycling, walking, driving-traffic
     const directionsRequest = 'https://api.mapbox.com/directions/v5/mapbox/'+typeRoute+'/' + coordsString + '?geometries=geojson&access_token=' + this.apiKeyValue;
 
     const xhr = new XMLHttpRequest();
@@ -77,9 +86,19 @@ export default class extends Controller {
 }
 
   #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
+    this.markersValue.forEach((marker, index) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html);
-      new mapboxgl.Marker()
+
+      const color = index === 0 ? "#e53935" : "#3498DB";
+
+      // Create a custom marker element
+      const el = document.createElement('div');
+      el.className = 'custom-marker';
+      el.innerHTML = pinSVG(color);
+      el.style.width = '36px';
+      el.style.height = '48px';
+
+      new mapboxgl.Marker(el)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
         .addTo(this.map);
@@ -91,6 +110,11 @@ export default class extends Controller {
     this.markersValue.forEach((marker) =>
       bounds.extend([marker.lng, marker.lat])
     );
+    if (this.markersValue.length === 1) {
+      this.map.setCenter([this.markersValue[0].lng, this.markersValue[0].lat]);
+      this.map.setZoom(14); // or whatever zoom you want
+    } else {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+    }
   }
 }
