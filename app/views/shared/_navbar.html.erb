@@ -1,6 +1,6 @@
 <div class="relative z-10">
   <nav class="navbar text-neutral-content bg-base-100 fixed top-0 right-0 left-0">
-    <div class="container mx-auto flex items-center justify-between">
+    <div class="w-full mx-5 flex items-center justify-between">
       <%= link_to root_path do %>
         <%= image_tag "Logo_local_heroes.webp", class: "h-20" %>
       <% end %>
@@ -17,17 +17,24 @@
       <!-- Menu -->
       <div id="navbar-menu" class="hidden md:flex md:items-center w-full md:w-auto mt-2 md:mt-0">
         <ul class="flex flex-col md:flex-row md:space-x-4 w-full font-bold text-xl md:w-auto">
+        <% if user_signed_in? && current_user.orders.exists? %>
+          <%= link_to "Mes paniers", index_baskets_path, class: "btn btn-neutral" %>
+        <% end %>
           <% if user_signed_in? %>
-            <div class="block px-4 py-2 text-gray-700 hover:text-green-600">
+            <%# <div class="block px-4 py-2 text-gray-700 hover:text-green-600">
               <%= link_to "Ma boutique", store_path(current_user.store), class: "block px-4 py-2 text-orange-900 hover:text-orange-400" %>
-            </div>
-            <div class="user flex flex-col text-center">
+            <%# </div> %>
+            <%# <div class="user flex flex-col text-center">
               <li class="block px-4 py-2  text-orange-600 "><%= link_to "La Vitrine de", dashboard_path, class: "block px-4 py-2 bold text-orange-900 hover:text-orange-400" %><%=@user.first_name if @user%></li>
-            </div>
+            <%# </div> %>
             <div class="w-20 relative">
               <%= image_tag "Simon.png", alt: "simon", class:"rounded-full cursor-pointer", onclick: "document.getElementById('logout-menu').classList.toggle('hidden')" %>
-              <div id="logout-menu" class="absolute right 1 w-20 bg-orange-200 rounded-2xl shadow-lg hidden z-40 flex justify-center ">
+              <div id="logout-menu" class="absolute right-1 w-32 bg-orange-200 rounded-2xl shadow-lg hidden z-40 flex justify-center flex-col ">
+                <%# < class= "text-sm px-2 py-2 text-orange-900 hover:text-orange-400 text-center"> <%= @user.first_name if @user %>
+                <%= link_to "Ma boutique", store_path(current_user.store), class: "text-sm px-2 py-2 text-orange-900 hover:text-orange-400 text-center" %>
+                <%= link_to "Ma Vitrine ", dashboard_path, class: "text-sm px-2 py-2 text-orange-900 hover:text-orange-400 text-center" %>
                 <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-sm px-2 py-2 text-orange-900 hover:text-orange-400 text-center" %>
+
               </div>
             </div>
           <% else %>

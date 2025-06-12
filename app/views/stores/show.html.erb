@@ -21,7 +21,7 @@
         <p class="py-3 font-bold text-3xl"> Nous contacter ?</p>
         <p class="py-2 text-2xl"><i class="fa-solid fa-phone"></i> <%= @store.phone_number %></p>
         <div class="flex justify-end content-end items-end">
-          <p class="mr-7 py-3 bg-[#FFD9AC] w-45 h-15 rounded-xl text-center font-bold text-2xl"><%= @store.category %> <i class="fa-solid fa-shop"></i></p>
+          <p class="mr-7 p-3 <%= @store.category.downcase %>  h-15 rounded-xl text-center font-bold text-2xl"><%= @store.category %> <i class="fa-solid fa-shop"></i></p>
         </div>
       </div>
     </div>
@@ -117,27 +117,53 @@
       </div>
   <% end %>
 <%# Modal produit %>
-  <dialog id="my_modal_1" class="modal">
-    <div class="modal-box">
-      <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
-      <div class="modal-action mt-4">
-      </div>
-    </div>
-      <form method="dialog" class="modal-backdrop">
-        <button>close</button>
+ <dialog id="my_modal_1" class="modal">
+  <div class="modal-box relative">
+    <!-- Bouton de fermeture visible -->
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+
+    <%= render "shared/form_new_edit", product: Product.new(store: @store), store: @store %>
+
+    <div class="modal-action mt-4">
+      <form method="dialog">
+        <button class="btn">Fermer</button>
       </form>
-  </dialog>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button type="submit">close</button>
+  </form>
+</dialog>
 
 <%# Modal évenement %>
-  <dialog id="my_modal_2" class="modal">
-    <div class="modal-box">
-      <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
-      <div class="modal-action mt-4">
-      </div>
-    </div>
-      <form method="dialog" class="modal-backdrop">
-        <button>close</button>
+ <dialog id="my_modal_2" class="modal">
+  <div class="modal-box relative">
+    <!-- Bouton de fermeture visible -->
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+
+    <%= render "shared/event_form", event: Event.new(store: @store), store: @store %>
+
+    <div class="modal-action mt-4">
+      <form method="dialog">
+        <%# <button class="btn">Fermer</button> %>
       </form>
+
   </dialog>
 
 </div>
+
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button type="submit">close</button>
+  </form>
+</dialog>
+
+<h2 id="distance"></h2>
+

@@ -50,4 +50,16 @@ end
       format.json { head :no_content }
     end
   end
+
+  def index_baskets
+    @orders = Order.where(user: current_user)
+    @orders_baskets_non_valides = Order.where(user: current_user, status_customer: "pending")
+    @orders_baskets_valides = Order.where(user: current_user, status_customer: "validated")
+    @orders_pending_accepted = Order.where(user: current_user, status_store: "accepted", status_customer: "validated")
+    @orders_baskets_non_valides_count = @orders_baskets_non_valides.count
+    @orders_baskets_valides_count = @orders_baskets_valides.count
+    @orders_pending_accepted_count = @orders_pending_accepted.count
+    @orders_baskets_refused = Order.where(user: current_user, status_store: "refused", status_customer: "validated")
+    @orders_baskets_refused_count = @orders_baskets_refused.count
+  end
 end
