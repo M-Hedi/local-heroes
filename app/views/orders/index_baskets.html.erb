@@ -1,1 +1,60 @@
-<h1>coucou</h1>
+<% content_for :title, "Retrouvez et gérez toutes vos commandes | Local Heroes" %>
+
+
+<div class="container mx-auto">
+  <div class="w-full flex flex-wrap justify-center gap-4 py-2 overflow-x-auto">
+    <div class="tabs tabs-lift w-full">
+      <label class="tab">
+        <input type="radio" name="my_tabs_4" checked>
+        <i class="fa-solid fa-cart-shopping text-3xl mr-2"></i>
+        <div class="text-3xl">
+        <% count = @orders_baskets_valides_count %>
+        <% if count == 0 %>
+          0 Panier Envoyé
+        <% else %>
+          <%= pluralize(count, "Pannier Envoyé", "Panniers Envoyés") %>
+        <% end %>
+        </div>
+      </label>
+      <div class="tab-content border-base-300 p-6">
+        <div class="grid grid-cols-3 grid-rows-5 gap-4">
+        <% @orders_baskets_valides.each do |order| %>
+      <div class="list bg-base-100 rounded-box shadow-md">
+        <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> chez  <%=order.store.name%></strong>
+        <%=order.created_at.strftime("%d/%m/%Y")%>
+        <br>
+        <% total = order.items.sum { |item| item.quantity * item.product.price } %>
+        </h3>
+        <div class="collapse border-base-300 border mx-auto w-11/12">
+          <input type="checkbox" />
+          <div class="collapse-title text-sm opacity-60 tracking-wide">Details</div>
+          <div class="collapse-content text-xs">
+            <% order.items.each do |item|%>
+              <div class="flex items-center mb-2">
+                <div>
+                <% if item.product.photo.attached? %>
+                 <%= image_tag item.product.photo, class: "size-7 rounded-box mr-2", alt: item.product.name %>
+                <% else %>
+                 <img class="size-7 rounded-box mr-2" src="https://res.cloudinary.com/dmt3jxemt/image/upload/v1749673366/produits-locaux_-_Edited_fo3vlz.jpg" alt="<%= item.product.name %>" />
+                <% end %>
+               </div>
+                    <div class="text-xs opacity-60 tracking-wide"><%=item.product.name %> <%=item.quantity%> X <%=item.product.price%>€ Total = <%= number_to_currency(item.quantity * item.product.price, unit: "") %>€</div>
+                      </div>
+                </div>
+            <%end%>
+
+              </div>
+           <div class="p-4 pb-2 text-md opacity-60 tracking-wide">  <% total = order.items.sum { |item| item.quantity * item.product.price } %>
+              <strong>Total: <%= number_to_currency(total, unit: "") %> €</strong>
+              <br>
+            </div>
+
+            </div>
+
+        </div>
+        <%end%>
+        </div>
+      </div>
+
+        </div>
+  </div>
