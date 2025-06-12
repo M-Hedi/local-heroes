@@ -50,4 +50,15 @@ end
       format.json { head :no_content }
     end
   end
+
+  def index_baskets
+    @orders = Order.where(user: current_user)
+  #   @orders_pending = Order.where(current_user: current_user.order, status_store: "pending")
+  #   @orders_accepted = Order.where(current_user: current_user.order, status_store: "accepted")
+  #   @orders_refused = Order.where(current_user: current_user.order, status_store: "refused")
+  #   @orders_pending_count = @orders_pending.count
+  #   @orders_accepted_count = @orders_accepted.count
+  #   @orders_refused_count = @orders_refused.count
+  end
+
 end

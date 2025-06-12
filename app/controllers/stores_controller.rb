@@ -10,7 +10,8 @@ class StoresController < ApplicationController
     {
       lng: point.longitude,
       lat: point.latitude,
-      info_window_html: render_to_string(partial: "shared/info_window", locals: {point: point})
+      info_window_html: render_to_string(partial: "shared/info_window", locals: {point: point}),
+      is_user_store: point.id == current_user.store.id || point.id === current_user.id
     }
   end
 

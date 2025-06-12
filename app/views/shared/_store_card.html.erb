@@ -1,5 +1,5 @@
 
-<div class="card bg-base-100 shadow-sm flex flex-col card-border border-[#FFD9AC] card-sm w-[100%] text-[#7c2808] p-3">
+<div class="card bg-base-100 shadow-sm flex flex-col card-border border-[#FFD9AC] card-sm w-[100%] text-[#7c2808] p-3 hover:bg-base-200 duration-4gco 00 ease-in-out">
 
 
   <figure>
@@ -12,7 +12,7 @@
     </div>
   </figure>
   <div class="card-body">
-    <p class="<%= store.category.downcase %> w-25 h-5 rounded-xl flex justify-center text-sm"><%= store.category.capitalize %></p>
+    <p class="<%= store.category.downcase %> max-w-fit py-2 px-6 rounded-xl text-center text-sm" style="max-height:fit-content;"><%= store.category.capitalize %></p>
     <h2 class="card-title text-3xl font-bold"><%= store.name %></h2>
     <p class="text-xl"><i class="fa-solid fa-user px-2"></i> <%= store.user.first_name %> <%= store.user.last_name %></p>
       <div class="p-4">

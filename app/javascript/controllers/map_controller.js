@@ -41,7 +41,7 @@ export default class extends Controller {
     });
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
-
+    this.element._mapboxInstance = this.map;
   }
 
   #displayJourneyReshaped(map, coords) {
@@ -89,7 +89,7 @@ export default class extends Controller {
     this.markersValue.forEach((marker, index) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html);
 
-      const color = index === 0 ? "#e53935" : "#3498DB";
+      const color = marker.is_user_store ? "#e53935" : "#3498DB";
 
       // Create a custom marker element
       const el = document.createElement('div');
