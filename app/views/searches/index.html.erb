@@ -8,22 +8,26 @@
 
   <div class="search">
     <p class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">MES RECHERCHES : </p>
+    <br>
     <div class="cards px-3">
     <div class="grid grid-cols-3 gap-2 pt-5">
   <% if @results.any? { |r| r.is_a?(Event) } %>
     <div class="col-span-3 my-4">
       <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">EVENEMENTS</h2>
       <hr class="border-orange-300">
+      <br>
     </div>
     <% @results.select { |r| r.is_a?(Event) }.each do |event| %>
       <%= render "shared/event_card", event: event %>
     <% end %>
   <% end %>
-
+  <br>
+  <br>
   <% if @results.any? { |r| r.is_a?(Store) } %>
     <div class="col-span-3 my-4">
       <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">COMMERCES</h2>
       <hr class="border-orange-300">
+      <br>
     </div>
     <% @results.select { |r| r.is_a?(Store) }.each do |store| %>
       <%= render "shared/store_card", store: store %>
