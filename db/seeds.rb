@@ -12,13 +12,14 @@ require "open-uri"
 
 # if Rails.env.development?
 puts "Deleting DB"
+# Delete dependent records first to avoid foreign key violations
+EventParticipant.destroy_all
 EventProduct.destroy_all
 EventPartner.destroy_all
 Event.destroy_all
 Item.destroy_all
 Order.destroy_all
 Product.destroy_all
-Event.destroy_all
 Store.destroy_all
 User.destroy_all
 
