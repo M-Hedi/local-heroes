@@ -2,13 +2,13 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @user = current_user 
+    @user = current_user
     @stores = Store.all
     @markers = @stores.geocoded.map do |store|
       {
         lat:store.latitude,
         lng:store.longitude,
-        info_window_html: render_to_string(partial: "shared/info_window", locals: {store: store})
+        info_window_html: render_to_string(partial: "shared/info_window", locals: {point: store})
       }
     end
   end
