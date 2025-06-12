@@ -29,17 +29,16 @@
   <br>
   <br>
 
+
     <div class="grid grid-cols-4 gap-10 justify-center">
-      <% Store.last(10).each do |store| %>
+      <% Store.last(8).each do |store| %>
         <%= render "shared/store_card", store: store %>
       <% end %>
     </div>
-</div>
-
-
-
+</div> 
 
   <%# <div class="flex flex-col">
+
     <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">MAGASINS AUTOURS DE MOI</h2>
     <div class="flex justify-center">
       <div class="rounded xl border border-base-100" style="width: 50%; height: 500px;"

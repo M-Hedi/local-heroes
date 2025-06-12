@@ -1,19 +1,30 @@
 
 <div class="flex flex-col shadow-sm border-2 border-[#FFD9AC] bg-base-100 w-md rounded-xl hover:bg-base-200">
-  <%= image_tag("photo-test.jpg", class:" rounded-xl w-[100%] h-[80%] p-1") %>
-  <%= link_to event_path(event) do %>
-  <div class="truncate overflow-hidden w-[100%] h-[100%]">
+   <% if event.photo.attached? %>
+      <%= image_tag event.photo, class: "rounded-2xl p-[8px]", alt: event.title %>
+      <% else %>
+      <%= image_tag("photo-test.jpg", class:" rounded-xl w-[100%] h-[80%] p-1") %>
+      <% end %>
+   <%= link_to event_path(event) do %>
+    <div class="truncate overflow-hidden w-[100%] h-[100%]">
     <h2 class="text-wrap text-3xl px-3 py-3 text-center font-bold"><%= link_to event.title, event_path(event), event: event %></h2>
     <p class="bg-[#FFD9AC] w-[100%] text-xl px-3 flex justify-center"><%= event.start_date.strftime("%d/%m") %> - <%= event.end_date.strftime("%d/%m") %></p>
     <p class="truncate px-3 text-lg py-3"><%= event.description %></p>
     <p class="flex justify-end font-bold py-3 px-2">Voir plus...</p>
-    <div class="bg-base-200 w-[100%] hover:bg-base-200 border-t-1 border-base-300">
-      <h3 class="font-semibold text-xl px-3 py-3">Magasin(s) Participant(s):</h3>
-      <ul class="flex flex-wrap justify-between">
-        <li class=" py-3 px-3 flex justify-center rounded-xl"><%= event.event_partners.count %> Magasin(s) Partenaire(s)</li>
+    <div class="bg-base-200 w-[100%] hover:bg-base-200 border-t-1 border-base-300 flex items-center justify-between">
+      <h3 class="font-semibold text-xl px-3 py-3">
+      <% count = event.event_partners.count %>
+      <% if count == 0 %>
+        0 Magasin Participant
+      <% else %>
+        <%= pluralize(count, "Magasin Participant", "Magasins Participants") %>
+      <% end %>
+      </h3>
         <i class="fa-solid fa-user px-3"> <%= event.event_participants.count %></i> <%# Jonas tu peux mettre code ici %>
-      </ul>
     </div>
+
+
   </div>
+
   <% end %>
-</div>   
+</div>
