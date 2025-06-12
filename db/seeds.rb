@@ -89,9 +89,9 @@ user4 = User.create!(
   phone_number: "06 70 22 33 44"
 )
 user5 = User.create!(
-  first_name: "Claire",
-  last_name: "Legrand",
-  email: "claire.legrand@example.com",
+  first_name: "Simon",
+  last_name: "Jacquot",
+  email: "simon.jacquot@lewagon.com",
   password: "password",
   address: "14 rue des Arts, 59000 Lille, France",
   phone_number: "06 55 44 33 22"
