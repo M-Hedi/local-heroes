@@ -11,17 +11,14 @@
   </div>
 </div>
 
-<div class="container mx-auto flex flex-col items-center">
-
-    <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">EVENEMENTS EN COURS</h2>
-    <br>
-    <br>
-
+<div class="container mx-auto flex flex-col items-center mt-5">
     <div class="grid grid-cols-3 gap-10 justify-center">
       <% Event.last(6).each do |event| %>
         <%= render "shared/event_card", event: event %>
       <% end %>
     </div>
+
+
 
   <br>
   <br>
@@ -29,35 +26,38 @@
   <br>
   <br>
 
-<div data-controller="dropdown-map">
-  <div class="container mx-auto mb-10">
-  <div style="text-align: center; margin-bottom: 1rem;">
-    <button
-      data-action="click->dropdown-map#toggle"
-      class="map-button text-center">
-      <span class="mapbtn">Voir la carte</span><span class="mapbtn hidden">Voir la liste</span>
-    </button>
-  </div>
+  <div data-controller="dropdown-map">
+    <div class="container mx-auto mb-10">
+      <div style="text-align: center; margin-bottom: 1rem;">
+        <button
+          data-action="click->dropdown-map#toggle"
+          class="map-button text-center">
+          <span class="mapbtn">Voir la carte</span><span class="mapbtn hidden">Voir la liste</span>
+        </button>
+      </div>
 
-  <div data-dropdown-map-target="content" class="transition-all duration-500 overflow-hidden max-h-0 opacity-0">
-    <div class="w-full">
-      <div class="rounded-xl mx-auto"
-           style="height: 900px; border: 1px solid #ccc; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
-           data-controller="map"
-           data-map-markers-value="<%= @markers.to_json %>"
-           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <br>
+
+      <div data-dropdown-map-target="content" class="transition-all duration-500 overflow-hidden max-h-0 opacity-0">
+        <div class="w-full">
+          <div class="rounded-xl mx-auto"
+               style="height: 900px; border: 1px solid #ccc; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
+               data-controller="map"
+               data-map-markers-value="<%= @markers.to_json %>"
+               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-10 justify-center transition-all duration-500 overflow-hidden max-h-[2000px] opacity-100"
+           data-dropdown-map-target="grid">
+        <% Store.last(8).each do |store| %>
+          <%= render "shared/store_card", store: store %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<div class="grid grid-cols-4 gap-10 justify-center transition-all duration-500 overflow-hidden max-h-[2000px] opacity-100" data-dropdown-map-target="grid">
-    <% Store.last(8).each do |store| %>
-      <%= render "shared/store_card", store: store %>
-    <% end %>
-  </div>
-</div>
-
  <style>
 
  .map-dropdown {
