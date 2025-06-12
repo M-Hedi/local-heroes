@@ -4,15 +4,15 @@
   <%= render "shared/searchbar" %>
 </div>
 
-<div class="flex justify-center py-7">
+<div class="container mx-auto">
 
   <div class="search">
-    <p class=" text-neutral-content p-5">Mes recherches : </p>
+    <p class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">MES RECHERCHES : </p>
     <div class="cards px-3">
     <div class="grid grid-cols-3 gap-2 pt-5">
   <% if @results.any? { |r| r.is_a?(Event) } %>
     <div class="col-span-3 my-4">
-      <h2 class="text-xl font-bold text-orange-600">Événements</h2>
+      <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">EVENEMENTS</h2>
       <hr class="border-orange-300">
     </div>
     <% @results.select { |r| r.is_a?(Event) }.each do |event| %>
@@ -22,7 +22,7 @@
 
   <% if @results.any? { |r| r.is_a?(Store) } %>
     <div class="col-span-3 my-4">
-      <h2 class="text-xl font-bold text-orange-600">Commerces</h2>
+      <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md">COMMERCES</h2>
       <hr class="border-orange-300">
     </div>
     <% @results.select { |r| r.is_a?(Store) }.each do |store| %>
