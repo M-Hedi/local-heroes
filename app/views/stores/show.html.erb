@@ -41,7 +41,11 @@
   <%# button add évenement rajouter si le user commercant  %> <%# Modal evenement %>
   <div  >
     <div class="flex justify-between items-center">
-      <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md"> NOS EVENEMENTS </h2>
+      <% if @store.events.empty? %>
+        <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md"> VOUS N'AVEZ PAS D'EVENEMENTS </h2>
+      <% else %>
+        <h2 class="text-center m-auto size-fit p-3 text-3xl font-bold tracking-wide text-shadow-md"> NOS EVENEMENTS </h2>
+      <% end %>
       <br>
       <hr>
       <% if @store.user == current_user %>
@@ -50,12 +54,13 @@
     </div>
     <br>
     <div class="overflow-hidden rounded-xl">
-      <div class="snap-x flex space-x-4 py-4 overflow-x-scroll border-4 border-solid  border-orange-300 bg-orange-100 rounded-xl">
+      <div class=" <%= "hidden" if @store.events.empty? %> snap-x flex space-x-4 py-4 overflow-x-scroll border-4 border-solid  border-orange-300 bg-orange-100 rounded-xl">
         <% @store.events.each do |event| %>
           <div class="snap-center w-[80%]">
             <%= render "shared/event_card", event: event %>
           </div>
         <% end %>
+
       </div>
     </div>
   </div>
