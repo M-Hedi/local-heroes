@@ -14,7 +14,7 @@
 
   <div class="flex flex-row justify-around mx-5 items-center">
   <% if @event.photo.attached? %>
-    <%= image_tag @event.photo, class: " object-cover p-3",  width: "50%", height:"50%", alt: @event.title %>
+    <%= cl_image_tag @event.photo.key, class: "mr-3 object-cover p-3",   width: "50%", height:"50%", alt: @event.title %>
   <% else %>
     <%= image_tag("pexels-marcin-dampc-807808-1684187.jpg", class: " object-cover p-3",  width: "50%", height:"50%") %>
   <% end %>
