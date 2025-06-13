@@ -1,19 +1,19 @@
 <% content_for :title, "Retrouvez et gérez toutes vos commandes | Local Heroes" %>
 
-<div class="container mx-auto">
+<div class="container mx-auto" data-controller="tabs">
   <div class="w-full flex flex-wrap justify-center gap-4 py-2 overflow-x-auto">
     <div class="tabs tabs-lift w-full">
-      <input type="radio" id="tab-a-valider" name="my_tabs_4" class="hidden peer" checked>
+      <input type="radio" id="tab-a-valider" name="my_tabs_4" class="checkable" <%= 'checked' if params[:onglet] == "a_valider"%>>
       <label for="tab-a-valider" class="tab">
         <i class="fa-solid fa-circle-question text-3xl mr-2"></i>
         <div class="text-3xl"><%= @orders_pending_count %> A valider</div>
       </label>
-      <input type="radio" id="tab-encours" name="my_tabs_4" class="hidden peer">
+      <input type="radio" id="tab-encours" name="my_tabs_4" class="checkable" <%= 'checked' if params[:onglet] == "encours"%>>
       <label for="tab-encours" class="tab">
         <i class="fa-solid fa-circle-check text-3xl mr-2"></i>
         <div class="text-3xl"><%= @orders_accepted_count %> En cours</div>
       </label>
-      <input type="radio" id="tab-refusees" name="my_tabs_4" class="hidden peer">
+      <input type="radio" id="tab-refusees" name="my_tabs_4" class="checkable" <%= 'checked' if params[:onglet] == "refusées"%>>
       <label for="tab-refusees" class="tab">
         <i class="fa-solid fa-circle-xmark text-3xl mr-2"></i>
         <div class="text-3xl"><%= pluralize(@orders_refused_count, "Refusée") %></div>
@@ -148,4 +148,56 @@
   display: block;
 }
 .tab-content { display: none; }
+
+.current-tab {
+  color: #1a202c;        /* darker text (Tailwind gray-900) */
+  font-weight: 700;      /* bold */
+  text-decoration: underline;
+}
+
+input[type="radio"].checkable {
+  display: none;
+}
+
+/* Hide radio buttons */
+input[type="radio"].checkable {
+  display: none;
+}
+
+/* Hide all tab content by default */
+.tab-content {
+  display: none;
+}
+
+/* Show content when corresponding radio is checked */
+#tab-a-valider:checked ~ label[for="tab-a-valider"] ~ #content-a-valider {
+  display: block;
+}
+#tab-encours:checked ~ label[for="tab-encours"] ~ #content-encours {
+  display: block;
+}
+#tab-refusees:checked ~ label[for="tab-refusees"] ~ #content-refusees {
+  display: block;
+}
+
+/* Style the active tab label */
+#tab-a-valider:checked + label[for="tab-a-valider"],
+#tab-encours:checked + label[for="tab-encours"],
+#tab-refusees:checked + label[for="tab-refusees"] {
+  color: #7c2808;               /* White text */
+  font-weight: 700;           /* Bold text */
+  transform: scale(1.02);     /* Slightly larger */
+  border-bottom: 3px solid #7c2808; /* Darker blue bottom border */
+}
+
+/* Optional: Add transition for smooth effect */
+.tab {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Optional: Hover effect for inactive tabs */
+.tab:hover {
+  background-color: #f1f5f9;  /* Light gray background on hover */
+  transform: translateY(-1px);
+}
 </style>
