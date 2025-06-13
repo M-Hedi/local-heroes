@@ -1,16 +1,16 @@
 <% content_for :title, "#{@store.name} - Commerce local | Local Heroes" %>
 
 <div class="container mt-8 mx-auto " data-controller="cart">
-  <div class="bg-base-100 h-150 rounded-lg shadow-2xl mb-10 opacity-80">
+  <div class="bg-base-100 rounded-lg shadow-2xl mb-10 opacity-80">
     <div class="flex justify-center">
       <h1 class="text-5xl font-bold py-6"><%= @store.name %></h1>
     </div>
     <div class="flex flex-row">
 
     <% if @store.photo.attached? %>
-    <%= image_tag @store.photo, class: "rounded-lg shadow-2xl m-8", width: "300px", alt: @store.name %>
+    <%= image_tag @store.photo, class: "rounded-lg shadow-2xl m-8 object-cover", width: "300px", alt: @store.name %>
     <% else %>
-    <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8", width: "300px") %>
+    <%= image_tag("Image_Empty.webp", class: "rounded-lg shadow-2xl m-8 object-cover", width: "300px") %>
     <% end %>
 
       <div class="mx-auto text-xl flex flex-col justify-center w-[50%]">
@@ -22,7 +22,7 @@
         <p class="py-3 font-bold text-3xl"> Nous contacter ?</p>
         <p class="py-2 text-2xl"><i class="fa-solid fa-phone"></i> <%= @store.phone_number %></p>
         <div class="flex justify-end content-end items-end">
-          <p class="mr-7 p-3 <%= @store.category.downcase %>  h-15 rounded-xl text-center font-bold text-2xl"><%= @store.category %> <i class="fa-solid fa-shop"></i></p>
+          <p class="mr-7 p-3 <%= @store.category.downcase %>  h-15 rounded-xl text-center font-bold text-2xl mb-8"><%= @store.category %> <i class="fa-solid fa-shop"></i></p>
         </div>
       </div>
     </div>
