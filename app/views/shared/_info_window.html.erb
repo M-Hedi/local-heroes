@@ -1,5 +1,6 @@
 <% if point.respond_to?(:name) %>
   <h2 class="font-bold text-lg"><%= link_to point.name, store_path(point)  %></h2>
+  <p class="text-lg"><%= point.user.first_name + " " + point.user.last_name %></p>
   <p class="text-lg"><%= point.address %></p>
 <% else %>
   <h2 class="font-bold text-lg">Vous</h2>
