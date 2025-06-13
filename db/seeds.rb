@@ -1568,7 +1568,7 @@ Product.create!(
 puts "Created #{Product.count} products"
 
 fete_du_pain = Event.create!(
-  store: store4,
+  store: store5,
   title: "Fête du Pain",
   description: "À l'occasion de la fête du pain, la boulangerie Au p’tit Louis vous invite à une journée exceptionnelle de dégustation gratuite. Venez découvrir nos pains artisanaux faits maison avec des farines locales, nos viennoiseries pur beurre et nos brioches moelleuses. Des démonstrations de façonnage et de cuisson seront également proposées tout au long de la journée, pour petits et grands. Offres spéciales sur les produits du jour et surprises gourmandes garanties !",
   start_date: Date.today,
