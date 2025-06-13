@@ -2,22 +2,22 @@
 
 
 <div class="container mx-auto">
-  <div class="w-full flex flex-wrap justify-center gap-4 py-2 overflow-x-auto">
-    <div class="tabs tabs-lift w-full">
+  <div class="w-full flex flex-wrap justify-center gap-4 py-4 overflow-x-auto">
+    <div class="tabs tabs-lift w-full pb-2">
       <label class="tab">
         <input type="radio" name="my_tabs_4" checked>
-        <i class="fa-solid fa-cart-shopping text-3xl mr-2"></i>
-        <div class="text-3xl">
+        <i class="fa-solid fa-cart-shopping text-2xl mr-2 my-2 pb-2"></i>
+        <div class="text-2xl my-2 pb-2">
         <% count = @orders_baskets_valides_count %>
         <% if count == 0 %>
-          0 Panier Envoyé
+          0 Panier validé
         <% else %>
-          <%= pluralize(count, "Panier envoyé", "Paniers envoyés") %>
+          <%= pluralize(count, "Panier validé", "Paniers validés") %>
         <% end %>
         </div>
       </label>
       <div class="tab-content border-base-300 p-6">
-        <div class="grid grid-cols-3 grid-rows-5 gap-4">
+        <div class="grid grid-cols-3 gap-4">
         <% @orders_baskets_valides.each do |order| %>
       <div class="list bg-base-100 rounded-box shadow-md">
         <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> chez  <%=order.store.name%></strong>
