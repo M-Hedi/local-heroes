@@ -11,11 +11,13 @@
         <div class="flex flex-row items-center content-center w-full font-bold text-xl">
          <% if user_signed_in? && current_user.orders.exists? %>
          <%= link_to index_baskets_path do %>
+        <div class="flex items-center justify-center rounded-full w-6 h-6 bg-neutral text-base-100 text-md font-medium ml-7 mb-2">
+          <%= current_user.orders.where(status_customer: "validated").count %>
+        </div>
          <div class="flex flex-col items-end">
-           <i class="fa-solid fa-cart-shopping text-3xl text-neutral mr-2 py-auto"></i>
-
-         </div>          <div class="text-neutral text-lg mr-2 py-auto"><%=current_user.orders.where(status_customer: "validated").count %></div>
-           <% end %>
+           <i class="fa-solid fa-cart-shopping text-4xl text-neutral mr-10 py-auto"></i>
+         </div>
+        <% end %>
          <% end %>
           <% if user_signed_in? %>
             <div class="w-20 relative">

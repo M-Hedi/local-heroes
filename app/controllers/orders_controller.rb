@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
 
   def create
   store = Store.find(params[:store_id])
-  @order = Order.find_or_create_by(user: current_user, store: store) do |order|
+  @order = Order.find_or_create_by(user: current_user, store: store, status_customer: "pending", status_store: "pending") do |order|
     order.status_customer = "pending"
     order.status_store = "pending"
   end
