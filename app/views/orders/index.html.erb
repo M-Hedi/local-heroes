@@ -2,15 +2,15 @@
 
 
 <div class="container mx-auto">
-  <div class="w-full flex flex-wrap justify-center gap-4 py-4 overflow-x-auto">
+  <div class="w-full flex flex-wrap justify-center gap-4 py-2 overflow-x-auto">
     <div class="tabs tabs-lift w-full">
       <label class="tab">
         <input type="radio" name="my_tabs_4" <%= "checked" if params[:onglet] == "a_valider" || "" %>/>
-        <i class="fa-solid fa-circle-question text-2xl mr-2 py-2"></i>
-        <div class="text-2xl"><%=@orders_pending_count%> A valider</div>
+        <i class="fa-solid fa-circle-question text-3xl mr-2"></i>
+        <div class="text-3xl"><%=@orders_pending_count%> A valider</div>
       </label>
       <div class="tab-content border-base-300 p-6">
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-3 grid-rows-5 gap-4">
         <% @orders_pending.each do |order| %>
       <div class="list bg-base-100 rounded-box shadow-md">
         <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
@@ -53,11 +53,11 @@
 
       <label class="tab" id="encours">
         <input type="radio" name="my_tabs_4" <%= "checked" if params[:onglet] == "encours" %>/>
-        <i class="fa-solid fa-circle-question text-2xl mr-2 py-2"></i>
-        <div class="text-2xl"><%=@orders_accepted_count%> En cours </div>
+        <i class="fa-solid fa-circle-check text-3xl mr-2"></i>
+        <div class="text-3xl"><%=@orders_accepted_count%> En cours </div>
       </label>
       <div class="tab-content border-base-300 p-6">
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid grid-cols-3 grid-rows-5 gap-4">
         <% @orders_accepted.each do |order| %>
       <div class="list bg-base-100 rounded-box shadow-md">
         <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
@@ -97,11 +97,11 @@
 
       <label class="tab">
         <input type="radio" name="my_tabs_4" <%= "checked" if params[:onglet] == "refusées" %>/>
-        <i class="fa-solid fa-circle-question text-2xl mr-2 py-2"></i>
-        <div class="text-2xl"> <%= pluralize(@orders_refused_count, "Refusée") %> </div>
+        <i class="fa-solid fa-circle-xmark text-3xl mr-2"></i>
+        <div class="text-3xl"> <%= pluralize(@orders_refused_count, "Refusée") %> </div>
       </label>
       <div class="tab-content border-base-300 p-6">
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid grid-cols-3 grid-rows-5 gap-4">
         <% @orders_refused.each do |order| %>
       <div class="list bg-base-100 rounded-box shadow-md">
         <h3 class="p-4 pb-2 text-md opacity-60 tracking-wide"><strong>Réservation N°<%= order.id %> - <%=order.user.first_name%> <%=order.user.last_name%></strong>
@@ -141,3 +141,9 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
