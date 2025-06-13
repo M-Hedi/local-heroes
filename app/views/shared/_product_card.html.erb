@@ -2,7 +2,7 @@
   <figure>
     <div class="relative inline-block">
       <% if product.photo.attached? %>
-      <%= image_tag product.photo, class: "rounded-2xl p-[8px]", alt: product.name %>
+      <%= cl_image_tag product.photo.key, class: "rounded-2xl p-[8px]", alt: product.name %>
       <% else %>
       <img class="rounded-2xl p-[8px]" src="https://res.cloudinary.com/dmt3jxemt/image/upload/v1749673366/produits-locaux_-_Edited_fo3vlz.jpg" alt="<%= product.name %>" />
       <% end %>

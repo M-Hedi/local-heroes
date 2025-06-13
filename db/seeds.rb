@@ -94,7 +94,7 @@ user5 = User.create!(
   last_name: "Jacquot",
   email: "simon.jacquot@lewagon.com",
   password: "password",
-  address: "14 rue des Arts, 59000 Lille, France",
+  address: "142 rue Léon Gambetta, Lille",
   phone_number: "06 55 44 33 22"
 )
 
@@ -700,6 +700,10 @@ pain_au_lait_store_four = Product.create!(
       store: store4
       )
 
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749550312/development/vehgr6z475n893o3i13ioohon7si.webp").open
+pain_au_lait_store_four.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+pain_au_lait_store_four.save
+
 tartelette_citron_store_four = Product.create!(
     name: "Tarte Citron",
       price: 3.70,
@@ -711,6 +715,9 @@ tartelette_citron_store_four = Product.create!(
       description: "Pâte sablée croustillante garnie d'une crème au citron acidulée et d'une meringue légère.",
       store: store4
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749631606/tartelette_citron_meringue_x4lpxn.jpg").open
+tartelette_citron_store_four.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+tartelette_citron_store_four.save
 
 pain_aux_olives_store_four = Product.create!(
  name: "Pain aux Olives",
@@ -723,6 +730,9 @@ pain_aux_olives_store_four = Product.create!(
       description: "Pain moelleux agrémenté d'olives noires, parfait pour accompagner vos apéritifs et repas.",
       store: store4
 )
+file = URI.parse("https://res.cloudinary.com/dmt3jxemt/image/upload/v1749631603/pain_aux_olives_ughxfl.jpg").open
+pain_aux_olives_store_four.photo.attach(io: file, filename: "pain_siegle.png", content_type: "image/jpg")
+pain_aux_olives_store_four.save
 
 
 pain_siegle_store_three = Product.create!(
@@ -1557,13 +1567,17 @@ Product.create!(
 
 puts "Created #{Product.count} products"
 
-Event.create!(
+fete_du_pain = Event.create!(
   store: store1,
   title: "Fête du Pain",
   description: "À l'occasion de la fête du pain, la boulangerie Au p’tit Louis vous invite à une journée exceptionnelle de dégustation gratuite. Venez découvrir nos pains artisanaux faits maison avec des farines locales, nos viennoiseries pur beurre et nos brioches moelleuses. Des démonstrations de façonnage et de cuisson seront également proposées tout au long de la journée, pour petits et grands. Offres spéciales sur les produits du jour et surprises gourmandes garanties !",
   start_date: Date.today,
   end_date: Date.today + 1
 )
+file = URI.parse("https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+fete_du_pain.photo.attach(io: file, filename: "fete_pain.png", content_type: "image/jpg")
+fete_du_pain.save
+
 Event.create!(
   store: store2,
   title: "Atelier pâtisserie",
@@ -1698,6 +1712,16 @@ end
 
 puts "Created #{Item.count} items"
 
+EventPartner.create!(
+  store: store5,
+  event: fete_du_pain
+)
+
+EventPartner.create!(
+  store: store4,
+  event: nocturne_g
+)
+
 30.times do
   EventPartner.create!(
     store: Store.order("RANDOM()").first,
@@ -1720,7 +1744,7 @@ puts "Created #{EventProduct.count} event products"
 80.times do
   EventParticipant.create!(
     user: User.all.sample,
-    event: Event.all.sample,
+    event: Event.all.sample
   )
 end
 puts "Created #{EventParticipant.count} event participants"
