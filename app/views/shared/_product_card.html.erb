@@ -2,9 +2,9 @@
   <figure>
     <div class="relative inline-block">
       <% if product.photo.attached? %>
-      <%= image_tag product.photo, class: "rounded-2xl p-[8px]", alt: product.name %>
+      <%= image_tag product.photo, class: "rounded-2xl h-[250px] p-[8px]", alt: product.name %>
       <% else %>
-      <img class="rounded-2xl p-[8px]" src="https://res.cloudinary.com/dmt3jxemt/image/upload/v1749673366/produits-locaux_-_Edited_fo3vlz.jpg" alt="<%= product.name %>" />
+      <img class="rounded-2xl p-[8px] h-[250px]" src="https://res.cloudinary.com/dmt3jxemt/image/upload/v1749673366/produits-locaux_-_Edited_fo3vlz.jpg" alt="<%= product.name %>" />
       <% end %>
     </div>
   </figure>
@@ -12,18 +12,25 @@
   <div class="card-body w-full">
     <h2 class="card-title truncate text-xl mx-auto"><%= product.name %></h2>
     <p class="bg-[#FFD9AC] rounded-xl max-w-fit px-4 py-2" style="max-height:fit-content;"><%= product.category.capitalize %></p>
-    <p class="text-sm text-center"><%= product.description %></p>
+    <p class="text-sm text-center">
+      <%= truncate(product.description, length: 80) %>
+    </p>
     <% if product.price == product.exact_price %>
       <p class="card-title truncate font-bold text-2xl mx-auto"><%= formatted_price(product.price) %>€</p>
     <% else %>
-      <div class="mt-4 text-center scale-125">
-        <span class="top-2 right-2 badge badge-sm badge-success px-2 py-1">
-          PROMO
-        </span>
-        <div class="text-3xl font-bold text-red-500"><%= formatted_price(product.price) %>€</div>
-        <div class="text-sm line-through text-gray-700"><%= formatted_price(product.exact_price) %>€</div>
+      <div class="flex items-end justify-center">
+        <div class="text-2xl font-bold text-red-500">
+          <%= formatted_price(product.price) %>€
+        </div>
+        <div class="flex flex-col items-center ml-2">
+          <span class="badge badge-xs badge-success px-2 py-1">
+            PROMO
+          </span>
+          <div class="text-sm line-through text-gray-700">
+            <%= formatted_price(product.exact_price) %>€
+          </div>
+        </div>
       </div>
-      <br>
     <% end %>
 
     <div class="">
