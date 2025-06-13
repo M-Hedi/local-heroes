@@ -1,12 +1,12 @@
 
-<div class="min-h-screen flex flex-col justify-center items-center bg-orange-200  p-4">
+<div class="flex flex-col justify-center items-center bg-orange-200  p-4">
   <h2 class="text-3xl font-bold mb-10 text-center">Bienvenue chez Local Heroes</h2>
 
   <div>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "card w-full max-w-sm shadow-2xl bg-base-100 p-6" }) do |f| %>
       <h2 class="text-2xl font-bold text-center mb-4">Connexion</h2>
 
-      <div class="form-control mb-4">
+      <div class="form-control">
         <%= f.input :email,
                     label: "Email",
                     required: false,
@@ -19,7 +19,7 @@
                     wrapper_html: { class: "mb-2" } %>
       </div>
 
-      <div class="form-control mb-4">
+      <div class="form-control">
         <%= f.input :password,
                     label: "Mot de passe",
                     required: false,
@@ -33,7 +33,7 @@
 
 
       <% if devise_mapping.rememberable? %>
-        <div class="form-control mb-4">
+        <div class="form-control">
           <%= f.input :remember_me,
                       as: :boolean,
                       label: "Se souvenir de moi",
