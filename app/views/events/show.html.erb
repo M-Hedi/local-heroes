@@ -59,8 +59,9 @@
           <div class="w-full grid grid-cols-4 gap-6 p-4" data-toggle-list-target="productsList">
 
             <% @event.event_products.each do |product| %>
-              <%= render "shared/product_card", product: product.product %>
-
+              <% unless !current_user.store.nil? && product.event.store == current_user.store.products %>
+                <%= render "shared/product_card", product: product.product %>
+              <% end %>
             <% end %>
           </div>
         </div>

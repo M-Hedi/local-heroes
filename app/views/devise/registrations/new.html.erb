@@ -8,6 +8,28 @@
 
       <%= f.error_notification %>
 
+
+      <div class="form-control mb-4">
+        <%= f.input :first_name,
+                    label: "Prénom",
+                    required: true,
+                    autofocus: true,
+                    input_html: { class: "input input-bordered w-full" },
+                    label_html: { class: "label-text mb-1" },
+                    wrapper_html: { class: "mb-2" } %>
+      </div>
+
+
+      <div class="form-control mb-4">
+        <%= f.input :last_name,
+                    label: "Nom",
+                    required: true,
+                    autofocus: true,
+                    input_html: { class: "input input-bordered w-full" },
+                    label_html: { class: "label-text mb-1" },
+                    wrapper_html: { class: "mb-2" } %>
+      </div>
+
       <div class="form-control mb-4">
         <%= f.input :email,
                     label: "Email",
