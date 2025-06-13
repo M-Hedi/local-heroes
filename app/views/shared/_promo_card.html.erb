@@ -11,7 +11,7 @@
       <div class="card-body gap-4">
         <h2 class="text-2xl font-semibold"><%= product.name %></h2>
         <p class="font-semibold"><%= product.price %></p>
-        <p><%= product.description %></p>
+        <p class="line-clamp-3"><%= product.description %></p>
           <%= link_to store_product_path(product) do %>
             <p class="btn btn-sm btn-[#370a00] text-[#370a00] ">Voir plus</p>
           <% end %>
