@@ -1,5 +1,14 @@
 <% content_for :title, "Gérez facilement le profil de votre commerce et de vos événéments | Local Heroes" %>
 
+
+
+
+
+<div class="container mx-auto">
+
+
+
+
 <div class="card rounded-box grid h-10 place-items-center mb-10 mt-10 text-3xl font-bold tracking-wide text-shadow-md"><strong>MES COMMANDES</strong></div>
 <div class="flex flex-wrap justify-center gap-4 m-2 overflow-x-auto">
   <div class="stats shadow w-full">
@@ -70,4 +79,11 @@
   <% @my_products.each do |product| %>
     <%= render "shared/product_card", product: product%>
   <% end %>
+</div>
+
+
+
+
+
+
 </div>
