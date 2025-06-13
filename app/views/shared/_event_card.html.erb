@@ -3,7 +3,7 @@
     <% if event.photo.attached? %>
       <%= cl_image_tag event.photo.key, class: "rounded-2xl p-[8px] h-[30vh] object-cover", alt: event.title %>
     <% else %>
-      <%= image_tag("photo-test.jpg", class:"rounded-xl w-full h-[80%] p-1") %>
+      <%= image_tag("photo-test.jpg", class:"rounded-xl w-full h-[30vh] p-1") %>
     <% end %>
     <div class="truncate overflow-hidden w-full">
       <h2 class="text-wrap text-3xl px-3 py-3 text-center font-bold"><%= event.title %></h2>
