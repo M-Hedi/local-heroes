@@ -17,7 +17,8 @@
         <p class="py-3 font-bold text-3xl"> Qui sommes-nous ?</p>
         <p class="py-3 text-pretty text-2xl"><%= @store.description %></p>
         <p class="py-3 font-bold text-3xl"> Où sommes-nous ?</p>
-        <p class="py-3 text-2xl"><i class="fa-solid fa-map-pin"></i> <%= @store.address %></p>
+        <p class="pt-3 pb-2 text-2xl"><i class="fa-solid fa-map-pin"></i> <%= @store.address %></p>
+        <p class="ml-10 text-lg pb-2"></i> A <span id="distance"></span> de chez vous</p>
         <p class="py-3 font-bold text-3xl"> Nous contacter ?</p>
         <p class="py-2 text-2xl"><i class="fa-solid fa-phone"></i> <%= @store.phone_number %></p>
         <div class="flex justify-end content-end items-end">
@@ -163,5 +164,5 @@
     <button type="submit">close</button>
   </form>
 
-<h2 id="distance" class ="hidden"></h2>
+
 </div>
