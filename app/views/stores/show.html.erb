@@ -87,7 +87,7 @@
     <div class="container mt-8 mx-auto">
     <div class="overflow-hidden rounded-xl">
       <div class="snap-x flex space-x-4 py-4 overflow-x-scroll">
-        <% @store.products.each do |product| %>
+        <% @store.products.order(:created_at).reverse.each do |product| %>
           <div class="snap-center w-[80%]">
             <%= render "shared/product_card", product: product, order: @order %>
           </div>
