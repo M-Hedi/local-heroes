@@ -1,19 +1,19 @@
 <% content_for :title, "Retrouvez et gérez toutes vos commandes | Local Heroes" %>
 
-<div class="container mx-auto">
+<div class="container mx-auto" data-controller="tabs">
   <div class="w-full flex flex-wrap justify-center gap-4 py-2 overflow-x-auto">
     <div class="tabs tabs-lift w-full">
-      <input type="radio" id="tab-a-valider" name="my_tabs_4" class="hidden peer" checked>
+      <input type="radio" id="tab-a-valider" name="my_tabs_4" class="hidden peer" <%= 'checked' if params[:onglet] == "a_valider"%>>
       <label for="tab-a-valider" class="tab">
         <i class="fa-solid fa-circle-question text-3xl mr-2"></i>
         <div class="text-3xl"><%= @orders_pending_count %> A valider</div>
       </label>
-      <input type="radio" id="tab-encours" name="my_tabs_4" class="hidden peer">
+      <input type="radio" id="tab-encours" name="my_tabs_4" class="hidden peer" <%= 'checked' if params[:onglet] == "encours"%>>
       <label for="tab-encours" class="tab">
         <i class="fa-solid fa-circle-check text-3xl mr-2"></i>
         <div class="text-3xl"><%= @orders_accepted_count %> En cours</div>
       </label>
-      <input type="radio" id="tab-refusees" name="my_tabs_4" class="hidden peer">
+      <input type="radio" id="tab-refusees" name="my_tabs_4" class="hidden peer" <%= 'checked' if params[:onglet] == "refusées"%>>
       <label for="tab-refusees" class="tab">
         <i class="fa-solid fa-circle-xmark text-3xl mr-2"></i>
         <div class="text-3xl"><%= pluralize(@orders_refused_count, "Refusée") %></div>
